@@ -7,7 +7,7 @@
   qt.enable = true;
 
   # platform theme "gtk" or "gnome"
-  qt.platformTheme = "gtk";
+  qt.platformTheme.name = "gtk";
 
   # name of the qt theme
   qt.style.name = "adwaita-dark";
