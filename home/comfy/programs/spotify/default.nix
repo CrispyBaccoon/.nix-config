@@ -23,7 +23,7 @@ in
       enable = true;
       theme = {
         name = "sleek";
-        src = "${config.home.homeDirectory}/dev/Themes";
+        src = ./themes;
         appendName = true;
         injectCss = true;
         replaceColors = true;

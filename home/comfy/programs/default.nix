@@ -15,7 +15,7 @@ in
       ./zsh.nix
       ./rust.nix
       ./rofi.nix
-      ./spotify.nix
+      ./spotify
       ./vtcol.nix
     ];
 
