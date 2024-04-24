@@ -6,24 +6,28 @@
   config,
   ...
 }: {
+  home.packages = with pkgs; [ qpwgraph ];
+
   home.file.".config/cava/config" = let
     colors = config.colorScheme.colors;
   in {
     enable = true;
     text = ''
       [general]
-      bar_width = 1
+      bar_width = 2
       bar_spacing = 0
-      [input]
-      method = alsa
-      source = hw:Loopback,1
+      ; [input]
+      ; method = alsa
+      ; source = hw:Loopback,1
       [color]
-      ; gradient = 1
+      gradient = 1
       gradient_count = 4
-      gradient_color_1 = '${colors.base06}'
-      gradient_color_2 = '${colors.base02}'
-      gradient_color_3 = '${colors.base03}'
-      gradient_color_4 = '${colors.base07}'
+      gradient_color_1 = '#${colors.base06}'
+      gradient_color_2 = '#${colors.base02}'
+      gradient_color_3 = '#${colors.base02}'
+      gradient_color_4 = '#${colors.base03}'
+      gradient_color_5 = '#${colors.base03}'
+      gradient_color_6 = '#${colors.base07}'
     '';
   };
   services.mpd = {

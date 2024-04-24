@@ -11,6 +11,8 @@ in
       gem
       ruby
 
+      wezterm
+
       tmux
       lazygit
 
@@ -23,5 +25,7 @@ in
       alejandra
 
       pandoc
+
+      exiftool
     ];
   }

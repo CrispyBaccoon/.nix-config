@@ -10,7 +10,7 @@
   # You can import other home-manager modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
-    #outputs.homeManagerModules.vtcol
+    outputs.homeManagerModules
 
     inputs.nix-colors.homeManagerModules.default
 
@@ -55,7 +55,11 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = lib.custom.use {
+    includes = [
+    { path = "${config.home.homeDirectory}/.dots/gitconfig"; }
+    ];
+  };
 
   # gtk fix
   # programs.dconf.enable = true;
@@ -65,5 +69,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 }

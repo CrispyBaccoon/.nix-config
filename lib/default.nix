@@ -1,14 +1,13 @@
-{
-  nixpkgs,
-  inputs,
-  ...
-}: let
-  inherit (nixpkgs) lib;
+{inputs, ...}: let
+  inherit (inputs.nixpkgs) lib;
 
-  # builders = import ./builders.nix {inherit lib inputs nixpkgs;};
   services = import ./services.nix {inherit lib;};
-  # validators = import ./validators.nix {inherit lib;};
-  # helpers = import ./helpers.nix {inherit lib;};
+  opt = import ./opt.nix {inherit lib;};
 in
   # nixpkgs.lib.extend (_: _: builders // services // validators // helpers)
-  nixpkgs.lib.extend (_: _: services)
+  # lib.extend (self: super: super // { custom = super; })
+  # lib.extend (_: _: services // opt)
+  lib.extend (_: super:
+    {custom = services // opt;}
+    // inputs.home-manager.lib
+    // super)

@@ -20,8 +20,7 @@ in
     ];
 
     home.packages = with pkgs; [
-      ranger
-      starship
+      yazi
 
       pavucontrol
 
@@ -31,12 +30,15 @@ in
       cava
       mpv
 
+      neofetch
+
       xfce.thunar
 
       unar
       unzip
 
       discord
+      obsidian
 
       gthumb # image editor
 

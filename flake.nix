@@ -21,10 +21,6 @@
     nix-colors.url = "github:misterio77/nix-colors";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
-    # hyprgrass = {
-    #   url = "github:horriblename/hyprgrass";
-    #   inputs.hyprland.follows = "hyprland"; # IMPORTANT
-    # };
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
@@ -38,6 +34,12 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+
+    # extended nixpkgs lib, contains my custom functions
+    # lib = (import ./lib { inherit inputs; }) // inputs.nixpkgs.lib;
+    lib = import ./lib {inherit inputs;};
+    pkgs = inputs.nixpkgs;
+
     # Supported systems for your flake packages, shell, etc.
     systems = [
       "aarch64-linux"
@@ -48,10 +50,7 @@
     ];
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-
-    # extended nixpkgs lib, contains my custom functions
-    comfy_lib = import ./lib {inherit nixpkgs inputs;};
+    forAllSystems = lib.genAttrs systems;
   in {
     # Your custom packages
     # Acessible through 'nix build', 'nix shell', etc
@@ -64,16 +63,16 @@
     overlays = import ./overlays {inherit inputs;};
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
-    nixosModules = import ./modules/nixos;
+    nixosModules = import ./modules/nixos {inherit pkgs lib;};
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
-    homeManagerModules = import ./modules/home-manager;
+    homeManagerModules = import ./modules/home-manager {inherit pkgs lib;};
 
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       cottage = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs lib;};
         modules = [
           inputs.lanzaboote.nixosModules.lanzaboote
           ./hosts
@@ -87,7 +86,7 @@
     homeConfigurations = {
       "comfy" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs comfy_lib;};
+        extraSpecialArgs = {inherit inputs outputs lib;};
         modules = [
           # > Our main home-manager configuration file <
           ./home/comfy

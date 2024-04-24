@@ -18,7 +18,7 @@ in
       enable = true;
       text = ''
         * {
-        color-bg: #${colors.base}ee;
+        color-bg: #${colors.base};
         color-fg: #${colors.base07};
         color0: #${colors.base00};
         color8: #${colors.base08};

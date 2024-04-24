@@ -23,6 +23,7 @@ in
         # inputs.hyprgrass.packages.${pkgs.system}.default
       ];
     };
+    #xdg.portal.config.common.default = "*";
 
     home.packages = with pkgs; [
       waybar
@@ -36,6 +37,7 @@ in
       wlogout
 
       inputs.hyprland-contrib.packages.${pkgs.system}.hyprprop
+      hyprpicker
 
       grim
       slurp
@@ -52,11 +54,11 @@ in
     in {
       enable = true;
       text = ''
-        # configured from nix
-        general {
-          col.active_border = 0xff${colors.base02}
-          col.inactive_border = 0xff${colors.base08}
-        }
+        $color:accent  = ${colors.base02}
+        $color:muted   = ${colors.base08}
+        $color:text    = ${colors.base07}
+        $color:base    = ${colors.base00}
+        $color:surface = ${colors.base08}
       '';
     };
 
@@ -75,7 +77,8 @@ in
       enable = true;
       text = ''
         #!/usr/bin/env bash
-        slurp -b "#00000000" -c "#${colors.base08}" -s "#00000044"
+        out=$(slurp -b "#00000000" -c "#${colors.base08}" -s "#00000044")
+        sleep 0.2; echo $out
       '';
     };
   }

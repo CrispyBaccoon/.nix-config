@@ -48,22 +48,33 @@
     };
   };
 
-  # networking.hostName = "cottage";
   networking.networkmanager.enable = true;
 
-  time.timeZone = "Europe/Paris";
+  system = {
+    time = lib.custom.use {
+      timezone = "Europe/Paris";
+    };
+    locale = lib.custom.enabled;
+    fonts = lib.custom.use {
+      fonts = with pkgs; [
+        terminus_font
+      ];
+    };
+    shell = {
+      shell = "zsh";
+    };
+  };
 
   environment.systemPackages = with pkgs; [
-    terminus_font
     htop
+    nh
+    home-manager
   ];
 
-  i18n.defaultLocale = "en_US.UTF-8";
   console = {
     #font = "sun12x22";
     packages = with pkgs; [terminus_font];
     font = "${pkgs.terminus_font}/share/consolefonts/ter-i22b.psf.gz";
-    # keyMap = "us";
     useXkbConfig = true;
   };
 
@@ -77,10 +88,6 @@
     pulse.enable = true;
     jack.enable = true;
   };
-
-  programs.zsh.enable = true;
-  environment.shells = with pkgs; [zsh];
-  users.defaultUserShell = pkgs.zsh;
 
   nixpkgs = {
     #overlays = [ (import ./overlays.nix) ];

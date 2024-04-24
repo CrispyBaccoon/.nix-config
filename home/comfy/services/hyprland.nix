@@ -1,13 +1,12 @@
 {
   home,
   lib,
-  comfy_lib,
   pkgs,
   config,
   ...
 }: {
   systemd.user.services = {
-    cliphist = comfy_lib.mkGraphicalService {
+    cliphist = lib.custom.mkGraphicalService {
       Unit.Description = "Clipboard history service";
       Service = {
         ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${lib.getExe pkgs.cliphist} store";
@@ -16,8 +15,8 @@
     };
   };
   systemd.user.services = {
-    dunst = comfy_lib.mkGraphicalService {
-      Unit.Description = "Notification Daemon";
+    dunst = lib.custom.mkGraphicalService {
+      Unit.Description = "notification daemon";
       Service = {
         ExecStart = "${pkgs.dunst}/bin/dunst";
         Restart = "always";
@@ -25,14 +24,14 @@
     };
   };
   systemd.user.services = {
-    swww = comfy_lib.mkGraphicalService {
+    swww = lib.custom.mkGraphicalService {
       Unit.Description = "Wallpaper Daemon";
       Service = {
         ExecStart = "${pkgs.swww}/bin/swww-daemon";
         # Restart = "always";
       };
     };
-    wallctl = comfy_lib.mkGraphicalService {
+    wallctl = lib.custom.mkGraphicalService {
       Unit.Description = "Wallpaper cli";
       Unit.Path = [pkgs.bash];
       Service = {
@@ -44,7 +43,7 @@
     };
   };
   systemd.user.services = {
-    wlsunset = comfy_lib.mkGraphicalService {
+    wlsunset = lib.custom.mkGraphicalService {
       Unit.Description = "";
       Service = {
         ExecStart = "${pkgs.wlsunset}/bin/wlsunset -t 5200 -S 09:00 -s 16:30";
@@ -53,7 +52,7 @@
     };
   };
   systemd.user.services = {
-    batterynotify = comfy_lib.mkGraphicalService {
+    batterynotify = lib.custom.mkGraphicalService {
       Unit.Description = "";
       Service = {
         ExecStart = "${pkgs.bash}/bin/bash -c '${config.home.homeDirectory}/.config/hypr/scripts/batterynotify.sh'";
@@ -62,7 +61,7 @@
     };
   };
   systemd.user.services = {
-    libinput-gestures = comfy_lib.mkGraphicalService {
+    libinput-gestures = lib.custom.mkGraphicalService {
       Unit.Description = "Touchpad gestures for wayland";
       Service = {
         ExecStart = "${pkgs.libinput-gestures}/bin/libinput-gestures -c ${config.home.homeDirectory}/.config/hypr/libinput-gestures.conf";

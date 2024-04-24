@@ -33,7 +33,7 @@ in
       kitty = {
         enable = true;
         settings = {
-          font_family = "Maple Mono NF";
+          font_family = "Suki Mono NF";
           font_size = 10;
 
           adjust_line_height = "120%";
@@ -62,7 +62,7 @@ in
         };
       };
       qutebrowser = {
-        enable = true;
+        enable = false;
         settings = {
           webpage.preferred_color_scheme = "dark";
           url.default_page = "file:///home/comfy/documents/dev/startpage/index.html";

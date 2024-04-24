@@ -15,7 +15,7 @@ set -e
 # -- utils --
 
 notify() {
-    [[ -z "$XDG_CURRENT_DESKTOP" ]] && msg $1 || notify-send $@
+    [[ -z "$XDG_CURRENT_DESKTOP" ]] && msg $1 || notify-send "$@"
 }
 
 msg() {

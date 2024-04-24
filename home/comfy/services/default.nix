@@ -1,7 +1,6 @@
 {
   home,
   lib,
-  comfy_lib,
   pkgs,
   config,
   ...

@@ -5,6 +5,7 @@ with pkgs; [
   clang
   lld
   udev
+  sbctl
 
   git
   zsh

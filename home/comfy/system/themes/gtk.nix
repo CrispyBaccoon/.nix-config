@@ -59,7 +59,7 @@
   };
 
   home.file.".config/gtk-4.0/gtk.css" = {
-    enable = true;
+    enable = false;
     text = ''
       @define-color accent_color #83a598;
       @define-color accent_bg_color mix(#83a598, #282828,0.3);

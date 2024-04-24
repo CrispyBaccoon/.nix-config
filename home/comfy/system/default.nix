@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, lib, ...}: {
   imports = [
     # ./gpg.nix
     # ./ssh.nix
@@ -6,8 +6,7 @@
     ./themes
   ];
 
-  home.file.".local/share/fonts/scf" = {
-    enable = true;
-    source = config.lib.file.mkOutOfStoreSymlink "/home/comfy/dev/SCF";
-  };
+  # home.file.".local/share/fonts/comfy" = lib.custom.use {
+  #   source = config.lib.file.mkOutOfStoreSymlink "/home/comfy/dev/fonts";
+  # };
 }

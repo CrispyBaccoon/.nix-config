@@ -15,7 +15,7 @@
   boot.extraModulePackages = [];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
+    device = "/dev/disk/by-label/root";
     fsType = "ext4";
   };
 
@@ -24,10 +24,15 @@
     fsType = "vfat";
   };
 
-  fileSystems."/home" = {
+  fileSystems."/home/kitchen" = {
     device = "/dev/disk/by-label/Dolphin";
     fsType = "ntfs-3g";
     options = ["rw" "uid=1000"];
+  };
+
+  fileSystems."/home/comfy" = {
+    device = "/dev/disk/by-label/tanuki";
+    fsType = "ext4";
   };
 
   swapDevices = [

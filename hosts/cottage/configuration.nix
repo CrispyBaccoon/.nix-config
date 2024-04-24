@@ -11,7 +11,7 @@
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
+    outputs.nixosModules
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
@@ -23,18 +23,15 @@
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
     # ./sddm.nix
+    ./ratbag.nix
   ];
 
   networking.hostName = "cottage";
 
-  boot.bootspec.enable = true;
-  boot.lanzaboote = {
+  system.boot.efi = {
     enable = true;
-    pkiBundle = "/etc/secureboot";
+    firstBoot = false;
   };
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot";
   boot.loader.grub = {
     enable = lib.mkForce false;
     efiSupport = true;
@@ -58,23 +55,32 @@
   #   windowManager.bspwm.enable = true;
   # };
 
-  services.getty.autologinUser = "comfy";
-  users.users.comfy = {
-    isNormalUser = true;
-    extraGroups = ["wheel" "input" "networkmanager"];
-    packages = with pkgs; [
-      vim
-    ];
+  user = {
+    name = "comfy";
+    enableAutologin = true;
+    initialPassword = "passwd";
+    extraOptions = {
+      packages = with pkgs; [
+        vim
+      ];
+    };
   };
+  security.sudo.wheelNeedsPassword = false;
 
   environment.variables = {
     TERMINAL = "kitty";
   };
   environment.systemPackages = import ./system-packages.nix pkgs;
 
+  system.nix = lib.custom.use {
+    enableGarbageCollection = true;
+  };
+
+  system.battery = lib.custom.enabled;
+
   services.flatpak.enable = true;
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 
   security.pam.services.swaylock = {};
 
@@ -90,6 +96,7 @@
   xdg.portal = {
     enable = true;
     extraPortals = [pkgs.xdg-desktop-portal];
+    config.common.default = "*";
   };
 
   nixpkgs = {
@@ -98,13 +105,13 @@
   };
 
   systemd.services."vtcol" = {
-    script = "echo starting vtcol";
+    enable = false;
     wantedBy = ["multi-user.target"];
     after = ["graphical.target"];
     serviceConfig = {
       Type = "simple";
       ExecStart = lib.mkForce ''
-        /home/comfy/.hayashi/pack/bin/vtcol colors set --file /home/comfy/.vtcol/evergarden
+        /opt/saku/root/bin/vtcol colors set --file /home/comfy/.vtcol/theme
       '';
     };
   };
