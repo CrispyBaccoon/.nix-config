@@ -67,9 +67,6 @@
   };
   security.sudo.wheelNeedsPassword = false;
 
-  environment.variables = {
-    TERMINAL = "kitty";
-  };
   environment.systemPackages = import ./system-packages.nix pkgs;
 
   system.nix = lib.custom.use {

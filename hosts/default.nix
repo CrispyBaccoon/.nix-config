@@ -60,6 +60,7 @@
         terminus_font
       ];
     };
+    terminal = lib.custom.enabled;
     shell = {
       shell = "zsh";
     };

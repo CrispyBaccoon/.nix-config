@@ -7,6 +7,7 @@
     ./locale
     ./nix
     ./shell
+    ./terminal
     ./time
     ./user
   ];

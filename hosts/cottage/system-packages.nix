@@ -10,7 +10,6 @@ with pkgs; [
   git
   zsh
   go
-  kitty
 
   bc
 
