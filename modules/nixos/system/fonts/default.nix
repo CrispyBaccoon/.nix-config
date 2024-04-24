@@ -12,6 +12,7 @@ in {
   options.system.fonts = with types; {
     enable = mkBoolOpt false "manage fonts";
     fonts = mkOpt (listOf package) [] "custom font packages";
+    nerdfonts = mkOpt (listOf str) [] "custom nerdfonts";
   };
 
   config = mkIf cfg.enable {
@@ -22,13 +23,14 @@ in {
 
     environment.systemPackages = with pkgs; [font-manager];
 
+    fonts.fontconfig = enabled;
     fonts.packages = with pkgs;
       [
         noto-fonts
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
         noto-fonts-emoji
-        (nerdfonts.override {fonts = ["JetBrainsMono"];})
+        (nerdfonts.override {fonts = cfg.nerdfonts;})
       ]
       ++ cfg.fonts;
   };
