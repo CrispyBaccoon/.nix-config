@@ -3,8 +3,8 @@
   name = "evergarden";
   author = "crispybaccoon";
   colors = {
-    base00 = "#272E32";
-    base = "#141b1f";
+    base00 = "#242B2E";
+    base = "#242B2E";
     base01 = "#E67E80";
     base02 = "#B2C98F";
     base03 = "#DBBC7F";
