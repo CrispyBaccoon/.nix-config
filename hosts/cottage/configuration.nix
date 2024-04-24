@@ -74,13 +74,22 @@
 
   system.nix = lib.custom.use {
     enableGarbageCollection = true;
+    package = pkgs.nixVersions.unstable.overrideAttrs (oldAttrs: {
+      src = pkgs.fetchFromGitHub {
+        owner = "NixOS";
+        repo = "nix";
+        # 2.21-maintenance, basically just want 2.21.3
+        rev = "60824fa97c588a0faf68ea61260a47e388b0a4e5";
+        sha256 = "10z/SoidVl9/lh56cMLj7ntJZHtVrumFvmn1YEqXmaM=";
+      };
+    });
   };
 
   system.battery = lib.custom.enabled;
 
   services.flatpak.enable = true;
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 
   security.pam.services.swaylock = {};
 
