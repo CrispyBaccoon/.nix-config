@@ -1,5 +1,3 @@
-# This is your system's configuration file.
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
   inputs,
   outputs,
@@ -40,10 +38,10 @@
     extraEntries = ''
       menuentry "Windows" {
         insmod fat
-        insmod part_gpt
-        insmod chain
-        search --no-floppy --fs-uuid B458-8BFF --set root
-        chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+          insmod part_gpt
+          insmod chain
+          search --no-floppy --fs-uuid B458-8BFF --set root
+          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
       }
     '';
   };
@@ -123,34 +121,34 @@
   };
 
   security.polkit.extraConfig = ''
-    polkit.addRule(function(action, subject) {
-      if (
-        subject.isInGroup("users")
-          && (
-            action.id == "org.freedesktop.login1.reboot" ||
-            action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
-            action.id == "org.freedesktop.login1.power-off" ||
-            action.id == "org.freedesktop.login1.power-off-multiple-sessions"
-          )
-        )
-      {
-        return polkit.Result.YES;
-      }
-    })
-    polkit.addRule(function(action, subject) {
-      if (action.id == "org.freedesktop.systemd1.manage-units") {
-        if (action.lookup("unit") == "wpa_supplicant.service") {
-          var verb = action.lookup("verb");
-          if (verb == "start" || verb == "stop" || verb == "restart") {
-              return polkit.Result.YES;
+      polkit.addRule(function(action, subject) {
+          if (
+              subject.isInGroup("users")
+              && (
+                action.id == "org.freedesktop.login1.reboot" ||
+                action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
+                action.id == "org.freedesktop.login1.power-off" ||
+                action.id == "org.freedesktop.login1.power-off-multiple-sessions"
+                )
+             )
+          {
+          return polkit.Result.YES;
           }
-        }
-      }
-    });
+          })
     polkit.addRule(function(action, subject) {
-      if (action.id == "org.freedesktop.NetworkManager.*") {
+        if (action.id == "org.freedesktop.systemd1.manage-units") {
+        if (action.lookup("unit") == "wpa_supplicant.service") {
+        var verb = action.lookup("verb");
+        if (verb == "start" || verb == "stop" || verb == "restart") {
+        return polkit.Result.YES;
+        }
+        }
+        }
+        });
+    polkit.addRule(function(action, subject) {
+        if (action.id == "org.freedesktop.NetworkManager.*") {
         return polkit.Result.YES
-      }
-    });
+        }
+        });
   '';
 }
