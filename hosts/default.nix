@@ -71,8 +71,6 @@
 
   environment.systemPackages = with pkgs; [
     htop
-    nh
-    home-manager
   ];
 
   console = {

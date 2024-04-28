@@ -67,8 +67,8 @@
 
   environment.systemPackages = import ./system-packages.nix pkgs;
 
-  system.nix = lib.custom.use {
-    enableGarbageCollection = true;
+  system.nix = {
+    enableGarbageCollection = "nh";
     package = pkgs.nixVersions.unstable.overrideAttrs (oldAttrs: {
       src = pkgs.fetchFromGitHub {
         owner = "NixOS";
