@@ -31,6 +31,10 @@ die() {
     exit 1
 }
 
+has() {
+  command -v $1 2>&1 >/dev/null
+}
+
 confirm() {
     >&2 printf "\033[33;1m%s \033[mconfirm? %s" "$PROMPT" "$CONFIRM_PROMPT"
     read -r ans
@@ -86,10 +90,18 @@ main() {
 }
 
 rebuild_system() {
-  sudo nixos-rebuild switch --flake .#$(hostname) $@ && notify "succesfully rebuild system" || notify "error while rebuilding system" -u critical
+  has nh && {
+    nh os switch . -- --show-trace
+  } || {
+    sudo nixos-rebuild switch --flake .#$(hostname) $@
+  } && notify "succesfully rebuild system" || notify "error while rebuilding system" -u critical
 }
 rebuild_home() {
-  home-manager --flake .#$(whoami) switch $@ && notify "succesfully rebuild home" || notify "error while rebuilding home" -u critical
+  has nh && {
+    nh home switch . -- --show-trace
+  } || {
+    home-manager --flake .#$(whoami) switch $@
+  } && notify "succesfully rebuild home" || notify "error while rebuilding home" -u critical
 }
 
 main $@
