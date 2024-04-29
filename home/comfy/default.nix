@@ -17,7 +17,6 @@
     inputs.hyprland.homeManagerModules.default
 
     ./system
-    ./colors
     ./programs
     ./services
   ];

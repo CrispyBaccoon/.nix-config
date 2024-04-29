@@ -61,6 +61,7 @@ in
         $color:surface = ${colors.base08}
       '';
     };
+    theme.waybar = true;
 
     home.file.".config/hypr/libinput-gestures.conf" = {
       enable = true;

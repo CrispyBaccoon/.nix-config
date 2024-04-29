@@ -1,5 +1,11 @@
-{ pkgs, lib, ... }: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   imports = [
+    ./theme
+    ./theme/programs
     ./programs
   ];
 }
