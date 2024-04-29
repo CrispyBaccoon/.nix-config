@@ -13,7 +13,8 @@ with lib; rec {
   # mkBoolOpt' default
   mkBoolOpt' = mkOpt' types.bool;
 
-  mkEnableOpt = mkBoolOpt' false;
+  # mkEnableOpt name
+  mkEnableOpt = name: mkBoolOpt false "enable ${name}";
 
   mkOptions = desc: o: {
     enable = mkBoolOpt false desc;
