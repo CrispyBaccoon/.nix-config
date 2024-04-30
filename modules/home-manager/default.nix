@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./env
     ./theme
     ./theme/programs
     ./programs
