@@ -17,7 +17,7 @@ in
 
     # configure spicetify :)
     programs.spicetify = let
-      colors = config.colorScheme.colors;
+      palette = config.palette;
     in {
       spotifyPackage = pkgs.spotify;
       enable = true;
@@ -33,28 +33,28 @@ in
       colorScheme = "custom";
 
       customColorScheme = {
-        button = colors.base02;
-        button-active = colors.base02;
-        button-disabled = colors.base08;
-        button-secondary = colors.base0B;
-        card = colors.base00;
-        main = colors.base;
-        main-secondary = colors.base00;
-        misc = "FFFFFF";
-        nav-active = colors.base00;
-        nav-active-text = colors.base02;
-        notification = colors.base08;
-        notification-error = colors.base0B;
-        play-button = colors.base02;
-        playback-bar = colors.base0B;
-        player = colors.base;
-        selected-row = "797979"; ##
-        shadow = colors.base;
-        sidebar = colors.base;
+        button = palette.green;
+        button-active = palette.green;
+        button-disabled = palette.surface;
+        button-secondary = palette.orange;
+        card = palette.background;
+        main = palette.background;
+        main-secondary = palette.background;
+        misc = palette.foreground;
+        nav-active = palette.background;
+        nav-active-text = palette.green;
+        notification = palette.surface;
+        notification-error = palette.orange;
+        play-button = palette.green;
+        playback-bar = palette.orange;
+        player = palette.background;
+        selected-row = palette.surface;
+        shadow = palette.background;
+        sidebar = palette.background;
         sidebar-text = "e0def4"; ##
-        subtext = colors.base0F;
-        tab-active = colors.base00;
-        text = colors.base07;
+        subtext = palette.subtext;
+        tab-active = palette.background;
+        text = palette.foreground;
       };
     };
   }
