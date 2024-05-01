@@ -115,7 +115,7 @@
     serviceConfig = {
       Type = "simple";
       ExecStart = lib.mkForce ''
-        /opt/saku/root/bin/vtcol colors set --file /home/comfy/.vtcol/theme
+        /opt/saku/root/bin/vtcol colors set --file /home/${config.user.name}/.vtcol/theme
       '';
     };
   };
