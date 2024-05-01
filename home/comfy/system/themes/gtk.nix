@@ -5,56 +5,20 @@
   home,
   ...
 }: {
-  home = {
-    packages = with pkgs; [
-      glib # required for gsettings
-      config.gtk.theme.package
-      config.gtk.iconTheme.package
-    ];
-    sessionVariables = {
-      GTK_THEME = config.gtk.theme.name;
-      GDK_PIXBUF_MODULE_FILE = "$(echo ${pkgs.librsvg.out}/lib/gdk-pixbuf-2.0/*/loaders.cache)"; # required for loading svg icons
-    };
-  };
-
-  gtk = {
-    enable = true;
+  home.gtk = lib.custom.use {
     theme = {
       name = "adw-gtk3";
       package = pkgs.adw-gtk3;
     };
-
-    iconTheme = {
+    icons = {
       # name = "Papirus";
       # package = pkgs.papirus-icon-theme;
       name = "gruvbox-plus";
       package = pkgs.gruvbox-plus;
     };
-
     font = {
       name = "JetBrainsMono NF";
       size = 11;
-    };
-
-    gtk2 = {
-      configLocation = "${config.home.homeDirectory}/.gtkrc-2.0";
-      extraConfig = ''
-        gtk-xft-antialias=1
-        gtk-xft-hinting=1
-        gtk-xft-hintstyle="hintslight"
-        gtk-xft-rgba="rgb"
-      '';
-    };
-
-    gtk3.extraConfig = {
-      gtk-xft-antialias = 1;
-      gtk-xft-hinting = 1;
-      gtk-xft-hintstyle = "hintslight";
-      gtk-xft-rgba = "rgb";
-      gtk-application-prefer-dark-theme = 1;
-    };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
     };
   };
 
@@ -140,14 +104,5 @@
       @define-color dark_4 mix(#282828,black,0.2);
       @define-color dark_5 mix(#282828,black,0.4);
     '';
-  };
-  home.file.".config/gtk-3.0/gtk.css" = {
-    enable = true;
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.config/gtk-4.0/gtk.css";
-  };
-
-  home.file.".themes" = {
-    enable = true;
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nix-profile/share/themes";
   };
 }

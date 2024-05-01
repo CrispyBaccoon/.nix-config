@@ -60,10 +60,6 @@
     ];
   };
 
-  # gtk fix
-  # programs.dconf.enable = true;
-  home.packages = [pkgs.dconf];
-
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
