@@ -91,16 +91,16 @@ main() {
 
 rebuild_system() {
   has nh && {
-    nh os switch . -- --show-trace
+    nh os switch . -- --show-trace $@
   } || {
-    sudo nixos-rebuild switch --flake .#$(hostname) $@
+    sudo nixos-rebuild --flake .#$(hostname) switch --show-trace $@
   } && notify "succesfully rebuild system" || notify "error while rebuilding system" -u critical
 }
 rebuild_home() {
   has nh && {
-    nh home switch . -- --show-trace
+    nh home switch . -- --show-trace $@
   } || {
-    home-manager --flake .#$(whoami) switch $@
+    home-manager --flake .#$(whoami) switch --show-trace $@
   } && notify "succesfully rebuild home" || notify "error while rebuilding home" -u critical
 }
 
