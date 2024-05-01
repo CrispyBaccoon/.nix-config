@@ -13,7 +13,7 @@
   - [cottage](hosts/cottage/) :laptop: specific configuration for my personal machine
 - [home](home/) user-specific environment configuration
 - [lib](lib/) modularized configurations
-  - [nixos](modules/nixos/) core nixos configuration
-  - [home-manager](modules/home-manager/) :house: my [home-manager](https://github.com/nix-community/home-manager) config
+  - [system](modules/system/) core nixos configuration
+  - [home](modules/home/) :house: my [home-manager](https://github.com/nix-community/home-manager) config
 - [pkgs](pkgs/) packages exported by my flake
 
