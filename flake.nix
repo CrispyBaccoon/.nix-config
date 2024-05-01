@@ -19,8 +19,18 @@
     # hardware.url = "github:nixos/nixos-hardware";
 
     nix-colors.url = "github:misterio77/nix-colors";
+
+    # hyprland
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
+    hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 

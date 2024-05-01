@@ -17,6 +17,8 @@ in
       '';
       plugins = [
         # inputs.hyprgrass.packages.${pkgs.system}.default
+        inputs.hyprspace.packages.${pkgs.system}.Hyprspace
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
       ];
     };
 
