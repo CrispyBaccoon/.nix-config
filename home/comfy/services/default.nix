@@ -9,6 +9,7 @@
     ./sound.nix
     ./hyprland.nix
     ./dunst
+    ./battery.nix
   ];
 
   # services.vtcol = {
