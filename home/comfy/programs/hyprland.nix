@@ -3,18 +3,14 @@ let
 in
   {
     inputs,
-    outputs,
-    lib,
     config,
     pkgs,
-    nix-colors,
     ...
   }: {
     wayland.windowManager.hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland.enable = true;
-      # wrapperFeatures.gtk = true; # so that gtk works properly
       extraConfig = ''
         exec-once = ${pkgs.systemd}/bin/systemctl --user import-environment PATH
         source = ~/.config/hypr/hypr.conf
@@ -23,7 +19,6 @@ in
         # inputs.hyprgrass.packages.${pkgs.system}.default
       ];
     };
-    #xdg.portal.config.common.default = "*";
 
     home.packages = with pkgs; [
       waybar
@@ -73,13 +68,14 @@ in
     };
 
     home.file.".local/bin/select-region" = let
-      colors = config.colorScheme.colors;
+      colors = config.palette;
     in {
       enable = true;
       text = ''
         #!/usr/bin/env bash
-        out=$(slurp -b "#00000000" -c "#${colors.base08}" -s "#00000044")
-        sleep 0.2; echo $out
+        out=$(slurp -b "#00000000" -c "#${colors.surface}" -s "#00000044")
+        while pgrep -x slurp >/dev/null; do sleep 0.1; done
+        sleep 0.1; echo $out
       '';
     };
   }
