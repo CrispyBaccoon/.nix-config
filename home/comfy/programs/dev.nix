@@ -1,31 +1,28 @@
-let
-  home = import <home-manager-config>;
-in
-  {pkgs, ...}: {
-    home.packages = with pkgs; [
-      deno
-      nodejs_20
-      yarn
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    deno
+    nodejs_20
+    yarn
 
-      python3
-      gem
-      ruby
+    python3
+    gem
+    ruby
 
-      wezterm
+    wezterm
 
-      tmux
-      lazygit
+    tmux
+    lazygit
 
-      glow
+    glow
 
-      jq
-      tldr
+    jq
+    tldr
 
-      git-cliff
-      alejandra
+    git-cliff
+    alejandra
 
-      pandoc
+    pandoc
 
-      exiftool
-    ];
-  }
+    exiftool
+  ];
+}

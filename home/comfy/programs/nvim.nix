@@ -1,15 +1,12 @@
-let
-  home = import <home-manager-config>;
-in
-  {pkgs, ...}: {
-    apps.neovim.enable = true;
-    # lsp servers
-    apps.neovim.lspServers = with pkgs; [
-      lua-language-server
-      gopls
-    ];
+{pkgs, ...}: {
+  apps.neovim.enable = true;
+  # lsp servers
+  apps.neovim.lspServers = with pkgs; [
+    lua-language-server
+    gopls
+  ];
 
-    home.packages = with pkgs; [
-      neovide
-    ];
-  }
+  home.packages = with pkgs; [
+    neovide
+  ];
+}

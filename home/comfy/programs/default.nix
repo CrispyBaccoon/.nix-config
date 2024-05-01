@@ -1,48 +1,45 @@
-let
-  home = import <home-manager-config>;
-in
-  {
-    pkgs,
-    inputs,
-    lib,
-    config,
-    ...
-  }: {
-    imports = [
-      ./hyprland.nix
-      ./dev.nix
-      ./kitty.nix
-      ./nvim.nix
-      ./zsh.nix
-      ./rust.nix
-      ./rofi.nix
-      ./spotify
-      ./vtcol.nix
-    ];
+{
+  pkgs,
+  inputs,
+  lib,
+  config,
+  ...
+}: {
+  imports = [
+    ./hyprland.nix
+    ./dev.nix
+    ./kitty.nix
+    ./nvim.nix
+    ./zsh.nix
+    ./rust.nix
+    ./rofi.nix
+    ./spotify
+    ./vtcol.nix
+  ];
 
-    home.packages = with pkgs; [
-      yazi
+  home.packages = with pkgs; [
+    yazi
 
-      pavucontrol
+    pavucontrol
 
-      nwg-look
+    nwg-look
 
-      ncmpcpp
-      cava
-      mpv
+    ncmpcpp
+    cava
+    mpv
 
-      neofetch
+    neofetch
 
-      xfce.thunar
+    xfce.thunar
 
-      unar
-      unzip
+    unar
+    unzip
 
-      discord
-      obsidian
+    discord
+    obsidian
 
-      gthumb # image editor
+    gthumb # image editor
 
-      gopass
-    ];
-  }
+    gopass
+  ];
+}
