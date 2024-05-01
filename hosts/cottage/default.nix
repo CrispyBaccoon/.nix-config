@@ -93,8 +93,8 @@
     NIXOS_OZONE_WL = "1";
   };
 
-  hardware = {
-    opengl.enable = true;
+  system.graphics = {
+    gpu_type = "amd";
   };
 
   xdg.portal = {
