@@ -9,6 +9,8 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
+    hardware.url = "github:nixos/nixos-hardware/master";
+
     lanzaboote.url = "github:nix-community/lanzaboote";
 
     # Home manager
