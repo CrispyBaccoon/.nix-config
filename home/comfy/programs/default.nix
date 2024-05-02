@@ -15,6 +15,7 @@
     ./rofi.nix
     ./spotify
     ./vtcol.nix
+    ./obsidian.nix
   ];
 
   home.packages = with pkgs; [
@@ -36,7 +37,6 @@
     unzip
 
     discord
-    obsidian
 
     gthumb # image editor
 
