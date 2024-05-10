@@ -36,7 +36,10 @@
     unar
     unzip
 
-    discord
+    (discord.override {
+      withVencord = true;
+      withTTS = true;
+    })
 
     gthumb # image editor
 

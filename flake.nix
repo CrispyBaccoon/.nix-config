@@ -34,6 +34,8 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     spicetify-nix.url = "github:the-argus/spicetify-nix";
+
+    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
   };
 
   outputs = {

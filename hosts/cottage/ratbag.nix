@@ -9,6 +9,7 @@
     after = ["graphical.target"];
     serviceConfig = {
       Type = "simple";
+      Restart = "always";
       ExecStart = lib.mkForce ''
         ${pkgs.libratbag}/bin/ratbagd
       '';

@@ -82,6 +82,10 @@
 
   system.battery = lib.custom.enabled;
 
+  system.machine = lib.custom.use {
+    type = "laptop";
+  };
+
   services.flatpak.enable = true;
 
   system.stateVersion = "24.05";

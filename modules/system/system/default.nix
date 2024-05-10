@@ -11,5 +11,6 @@
     ./time
     ./user
     ./graphics
+    ./machine
   ];
 }
