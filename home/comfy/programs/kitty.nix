@@ -1,16 +1,14 @@
-{outputs, ...}: {
+{lib, ...}: {
   theme.kitty = true;
 
-  programs.kitty = {
-    enable = true;
+  apps.kitty = lib.custom.use {
     settings = {
-      font_family = "Suki Mono NF";
-      font_size = 10;
-
-      adjust_line_height = "120%";
-
-      dynamic_background_opacity = "yes";
-      background_opacity = "0.85";
+      font = {
+        name = "Suki Mono NF";
+        size = 10;
+      };
+      line_height = 1.2;
+      background_opacity = 0.85;
     };
   };
 }

@@ -12,7 +12,7 @@ in {
 
   config = mkIf cfg.enable {
     apps.kitty.include = [
-      "include ~/.config/kitty/themes/${config.theme.name}"
+      "~/.config/kitty/themes/${config.theme.name}"
     ];
     home.file.".config/kitty/themes/${config.theme.name}" = let
       themeopts = rec {
@@ -39,7 +39,13 @@ in {
       };
     in {
       enable = true;
-      text = strings.concatStringsSep "\n" (mapAttrsToList (key: value: "${key} = ${value}") themeopts);
+      text =
+        strings.concatStringsSep "\n"
+        (mapAttrsToList (
+            key: value:
+              strings.concatStringsSep " " [key value]
+          )
+          themeopts);
     };
   };
 }

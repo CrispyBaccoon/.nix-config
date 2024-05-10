@@ -35,7 +35,7 @@ in {
         enable_audio_bell = false;
         confirm_os_window_close = 0;
       };
-      extraConfig = strings.concatStringsSep "\n" cfg.include;
+      extraConfig = strings.concatStringsSep "\n" (map (v: "include ${v}") cfg.include);
     };
   };
 }
