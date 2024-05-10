@@ -7,7 +7,7 @@
 }: {
   home.gtk = lib.custom.use {
     theme = {
-      name = "adw-gtk3";
+      name = "adw-gtk3-dark";
       package = pkgs.adw-gtk3;
     };
     icons = {
