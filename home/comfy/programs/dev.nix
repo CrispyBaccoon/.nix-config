@@ -19,7 +19,10 @@
     tldr
 
     git-cliff
+
+    # fmt
     alejandra
+    stylua
 
     pandoc
 
