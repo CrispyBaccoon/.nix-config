@@ -20,7 +20,7 @@ in {
 
         @define-color tool-bg #${palette.background};
         @define-color tool-color #${palette.subtext};
-        @define-color tool-border #${palette.green};
+        @define-color tool-border #${palette.surface};
 
         @define-color wb-color #${palette.green};
 
