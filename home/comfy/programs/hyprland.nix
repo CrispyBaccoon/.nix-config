@@ -2,6 +2,7 @@
   inputs,
   config,
   pkgs,
+  lib,
   ...
 }: {
   wayland.windowManager.hyprland = {
@@ -68,13 +69,21 @@
 
   home.file.".local/bin/select-region" = let
     colors = config.palette;
-  in {
-    enable = true;
+  in lib.custom.use {
+    executable = true;
     text = ''
       #!/usr/bin/env bash
-      out=$(slurp -b "#00000000" -c "#${colors.surface}" -s "#00000044")
+      out=$(slurp -b "#ffffff44" -c "#${colors.surface}" -s "#00000000")
       while pgrep -x slurp >/dev/null; do sleep 0.1; done
       sleep 0.1; echo $out
+    '';
+  };
+  home.file.".local/bin/select-window" = lib.custom.use {
+    executable = true;
+    text = ''
+      #!/usr/bin/env bash
+      selection=$(hyprctl -j activewindow | jq '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | tr -d '"')
+      [[ -z "$selection" ]] || echo "$selection"
     '';
   };
 }
