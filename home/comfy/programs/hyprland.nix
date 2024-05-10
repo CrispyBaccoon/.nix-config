@@ -59,7 +59,7 @@
   theme.waybar = true;
 
   home.file.".config/hypr/libinput-gestures.conf" = {
-    enable = true;
+    enable = false;
     text = ''
       gesture swipe up 3 ${pkgs.hyprland}/bin/hyprctl dispatch togglespecialworkspace
       gesture swipe down 3 ${config.home.homeDirectory}/.config/hypr/scripts/togglespecial
