@@ -22,11 +22,19 @@
     colorScheme = "custom";
 
     customColorScheme = {
+      accent = palette.green;
+      accent-active = palette.orange;
+      accent-inactive = palette.surface;
+      banner = palette.surface;
+      border-active = palette.green;
+      border-inactive = palette.surface;
       button = palette.green;
       button-active = palette.green;
       button-disabled = palette.surface;
       button-secondary = palette.orange;
       card = palette.background;
+      header = palette.subtext;
+      highlight = palette.surface;
       main = palette.background;
       main-secondary = palette.background;
       misc = palette.foreground;
@@ -40,7 +48,7 @@
       selected-row = palette.surface;
       shadow = palette.background;
       sidebar = palette.background;
-      sidebar-text = "e0def4"; ##
+      sidebar-text = palette.subtext;
       subtext = palette.subtext;
       tab-active = palette.background;
       text = palette.foreground;
