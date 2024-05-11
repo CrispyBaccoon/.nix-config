@@ -18,15 +18,7 @@
   in {
     spotifyPackage = pkgs.spotify;
     enable = true;
-    theme = {
-      name = "sleek";
-      src = ./themes;
-      appendName = true;
-      injectCss = true;
-      replaceColors = true;
-      overwriteAssets = true;
-      sidebarConfig = true;
-    };
+    theme = import ./themes/sleek {};
     colorScheme = "custom";
 
     customColorScheme = {
