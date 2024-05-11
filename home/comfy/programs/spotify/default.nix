@@ -53,5 +53,11 @@
       tab-active = palette.background;
       text = palette.foreground;
     };
+    enabledExtensions = [
+      {
+        src = ./extensions;
+        filename = "utilities.js";
+      }
+    ];
   };
 }
