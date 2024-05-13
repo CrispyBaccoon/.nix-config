@@ -69,7 +69,7 @@
 
   system.nix = {
     enableGarbageCollection = "nh";
-    package = pkgs.nixVersions.unstable.overrideAttrs (oldAttrs: {
+    package = pkgs.nixVersions.git.overrideAttrs (oldAttrs: {
       src = pkgs.fetchFromGitHub {
         owner = "NixOS";
         repo = "nix";
