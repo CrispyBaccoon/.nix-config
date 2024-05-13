@@ -22,7 +22,6 @@ in {
     };
     environment.systemPackages = with pkgs; [
       nil
-      nixfmt
       nix-index
       nix-prefetch-git
 
