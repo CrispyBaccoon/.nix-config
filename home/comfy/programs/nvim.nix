@@ -7,6 +7,6 @@
   ];
 
   home.packages = with pkgs; [
-    neovide
+    pkgs.stable.neovide
   ];
 }
