@@ -59,9 +59,7 @@
       fonts = with pkgs; [
         terminus_font
       ];
-      nerdfonts = [
-        "JetBrainsMono"
-      ];
+      nerdfonts = null;
     };
     terminal = lib.custom.enabled;
     shell = {

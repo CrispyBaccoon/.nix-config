@@ -12,7 +12,7 @@ in {
   options.system.fonts = with types; {
     enable = mkBoolOpt false "manage fonts";
     fonts = mkOpt (listOf package) [] "custom font packages";
-    nerdfonts = mkOpt (listOf str) [] "custom nerdfonts";
+    nerdfonts = mkOpt (nullOr (listOf str)) null "custom nerdfonts";
   };
 
   config = mkIf cfg.enable {
@@ -30,8 +30,8 @@ in {
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
         noto-fonts-emoji
-        (nerdfonts.override {fonts = cfg.nerdfonts;})
       ]
+      ++ (if cfg.nerdfonts != null then (nerdfonts.override {fonts = cfg.nerdfonts;}) else [])
       ++ cfg.fonts;
   };
 }
