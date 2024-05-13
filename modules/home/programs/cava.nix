@@ -24,25 +24,32 @@ in {
     home.packages = [
       pkgs.cava
     ];
-    home.file.".config/cava/config" = use {
-      text =
-        ''
-          [general]
-          bar_width = ${toString cfg.settings.bar_width}
-          bar_spacing = ${toString cfg.settings.bar_spacing}
-        ''
-        + (if enableTheme then ''
-          [color]
-          gradient = 1
-          gradient_count = 6
-          gradient_color_1 = '#${palette.color6}'
-          gradient_color_2 = '#${palette.color2}'
-          gradient_color_3 = '#${palette.color2}'
-          gradient_color_4 = '#${palette.color3}'
-          gradient_color_5 = '#${palette.color3}'
-          gradient_color_6 = '#${palette.color7}'
-        '' else "")
-        + cfg.extraConfig;
-    };
+    home.file.".config/cava/config" = let
+      c = cfg.settings;
+    in
+      use {
+        text =
+          ''
+            [general]
+            bar_width = ${toString c.bar_width}
+            bar_spacing = ${toString c.bar_spacing}
+          ''
+          + (
+            if enableTheme
+            then ''
+              [color]
+              gradient = 1
+              gradient_count = 6
+              gradient_color_1 = '#${palette.aqua}'
+              gradient_color_2 = '#${palette.green}'
+              gradient_color_3 = '#${palette.green}'
+              gradient_color_4 = '#${palette.yellow}'
+              gradient_color_5 = '#${palette.yellow}'
+              gradient_color_6 = '#${palette.orange}'
+            ''
+            else ""
+          )
+          + cfg.extraConfig;
+      };
   };
 }
