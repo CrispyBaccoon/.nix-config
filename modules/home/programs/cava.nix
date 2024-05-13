@@ -17,6 +17,7 @@ in {
     settings = {
       bar_width = mkOpt' int 2;
       bar_spacing = mkOpt' int 0;
+      sensitivity = mkOpt' int 80;
     };
   };
 
@@ -33,6 +34,7 @@ in {
             [general]
             bar_width = ${toString c.bar_width}
             bar_spacing = ${toString c.bar_spacing}
+            sensitivity = ${toString c.sensitivity}
           ''
           + (
             if enableTheme
