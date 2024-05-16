@@ -47,15 +47,15 @@
   ];
 
   home.file.".config/hypr/themes/nix.conf" = let
-    colors = config.colorScheme.colors;
+    colors = config.palette;
   in {
     enable = true;
     text = ''
-      $color:accent  = ${colors.base02}
-      $color:muted   = ${colors.base08}
-      $color:text    = ${colors.base07}
-      $color:base    = ${colors.base00}
-      $color:surface = ${colors.base08}
+      $color:accent  = ${colors.color2}
+      $color:muted   = ${colors.color8}
+      $color:text    = ${colors.color7}
+      $color:base    = ${colors.color0}
+      $color:surface = ${colors.color8}
     '';
   };
   theme.waybar = true;
