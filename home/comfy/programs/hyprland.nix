@@ -31,6 +31,8 @@
     dunst
     wlogout
 
+    inputs.pyprland.packages.${pkgs.system}.pyprland
+
     inputs.hyprland-contrib.packages.${pkgs.system}.hyprprop
     hyprpicker
 

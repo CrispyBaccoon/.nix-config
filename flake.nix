@@ -22,6 +22,7 @@
 
     # hyprland
     hyprland.url = "github:hyprwm/Hyprland";
+    pyprland.url = "github:hyprland-community/pyprland";
     hyprland-contrib.url = "github:hyprwm/contrib";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
