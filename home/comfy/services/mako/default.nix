@@ -6,13 +6,13 @@
   home.packages = [pkgs.mako];
 
   services.mako = let
-    colors = config.colorScheme.colors;
+    colors = config.palette;
   in {
     enable = false;
 
-    backgroundColor = "#${colors.base00}";
-    textColor = "#${colors.base0F}";
-    borderColor = "#${colors.base0F}";
+    backgroundColor = "#${colors.base}";
+    textColor = "#${colors.foreground}";
+    borderColor = "#${colors.subtext}";
     padding = "15";
     defaultTimeout = 7000;
     borderSize = 3;
@@ -22,7 +22,7 @@
 
     extraConfig = ''
       [urgency=high]
-      border-color=#ef9f76
+      border-color=#${colors.red}
     '';
   };
 }
