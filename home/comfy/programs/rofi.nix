@@ -1,7 +1,5 @@
 {
   pkgs,
-  inputs,
-  lib,
   config,
   ...
 }: {
@@ -10,58 +8,58 @@
   ];
 
   home.file.".config/rofi/themes/nix.rasi" = let
-    colors = config.colorScheme.colors;
+    colors = config.palette;
   in {
     enable = true;
     text = ''
       * {
       color-bg: #${colors.base};
-      color-fg: #${colors.base07};
-      color0: #${colors.base00};
-      color8: #${colors.base08};
-      color1: #${colors.base01};
-      color9: #${colors.base09};
-      color2: #${colors.base02};
-      color10: #${colors.base0A};
-      color3: #${colors.base03};
-      color11: #${colors.base0B};
-      color4: #${colors.base04};
-      color12: #${colors.base0C};
-      color5: #${colors.base05};
-      color13: #${colors.base0D};
-      color6: #${colors.base06};
-      color14: #${colors.base0E};
-      color7: #${colors.base07};
-      color15: #${colors.base0F};
+      color-fg: #${colors.color7};
+      color0: #${colors.color0};
+      color8: #${colors.color8};
+      color1: #${colors.color1};
+      color9: #${colors.color9};
+      color2: #${colors.color2};
+      color10: #${colors.color10};
+      color3: #${colors.color3};
+      color11: #${colors.color11};
+      color4: #${colors.color4};
+      color12: #${colors.color12};
+      color5: #${colors.color5};
+      color13: #${colors.color13};
+      color6: #${colors.color6};
+      color14: #${colors.color14};
+      color7: #${colors.color7};
+      color15: #${colors.color15};
       }
 
       * {
-        foreground: #${colors.base07};
+        foreground: #${colors.foreground};
         normal-foreground:           @foreground;
-        urgent-foreground:           #11111bff; //Crust
-        active-foreground:           #11111bff; //Crust
+        urgent-foreground:           #11111bff;
+        active-foreground:           #11111bff;
 
         alternate-normal-foreground: @normal-foreground;
         alternate-urgent-foreground: @urgent-foreground;
         alternate-active-foreground: @active-foreground;
 
-        selected-normal-foreground:  #11111bff; //Crust
-        selected-urgent-foreground:  #11111bff; //Crust
-        selected-active-foreground:  #11111bff; //Crust
+        selected-normal-foreground:  #11111bff;
+        selected-urgent-foreground:  #11111bff;
+        selected-active-foreground:  #11111bff;
 
         background: @color-bg;
-        background-alt: #${colors.base00};
+        background-alt: @background;
         normal-background:           @background;
-        urgent-background:           #eba0accc; //Maroon
-        active-background:           #94e2d5cc; //Teal
+        urgent-background:           #${colors.color4}cc;
+        active-background:           #${colors.color7}cc;
 
         alternate-normal-background: #f5c2e7ff;
         alternate-urgent-background: @urgent-background;
         alternate-active-background: @active-background;
 
-        selected-normal-background:  @color11; //Lavender
-        selected-urgent-background:  @color4; //Teal
-        selected-active-background:  @color7; //Maroon
+        selected-normal-background:  @color11;
+        selected-urgent-background:  @color4;
+        selected-active-background:  @color7;
 
         separatorcolor:              transparent;
         border-color:                @color10;
