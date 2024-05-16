@@ -15,16 +15,15 @@ in {
 
   config =
     mkIf (cfg.enable && (cfg.type == "laptop")) {
-      services.logind.extraConfig = ''
+      services.logind = {
         # don’t shutdown when power button is short-pressed, instead suspend
-        HandlePowerKey=suspend
-
+        powerKey = "suspend";
         # suspend when lid is closed
-        HandleLidSwitch=suspend
+        lidSwitch = "suspend";
         # don't suspend when connected to external power or connected to an external monitor
-        HandleLidSwitchExternalPower=ignore
-        HandleLidSwitchDocked=ignore
-      '';
+        lidSwitchExternalPower = "ignore";
+        lidSwitchDocked = "ignore";
+      };
     }
     // mkIf (cfg.enable && (cfg.type == "pc")) {};
 }
