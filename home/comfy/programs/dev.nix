@@ -1,12 +1,12 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     deno
-    nodejs_20
-    yarn
+    pkgs.stable.nodejs_20
+    pkgs.stable.yarn
 
-    python3
     gem
     ruby
+    pkgs.stable.python3
 
     wezterm
 
@@ -15,8 +15,8 @@
 
     glow
 
-    jq
-    tldr
+    pkgs.stable.jq
+    pkgs.stable.tldr
 
     git-cliff
 
@@ -24,8 +24,8 @@
     alejandra
     stylua
 
-    pandoc
+    pkgs.stable.pandoc
 
-    exiftool
+    pkgs.stable.exiftool
   ];
 }
