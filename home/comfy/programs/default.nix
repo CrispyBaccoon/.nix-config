@@ -15,6 +15,7 @@
     ./rofi.nix
     ./spotify
     ./vtcol.nix
+    ./firefox
     ./obsidian.nix
   ];
 
