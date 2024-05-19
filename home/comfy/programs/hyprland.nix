@@ -40,6 +40,7 @@
     slurp
 
     hyprpicker
+    imagemagick
 
     libinput-gestures
 
