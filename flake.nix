@@ -11,10 +11,45 @@
     # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
     hardware.url = "github:nixos/nixos-hardware/master";
+    systems.url = "github:nix-systems/default-linux";
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.flake-compat.follows = "flake-compat";
+
+      inputs.pre-commit-hooks-nix.follows = "pre-commit-hooks-nix";
+    };
+
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+    };
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+    };
+    hercules-ci-effects = {
+      url = "github:hercules-ci/hercules-ci-effects";
+      inputs.flake-parts.follows = "flake-parts";
+    };
+    poetry2nix = {
+      id = "poetry2nix";
+      type = "indirect";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.systems.follows = "systems";
+    };
+    pre-commit-hooks-nix = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-stable.follows = "stable";
     };
 
     # Home manager
@@ -29,11 +64,14 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
     };
     pyprland = {
       url = "github:hyprland-community/pyprland";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.poetry2nix.inputs.nixpkgs.follows = "nixpkgs";
+      inputs.poetry2nix.follows = "poetry2nix";
+      inputs.systems.follows = "systems";
+      inputs.flake-compat.follows = "flake-compat";
     };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
@@ -48,17 +86,31 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    neovim-flake = {
+      url = "github:neovim/neovim?dir=contrib";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.neovim-flake.follows = "neovim-flake";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.flake-compat.follows = "flake-compat";
+      inputs.hercules-ci-effects.follows = "hercules-ci-effects";
     };
 
     spicetify-nix = {
       url = "github:the-argus/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
     };
 
-    firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
   outputs = {
