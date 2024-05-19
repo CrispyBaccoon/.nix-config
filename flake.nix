@@ -29,6 +29,7 @@
     };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     flake-compat = {
       url = "github:edolstra/flake-compat";
@@ -46,7 +47,6 @@
     };
     pre-commit-hooks-nix = {
       url = "github:cachix/pre-commit-hooks.nix";
-      inputs.flake-utils.follows = "flake-utils";
       inputs.flake-compat.follows = "flake-compat";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.nixpkgs-stable.follows = "stable";
@@ -59,6 +59,7 @@
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors.inputs.nixpkgs-lib.follows = "nixpkgs";
 
     # hyprland
     hyprland = {
