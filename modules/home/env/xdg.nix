@@ -10,17 +10,21 @@ with lib.custom; let
   cfg = config.home.xdg;
 in {
   options.home.xdg = with types; {
-    dirs = {
-      documents = mkOpt' str "${config.home.homeDirectory}/documents";
-      download = mkOpt' str "${config.home.homeDirectory}/downloads";
-      videos = mkOpt' str "${config.home.homeDirectory}/media/videos";
-      music = mkOpt' str "${config.home.homeDirectory}/media/music";
-      pictures = mkOpt' str "${config.home.homeDirectory}/media/pictures";
-      screenshots = mkOpt' str "${cfg.dirs.dirs.pictures}/screenshots";
-      desktop = mkOpt' str "${config.home.homeDirectory}/desktop";
-      publicShare = mkOpt' str "${config.home.homeDirectory}/public/share";
-      templates = mkOpt' str "${config.home.homeDirectory}/public/templates";
-      dev = mkOpt' str "${config.home.homeDirectory}/dev";
+    dirs = let
+       homedir = "${config.home.homeDirectory}";
+       media = "${homedir}/media";
+       public = "${homedir}/public";
+      in {
+      documents = mkOpt' str "${homedir}/documents";
+      download = mkOpt' str "${homedir}/downloads";
+      videos = mkOpt' str "${media}/videos";
+      music = mkOpt' str "${media}/music";
+      pictures = mkOpt' str "${media}/pictures";
+      screenshots = mkOpt' str "${pictures.default}/screenshots";
+      desktop = mkOpt' str "${homedir}/desktop";
+      publicShare = mkOpt' str "${public}/share";
+      templates = mkOpt' str "${public}/templates";
+      dev = mkOpt' str "${homedir}/dev";
     };
     applications = {
       browser = mkOpt' str "firefox.desktop";
