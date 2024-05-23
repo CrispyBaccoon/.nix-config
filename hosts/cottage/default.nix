@@ -85,6 +85,13 @@
   system.machine = lib.custom.use {
     type = "laptop";
   };
+  styles = lib.custom.use {
+    fonts = {
+      monospace = {
+        name = "Maple Mono NF";
+      };
+    };
+  };
 
   services.flatpak.enable = true;
 

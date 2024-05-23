@@ -25,7 +25,7 @@ in {
       c = cfg.settings;
     in {
       enable = true;
-      font = c.font;
+      font = mkDefault c.font;
       settings = {
         adjust_line_height = "${toString (c.line_height * 100)}%";
         dynamic_background_opacity = "yes";

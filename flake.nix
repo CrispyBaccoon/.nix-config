@@ -61,6 +61,13 @@
     nix-colors.url = "github:misterio77/nix-colors";
     nix-colors.inputs.nixpkgs-lib.follows = "nixpkgs";
 
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+      inputs.flake-compat.follows = "flake-compat";
+    };
+
     # hyprland
     hyprland = {
       url = "github:hyprwm/Hyprland";
@@ -162,6 +169,7 @@
         specialArgs = {inherit inputs outputs lib;};
         modules = [
           inputs.lanzaboote.nixosModules.lanzaboote
+          inputs.stylix.nixosModules.stylix
           ./hosts
           # > Our main nixos configuration file <
           ./hosts/cottage
@@ -175,6 +183,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs lib;};
         modules = [
+          inputs.stylix.homeManagerModules.stylix
           # > Our main home-manager configuration file <
           ./home/comfy
         ];

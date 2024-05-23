@@ -11,6 +11,7 @@ in {
   options.theme.kitty = mkEnableOpt "kitty theme";
 
   config = mkIf cfg.enable {
+    stylix.targets.kitty = disabled;
     apps.kitty.include = [
       "~/.config/kitty/themes/${config.theme.name}"
     ];
@@ -27,7 +28,7 @@ in {
         color2 = "#${palette.color2}";
         color10 = "#${palette.color10}";
         color3 = "#${palette.color3}";
-        color11 = "#${palette.color11}";
+        color11 = "#${palette.orange}";
         color4 = "#${palette.color4}";
         color12 = "#${palette.color12}";
         color5 = "#${palette.color5}";

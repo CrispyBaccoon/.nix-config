@@ -26,7 +26,7 @@ in {
     };
   };
 
-  config = {
+  config = mkIf cfg.enable {
     home.file.".themes" = use {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.nix-profile/share/themes";
     };

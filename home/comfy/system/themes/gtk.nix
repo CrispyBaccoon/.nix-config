@@ -2,10 +2,10 @@
   config,
   lib,
   pkgs,
-  home,
   ...
 }: {
   home.gtk = lib.custom.use {
+    enable = false;
     theme = {
       name = "adw-gtk3-dark";
       package = pkgs.adw-gtk3;
@@ -20,6 +20,10 @@
       name = "JetBrainsMono NF";
       size = 11;
     };
+  };
+  gtk.iconTheme = {
+    name = "gruvbox-plus";
+    package = pkgs.gruvbox-plus;
   };
 
   home.file.".config/gtk-4.0/gtk.css" = let

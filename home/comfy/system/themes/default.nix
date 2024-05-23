@@ -1,13 +1,21 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   imports = [
     ./gtk.nix
     ./qt.nix
   ];
 
+  styles = lib.custom.use {
+    fonts = {
+      monospace = {
+        name = "Maple Mono NF";
+      };
+    };
+  };
+
   home = {
     pointerCursor = {
-      package = pkgs.capitaine-cursors;
-      name = "capitaine-cursors";
+      package = lib.mkDefault pkgs.capitaine-cursors;
+      name = lib.mkDefault "capitaine-cursors";
       size = 32;
       gtk.enable = true;
       x11.enable = true;

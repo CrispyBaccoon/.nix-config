@@ -46,30 +46,36 @@ in {
 
     text = mkOpt' str null;
     subtext = mkOpt' str null;
+    subtext0 = mkOpt' str null;
+    subtext1 = mkOpt' str null;
+    surface1 = mkOpt' str null;
+    surface0 = mkOpt' str null;
     surface = mkOpt' str null;
     base = mkOpt' str null;
   };
 
-  config = {
+  config = let
+      colors = config.colorScheme.palette;
+    in {
     colorScheme = themes.${cfg.name};
 
     palette = rec {
-      color0 = "${config.colorScheme.palette.base00}";
-      color8 = "${config.colorScheme.palette.base08}";
-      color1 = "${config.colorScheme.palette.base01}";
-      color9 = "${config.colorScheme.palette.base09}";
-      color2 = "${config.colorScheme.palette.base02}";
-      color10 = "${config.colorScheme.palette.base0A}";
-      color3 = "${config.colorScheme.palette.base03}";
-      color11 = "${config.colorScheme.palette.base0B}";
-      color4 = "${config.colorScheme.palette.base04}";
-      color12 = "${config.colorScheme.palette.base0C}";
-      color5 = "${config.colorScheme.palette.base05}";
-      color13 = "${config.colorScheme.palette.base0D}";
-      color6 = "${config.colorScheme.palette.base06}";
-      color14 = "${config.colorScheme.palette.base0E}";
-      color7 = "${config.colorScheme.palette.base07}";
-      color15 = "${config.colorScheme.palette.base0F}";
+      color0 = "${colors.base00}";
+      color8 = "${colors.base01}";
+      color1 = "${colors.base08}";
+      color9 = "${colors.base08}";
+      color2 = "${colors.base0B}";
+      color10 = "${colors.base0B}";
+      color3 = "${colors.base0A}";
+      color11 = "${colors.base0A}";
+      color4 = "${colors.base0D}";
+      color12 = "${colors.base0D}";
+      color5 = "${colors.base0E}";
+      color13 = "${colors.base0E}";
+      color6 = "${colors.base0C}";
+      color14 = "${colors.base0C}";
+      color7 = "${colors.base05}";
+      color15 = "${colors.base04}";
       foreground = "${color7}";
       background = "${color0}";
       red = "${color1}";
@@ -80,15 +86,19 @@ in {
       aqua = "${color6}";
       maroon = "${color9}";
       teal = "${color10}";
-      orange = "${color11}";
+      orange = "${colors.base09}";
       sapphire = "${color12}";
       mauve = "${color13}";
       jade = "${color14}";
 
-      text = "${color7}";
-      subtext = "${color15}";
-      surface = "${color8}";
-      base = "${color0}";
+      text     = colors.base05;
+      subtext  = colors.base04;
+      subtext0 = subtext;
+      subtext1 = colors.base03;
+      surface1 = colors.base02;
+      surface0 = surface;
+      surface  = colors.base01;
+      base     = colors.base00;
     };
   };
 }
