@@ -26,6 +26,7 @@
     stylua
 
     pkgs.stable.pandoc
+    vhs
 
     pkgs.stable.exiftool
   ];
