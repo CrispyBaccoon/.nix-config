@@ -14,6 +14,7 @@
     lazygit
 
     glow
+    pkgs.stable.tokei
 
     pkgs.stable.jq
     pkgs.stable.tldr
