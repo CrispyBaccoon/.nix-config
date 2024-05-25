@@ -38,6 +38,8 @@
     unar
     unzip
 
+    stow
+
     (discord.override {
       withVencord = true;
       withTTS = true;
