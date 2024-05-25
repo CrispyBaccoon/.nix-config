@@ -29,7 +29,7 @@
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
 
-      inputs.neovim-nightly-overlay.overlay
+      inputs.neovim-nightly-overlay.overlays.default
 
       # Or define it inline, for example:
       # (final: prev: {

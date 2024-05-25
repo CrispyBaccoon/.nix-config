@@ -19,8 +19,7 @@ in {
       EDITOR = "nvim";
     };
     home.packages = [
-      # pkgs.neovim
-      pkgs.neovim-nightly
+      pkgs.neovim
     ] ++ cfg.lspServers;
   };
 }

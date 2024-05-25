@@ -94,15 +94,9 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    neovim-flake = {
-      url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-    };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.neovim-flake.follows = "neovim-flake";
       inputs.flake-parts.follows = "flake-parts";
       inputs.flake-compat.follows = "flake-compat";
       inputs.hercules-ci-effects.follows = "hercules-ci-effects";
