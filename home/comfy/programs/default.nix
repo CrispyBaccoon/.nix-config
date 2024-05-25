@@ -21,6 +21,7 @@
 
   home.packages = with pkgs; [
     yazi
+    handlr
 
     pavucontrol
 
