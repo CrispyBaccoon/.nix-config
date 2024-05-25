@@ -19,6 +19,7 @@
     ./system
     ./programs
     ./services
+    ./dev
   ];
 
   nixpkgs = {
@@ -54,11 +55,6 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git = lib.custom.use {
-    includes = [
-    { path = "${config.home.homeDirectory}/.dots/gitconfig"; }
-    ];
-  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
