@@ -94,12 +94,17 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    neovim-src = {
+      url = "github:neovim/neovim";
+      flake = false;
+    };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-parts.follows = "flake-parts";
       inputs.flake-compat.follows = "flake-compat";
       inputs.hercules-ci-effects.follows = "hercules-ci-effects";
+      inputs.neovim-src.follows = "neovim-src";
     };
 
     spicetify-nix = {
