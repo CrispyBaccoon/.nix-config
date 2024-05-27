@@ -13,6 +13,7 @@ with lib.custom; let
 in {
   options.apps.dunst = with types; {
     enable = mkBoolOpt false "enable dunst";
+    package = mkOpt' package pkgs.dunst;
     extraConfig = mkOpt' str "";
     settings = {
       width = mkOpt' str "(240, 340)";
@@ -52,9 +53,7 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = [
-      pkgs.dunst
-    ];
+    home.packages = [cfg.package];
     home.file.".config/dunst/dunstrc" = use {
       text = let
         c = cfg.settings;
@@ -156,6 +155,21 @@ in {
           else ""
         )
         + cfg.extraConfig;
+    };
+    systemd.user.services.dunst = {
+      Unit = {
+        Description = "Dunst notification daemon";
+        After = [ "graphical-session-pre.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        Type = "dbus";
+        BusName = "org.freedesktop.Notifications";
+        ExecStart = "${cfg.package}/bin/dunst";
+        # Environment = optionalString (cfg.waylandDisplay != "")
+        #   "WAYLAND_DISPLAY=${cfg.waylandDisplay}";
+      };
     };
   };
 }
