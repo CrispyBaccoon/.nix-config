@@ -23,10 +23,7 @@
     swww
 
     wl-clipboard
-    cliphist
-    wlsunset
     libnotify
-    dunst
     wlogout
 
     inputs.pyprland.packages.${pkgs.system}.pyprland

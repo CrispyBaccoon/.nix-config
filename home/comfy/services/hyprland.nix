@@ -4,52 +4,40 @@
   pkgs,
   config,
   ...
-}: {
+}:
+with lib;
+with lib.custom;
+{
+  services.cliphist = use { };
   systemd.user.services = {
-    cliphist = lib.custom.mkGraphicalService {
-      Unit.Description = "Clipboard history service";
+    waybar = lib.custom.mkGraphicalService {
+      Unit.Description = "waybar";
       Service = {
-        ExecStart = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${lib.getExe pkgs.cliphist} store";
-        Restart = "always";
+        ExecStart = getExe pkgs.waybar;
+        Restart = "on-failure";
       };
     };
-  };
-  systemd.user.services = {
-    dunst = lib.custom.mkGraphicalService {
-      Unit.Description = "notification daemon";
-      Service = {
-        ExecStart = "${pkgs.dunst}/bin/dunst";
-        Restart = "always";
-      };
-    };
-  };
-  systemd.user.services = {
     swww = lib.custom.mkGraphicalService {
       Unit.Description = "Wallpaper Daemon";
       Service = {
         ExecStart = "${pkgs.swww}/bin/swww-daemon";
-        # Restart = "always";
+        Restart = "on-failure";
       };
     };
     wallctl = lib.custom.mkGraphicalService {
-      Unit.Description = "Wallpaper cli";
-      Unit.Path = [pkgs.bash];
+      Unit.Description = "set wallpaper";
       Service = {
-        ExecStart = "${config.home.homeDirectory}/.local/share/wallctl/.wallpaperset";
+        ExecStart = "${config.home.homeDirectory}/.saku/root/bin/haikei";
         Restart = "never";
         RemainAfterExit = true;
         Type = "oneshot";
       };
     };
   };
-  systemd.user.services = {
-    wlsunset = lib.custom.mkGraphicalService {
-      Unit.Description = "";
-      Service = {
-        ExecStart = "${pkgs.wlsunset}/bin/wlsunset -t 5200 -S 09:00 -s 16:30";
-        Restart = "always";
-      };
-    };
+  services.wlsunset = use {
+    temperature = {night = 5200;};
+    sunrise = "07:00";
+    sunset = "18:00";
   };
   systemd.user.services = {
     batterynotify = lib.custom.mkGraphicalService {
