@@ -21,7 +21,7 @@ in {
 
     boot.bootspec.enable = true;
     boot.lanzaboote = {
-      enable = true;
+      enable = !cfg.firstBoot;
       pkiBundle = "/etc/secureboot";
     };
     boot.loader.efi.canTouchEfiVariables = true;
