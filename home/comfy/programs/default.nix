@@ -17,10 +17,10 @@
     ./vtcol.nix
     ./firefox
     ./obsidian.nix
+    ./yazi.nix
   ];
 
   home.packages = with pkgs; [
-    yazi
     handlr
 
     pavucontrol
