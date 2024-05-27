@@ -29,7 +29,7 @@ in {
       settings = {
         adjust_line_height = "${toString (c.line_height * 100)}%";
         dynamic_background_opacity = "yes";
-        background_opacity = toString c.background_opacity;
+        background_opacity = mkDefault (toString c.background_opacity);
 
         # QoL
         enable_audio_bell = false;
