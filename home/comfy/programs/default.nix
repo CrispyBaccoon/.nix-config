@@ -18,6 +18,7 @@
     ./firefox
     ./obsidian.nix
     ./yazi.nix
+    ./discord.nix
   ];
 
   home.packages = with pkgs; [
@@ -39,11 +40,6 @@
     unzip
 
     stow
-
-    (discord.override {
-      withVencord = true;
-      withTTS = true;
-    })
 
     gthumb # image editor
 
