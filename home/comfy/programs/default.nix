@@ -38,6 +38,7 @@
 
     unar
     unzip
+    hexyl
 
     stow
 
