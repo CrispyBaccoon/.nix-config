@@ -1,5 +1,5 @@
 {lib, ...}: {
-  theme.kitty = true;
+  # theme.kitty = true;
 
   apps.kitty = lib.custom.use {
     settings = {
