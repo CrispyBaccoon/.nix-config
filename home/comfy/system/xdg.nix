@@ -22,8 +22,8 @@ in {
     applications = {inherit browser filemanager;};
     settings.associations = {
       "audio/*" = ["mpv.desktop"];
-      "video/*" = ["mpv.dekstop"];
-      "image/*" = ["imv.desktop"];
+      "video/*" = ["mpv.desktop"];
+      "image/*" = ["feh.desktop"];
       "x-scheme-handler/spotify" = ["spotify.desktop"];
       "x-scheme-handler/discord" = ["Discord.desktop"];
       "application/pdf" = [zathura];
