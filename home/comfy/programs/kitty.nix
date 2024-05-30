@@ -8,7 +8,7 @@
         size = 10;
       };
       line_height = 1.2;
-      background_opacity = 0.85;
+      background_opacity = 0.80;
     };
   };
 }
