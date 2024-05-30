@@ -118,6 +118,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+
+    izrss = {
+      url = "github:isabelroses/izrss";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zzz = {
+      url = "git+file:///home/comfy/dev/zzz";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

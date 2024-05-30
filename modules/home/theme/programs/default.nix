@@ -4,5 +4,6 @@
     ./waybar.nix
     ./dunst.nix
     ./cava.nix
+    ./izrss.nix
   ];
 }

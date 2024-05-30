@@ -579,6 +579,26 @@
         "type": "github"
       }
     },
+    "izrss": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1716979400,
+        "narHash": "sha256-hnSEsKptG3RKM6IG4yOsiGuGVRYmJC8NI1MnMfYX6Vo=",
+        "owner": "isabelroses",
+        "repo": "izrss",
+        "rev": "2ca2609fdb52fbd0cfd6d047c5fcb0de6ec897cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "isabelroses",
+        "repo": "izrss",
+        "type": "github"
+      }
+    },
     "lanzaboote": {
       "inputs": {
         "crane": "crane",
@@ -875,6 +895,7 @@
         "hyprland-contrib": "hyprland-contrib",
         "hyprland-plugins": "hyprland-plugins",
         "hyprspace": "hyprspace",
+        "izrss": "izrss",
         "lanzaboote": "lanzaboote",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "neovim-src": "neovim-src",
@@ -887,7 +908,8 @@
         "spicetify-nix": "spicetify-nix",
         "stable": "stable",
         "stylix": "stylix",
-        "systems": "systems"
+        "systems": "systems",
+        "zzz": "zzz"
       }
     },
     "rust-overlay": {
@@ -1072,6 +1094,26 @@
         "owner": "hyprwm",
         "repo": "xdg-desktop-portal-hyprland",
         "type": "github"
+      }
+    },
+    "zzz": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1717075019,
+        "narHash": "sha256-Fj7CIr3RBPOYKleUKgXmcdXLasXf+4+rgILbtDs1wfk=",
+        "ref": "refs/heads/doc/readme",
+        "rev": "b17120e7e32167a2fcae1c5540015dbb6380bfe6",
+        "revCount": 155,
+        "type": "git",
+        "url": "file:///home/comfy/dev/zzz"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/comfy/dev/zzz"
       }
     }
   },
