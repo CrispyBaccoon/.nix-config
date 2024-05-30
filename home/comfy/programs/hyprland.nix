@@ -33,6 +33,7 @@
 
     grim
     slurp
+    inputs.moonblast.packages.${pkgs.system}.moonblast
 
     hyprpicker
     imagemagick

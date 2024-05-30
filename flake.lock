@@ -633,6 +633,24 @@
         "type": "github"
       }
     },
+    "moonblast": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1716974158,
+        "narHash": "sha256-tNjtsGMeN+iaeOu3U5E4KnEvBGyMksbiGyDFKSJBDzo=",
+        "ref": "refs/heads/mega",
+        "rev": "674fa4dd9c81852dc601bc8b01df8da567e8548d",
+        "revCount": 17,
+        "type": "git",
+        "url": "file:///home/comfy/dev/moonblast"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/comfy/dev/moonblast"
+      }
+    },
     "neovim-nightly-overlay": {
       "inputs": {
         "flake-compat": [
@@ -897,6 +915,7 @@
         "hyprspace": "hyprspace",
         "izrss": "izrss",
         "lanzaboote": "lanzaboote",
+        "moonblast": "moonblast",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "neovim-src": "neovim-src",
         "nix-colors": "nix-colors",
