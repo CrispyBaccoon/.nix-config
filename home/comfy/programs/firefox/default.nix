@@ -45,6 +45,12 @@
       in {
         "dom.security.https_only_mode" = true;
         "browser.download.panel.shown" = true;
+        "browser.startup.page" = 3; # restore session
+        "layout.css.prefers-color-scheme.content-override" = 0; # prefer dark mode
+        "font.name.monospace.x-western" = "Maple Mono NF";
+        "font.name.serif.x-western" = "Maple Mono NF";
+        "font.size.variable.x-western" = 13;
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
 
         # disable general bloat
         "extensions.pocket.enabled" = lock-false;
