@@ -5,6 +5,10 @@
   inputs,
   ...
 }: {
+  imports = [
+    ./chrome
+  ];
+
   programs.firefox = lib.custom.use {
     enable = false;
     policies = {
