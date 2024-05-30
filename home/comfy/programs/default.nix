@@ -39,10 +39,9 @@
     unar
     unzip
     hexyl
+    feh
 
     stow
-
-    gthumb # image editor
 
     gopass
   ];
