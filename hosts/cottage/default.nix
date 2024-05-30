@@ -22,6 +22,7 @@
     ./hardware-configuration.nix
     # ./sddm.nix
     ./ratbag.nix
+    ./steam.nix
   ];
 
   networking.hostName = "cottage";
