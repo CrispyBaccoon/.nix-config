@@ -114,7 +114,6 @@
         stylus
         darkreader
         ublock-origin
-        darkreader
       ];
     };
   };
