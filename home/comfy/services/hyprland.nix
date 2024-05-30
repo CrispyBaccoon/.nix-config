@@ -4,11 +4,11 @@
   pkgs,
   config,
   ...
-}:
-with lib;
-with lib.custom;
-{
-  services.cliphist = use { };
+}: let
+  inherit (lib) getExe;
+  inherit (lib.custom) use;
+in {
+  services.cliphist = use {};
   systemd.user.services = {
     waybar = lib.custom.mkGraphicalService {
       Unit.Description = "waybar";

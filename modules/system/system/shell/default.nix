@@ -4,9 +4,9 @@
   lib,
   pkgs,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types;
+  inherit (lib.custom) enabled mkOpt;
   cfg = config.system.shell;
 in {
   options.system.shell = with types; {

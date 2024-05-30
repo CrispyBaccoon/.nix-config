@@ -5,8 +5,9 @@
   lib,
   ...
 }:
-with lib;
-with lib.custom; let
+let
+  inherit (lib) types mkIf;
+  inherit (lib.custom) mkOpt' mkBoolOpt use;
   cfg = config.apps.dunst;
   enableTheme = config.theme.dunst;
   palette = config.palette;

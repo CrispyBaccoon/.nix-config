@@ -3,9 +3,9 @@
   config,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkIf;
+  inherit (lib.custom) mkBoolOpt;
   cfg = config.system.boot.efi;
 in {
   options.system.boot.efi = with types; {

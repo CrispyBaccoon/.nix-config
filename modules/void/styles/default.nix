@@ -4,9 +4,9 @@
   pkgs,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkIf;
+  inherit (lib.custom) mkOpt' mkEnableOpt;
   cfg = config.styles;
 in {
   options.styles = with types; {

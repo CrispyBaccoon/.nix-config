@@ -3,9 +3,9 @@
   config,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkOption;
+  inherit (lib) concatStringsSep mapAttrsToList;
   cfg = config.system.env;
 in {
   options.system.env = with types;

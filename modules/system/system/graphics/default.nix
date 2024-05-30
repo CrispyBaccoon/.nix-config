@@ -3,9 +3,9 @@
   config,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkIf;
+  inherit (lib.custom) mkOpt';
   cfg = config.system.graphics;
 in {
   options.system.graphics = with types; {

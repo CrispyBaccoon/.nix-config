@@ -4,9 +4,9 @@
   pkgs,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkIf;
+  inherit (lib.custom) mkOpt mkOptions;
   cfg = config.system.terminal;
 in {
   options.system.terminal = mkOptions "manage terminal" {

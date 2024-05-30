@@ -2,9 +2,9 @@
   config,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types strings mkIf mkDefault;
+  inherit (lib.custom) mkOpt' mkEnableOpt;
   cfg = config.apps.kitty;
 in {
   options.apps.kitty = with types; {

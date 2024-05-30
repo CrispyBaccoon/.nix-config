@@ -4,9 +4,9 @@
   pkgs,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types toList;
+  inherit (lib.custom) mkOpt';
   cfg = config.home.xdg;
 in {
   options.home.xdg = with types; {

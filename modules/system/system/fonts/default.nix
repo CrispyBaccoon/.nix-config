@@ -4,9 +4,9 @@
   pkgs,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkIf;
+  inherit (lib.custom) enabled mkOpt mkBoolOpt;
   cfg = config.system.fonts;
 in {
   options.system.fonts = with types; {

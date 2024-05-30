@@ -1,5 +1,6 @@
-{lib, ...}:
-with lib; rec {
+{lib, ...}: let
+  inherit (lib) mkOption types;
+in rec {
   # mkOpt type default desc
   mkOpt = type: default: description:
     mkOption {inherit type default description;};

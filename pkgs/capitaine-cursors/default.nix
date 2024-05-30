@@ -72,7 +72,9 @@ stdenvNoCC.mkDerivation rec {
     cp -r "./themes/Capitaine light" $out/share/icons/capitaine-cursors
   '';
 
-  meta = with lib; {
+  meta = let
+    inherit (lib) licenses platforms;
+  in {
     description = "fork of capitaine cursor theme, patched with some additional variants";
     homepage = "https://github.com/sainnhe/capitaine-cursors";
     license = licenses.lgpl3;

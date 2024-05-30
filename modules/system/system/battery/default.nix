@@ -3,12 +3,12 @@
   config,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) mkIf;
+  inherit (lib.custom) mkOptions;
   cfg = config.system.battery;
 in {
-  options.system.battery = mkOptions "enable battery optimizations and utils" { };
+  options.system.battery = mkOptions "enable battery optimizations and utils" {};
 
   config = mkIf cfg.enable {
     # Better scheduling for CPU cycles

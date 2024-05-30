@@ -3,9 +3,9 @@
   lib,
   pkgs,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkIf;
+  inherit (lib.custom) mkEnableOpt;
   cfg = config.apps.steam;
 in {
   options.apps.steam = with types; {

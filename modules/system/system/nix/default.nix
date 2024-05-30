@@ -4,9 +4,9 @@
   pkgs,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkIf;
+  inherit (lib.custom) mkOpt use;
   cfg = config.system.nix;
 in {
   options.system.nix = with types; {

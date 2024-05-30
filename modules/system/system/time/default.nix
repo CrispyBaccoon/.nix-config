@@ -3,9 +3,9 @@
   config,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkIf;
+  inherit (lib.custom) mkOpt mkOptions;
   cfg = config.system.time;
 in {
   options.system.time = mkOptions "configure timezone information" {

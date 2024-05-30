@@ -2,9 +2,10 @@
   config,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) strings mkIf;
+  inherit (lib) mapAttrsToList;
+  inherit (lib.custom) disabled mkEnableOpt;
   palette = config.palette;
   cfg = {enable = config.theme.kitty;};
 in {

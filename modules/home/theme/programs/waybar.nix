@@ -2,9 +2,9 @@
   config,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkIf;
+  inherit (lib.custom) mkEnableOpt use;
   palette = config.palette;
   cfg = {enable = config.theme.waybar;};
 in {

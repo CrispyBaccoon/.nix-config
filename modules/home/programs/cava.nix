@@ -4,9 +4,9 @@
   pkgs,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkIf;
+  inherit (lib.custom) use mkOpt' mkBoolOpt;
   cfg = config.apps.cava;
   enableTheme = config.theme.cava;
   palette = config.palette;

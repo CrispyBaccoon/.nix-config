@@ -3,9 +3,9 @@
   config,
   lib,
   ...
-}:
-with lib;
-with lib.custom; let
+}: let
+  inherit (lib) types mkIf mkForce;
+  inherit (lib.custom) mkBoolOpt;
   cfg = config.system.locale;
 in {
   options.system.locale = with types; {

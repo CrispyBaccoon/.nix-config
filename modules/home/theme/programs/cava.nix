@@ -2,8 +2,8 @@
   config,
   lib,
   ...
-}:
-with lib;
-with lib.custom; {
+}: let
+  inherit (lib.custom) mkEnableOpt;
+in {
   options.theme.cava = mkEnableOpt "cava theme";
 }
