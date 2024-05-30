@@ -4,6 +4,7 @@
   apps.neovim.lspServers = with pkgs; [
     lua-language-server
     gopls
+    emmet-language-server
   ];
 
   home.packages = with pkgs; [
