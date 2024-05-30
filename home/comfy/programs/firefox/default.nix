@@ -30,6 +30,7 @@
       DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
       DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
       SearchBar = "unified"; # alternative: "separate"
+      DownloadDirectory = config.home.xdg.dirs.download;
     };
     profiles.${config.home.username} = {
       settings = let
