@@ -31,7 +31,7 @@
     --font-size: 14px;
     --font-size-lyrics: 14px; /* 1.5em (default) */
     --font-weight: 400; /* 200 : 900 */
-    --line-height: 1.2;
+    --line-height: 1.4;
 
     --display-card-image: block; /* none | block */
     --display-coverart-image: none; /* none | block */
