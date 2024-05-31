@@ -1,5 +1,6 @@
 { ... }: {
   imports = [
+    ./audio
     ./battery
     ./boot
     # ./env

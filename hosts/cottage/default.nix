@@ -81,6 +81,7 @@
     });
   };
 
+  system.audio = lib.custom.enabled;
   system.battery = lib.custom.enabled;
 
   system.machine = lib.custom.use {
