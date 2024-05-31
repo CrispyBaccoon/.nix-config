@@ -55,8 +55,8 @@ in {
   };
 
   config = let
-      colors = config.colorScheme.palette;
-    in {
+    colors = config.colorScheme.palette;
+  in {
     colorScheme = themes.${cfg.name};
 
     palette = rec {
@@ -91,14 +91,14 @@ in {
       mauve = "${color13}";
       jade = "${color14}";
 
-      text     = colors.base05;
-      subtext  = colors.base04;
+      text = colors.base05;
+      subtext = colors.base04;
       subtext0 = subtext;
       subtext1 = colors.base03;
       surface1 = colors.base02;
       surface0 = surface;
-      surface  = colors.base01;
-      base     = colors.base00;
+      surface = colors.base01;
+      base = colors.base00;
     };
   };
 }

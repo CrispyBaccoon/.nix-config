@@ -17,12 +17,14 @@ in rec {
   # mkEnableOpt name
   mkEnableOpt = name: mkBoolOpt false "enable ${name}";
 
-  mkOptions = desc: o: {
-    enable = mkBoolOpt false desc;
-  } // o;
+  mkOptions = desc: o:
+    {
+      enable = mkBoolOpt false desc;
+    }
+    // o;
 
-  enabled = { enable = true; };
-  disabled = { enable = false; };
+  enabled = {enable = true;};
+  disabled = {enable = false;};
 
   use = o: enabled // o;
 }

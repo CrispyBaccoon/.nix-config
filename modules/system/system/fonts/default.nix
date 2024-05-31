@@ -31,7 +31,11 @@ in {
         noto-fonts-cjk-serif
         noto-fonts-emoji
       ]
-      ++ (if cfg.nerdfonts != null then (nerdfonts.override {fonts = cfg.nerdfonts;}) else [])
+      ++ (
+        if cfg.nerdfonts != null
+        then (nerdfonts.override {fonts = cfg.nerdfonts;})
+        else []
+      )
       ++ cfg.fonts;
   };
 }
