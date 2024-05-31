@@ -1,11 +1,8 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    deno
     pkgs.stable.nodejs_20
     pkgs.stable.yarn
 
-    gem
-    ruby
     pkgs.stable.python3
 
     wezterm
