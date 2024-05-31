@@ -25,6 +25,8 @@
     name = "gruvbox-plus";
     package = pkgs.gruvbox-plus;
   };
+  # papirus-icon-theme as fallback
+  home.packages = [pkgs.papirus-icon-theme];
 
   home.file.".config/gtk-4.0/gtk.css" = let
     palette = config.palette;
