@@ -632,6 +632,9 @@ section.main-buddyFeed-container {
     height: 100%;
     border-radius: 0;
 }
+.playback-progressbar-isInteractive .progress-bar--isDragging .progress-bar__slider, .playback-progressbar-isInteractive .progress-bar:focus .progress-bar__slider, .playback-progressbar-isInteractive .progress-bar:hover .progress-bar__slider, .playback-progressbar-isInteractive:focus-within .progress-bar__slider {
+  display: none;
+}
 
 /* cover art */
 .main-nowPlayingWidget-coverArt .cover-art {
