@@ -18,7 +18,7 @@
   in {
     spotifyPackage = pkgs.spotify;
     enable = true;
-    theme = import ./themes/sleek {};
+    theme = import ./themes/text {};
     colorScheme = "custom";
 
     customColorScheme = {
