@@ -11,7 +11,7 @@
 in {
   options.system.nix = with types; {
     flake = mkOpt path "/home/${config.user.name}/.config/flake" "flake location";
-    package = mkOpt package pkgs.nixUnstable "nix package to use";
+    package = mkOpt package pkgs.nixVersions.git "nix package to use";
     extraUsers = mkOpt (listOf str) [] "extra trusted users";
     enableGarbageCollection = mkOpt (enum ["gc" "nh" false]) false "enable automatic garbage collection";
   };
