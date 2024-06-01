@@ -4,7 +4,7 @@
   apps.kitty = lib.custom.use {
     settings = {
       font = {
-        name = "Suki Mono NF";
+        name = "Maple Mono NF";
         size = 10;
       };
       line_height = 1.2;
