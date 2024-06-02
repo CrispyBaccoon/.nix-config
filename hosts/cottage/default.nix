@@ -8,12 +8,12 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    outputs.nixosModules
-
     inputs.hardware.nixosModules.common-cpu-amd
     inputs.hardware.nixosModules.common-gpu-amd
     inputs.hardware.nixosModules.common-pc-ssd
+
+    inputs.lanzaboote.nixosModules.lanzaboote
+    inputs.stylix.nixosModules.stylix
 
     # You can also split up your configuration and import pieces of it here:
     # ./users.nix
@@ -24,8 +24,6 @@
     ./ratbag.nix
     ./steam.nix
   ];
-
-  networking.hostName = "cottage";
 
   system.boot.efi = {
     enable = true;

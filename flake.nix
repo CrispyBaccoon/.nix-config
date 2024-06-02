@@ -145,6 +145,11 @@
     lib = import ./lib {inherit inputs;};
     pkgs = inputs.nixpkgs;
 
+    modules = {
+      system = import ./modules/system {inherit pkgs lib;};
+      home = import ./modules/home {inherit pkgs lib;};
+    };
+
     # Supported systems for your flake packages, shell, etc.
     systems = [
       "aarch64-linux"
@@ -168,19 +173,20 @@
     overlays = import ./overlays {inherit inputs;};
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
-    nixosModules = import ./modules/system {inherit pkgs lib;};
+    nixosModules = modules.system;
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
-    homeManagerModules = import ./modules/home {inherit pkgs lib;};
+    homeManagerModules = modules.home;
 
     # NixOS configuration entrypoint
     # Available through './rebuild.sh system'
     nixosConfigurations = {
-      cottage = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs lib;};
+      "cottage" = lib.custom.mkSystem {
+        inherit lib;
+        system = "x86_64-linux";
+        hostname = "cottage";
+        flakeModule = modules.system;
         modules = [
-          inputs.lanzaboote.nixosModules.lanzaboote
-          inputs.stylix.nixosModules.stylix
           ./hosts
           # > Our main nixos configuration file <
           ./hosts/cottage
@@ -191,11 +197,11 @@
     # Standalone home-manager configuration entrypoint
     # Available through './rebuild.sh home'
     homeConfigurations = {
-      "comfy" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs lib;};
+      "comfy" = lib.custom.mkHome {
+        inherit lib;
+        system = "x86_64-linux";
+        flakeModule = modules.home;
         modules = [
-          inputs.stylix.homeManagerModules.stylix
           # > Our main home-manager configuration file <
           ./home/comfy
         ];
