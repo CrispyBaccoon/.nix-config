@@ -174,7 +174,7 @@
     homeManagerModules = import ./modules/home {inherit pkgs lib;};
 
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#your-hostname'
+    # Available through './rebuild.sh system'
     nixosConfigurations = {
       cottage = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs lib;};
@@ -189,6 +189,7 @@
     };
 
     # Standalone home-manager configuration entrypoint
+    # Available through './rebuild.sh home'
     homeConfigurations = {
       "comfy" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
