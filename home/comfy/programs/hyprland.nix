@@ -1,5 +1,5 @@
 {
-  inputs,
+  inputs',
   config,
   pkgs,
   lib,
@@ -7,14 +7,14 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    package = inputs'.hyprland.packages.hyprland;
     xwayland.enable = true;
     extraConfig = ''
       exec-once = ${pkgs.systemd}/bin/systemctl --user import-environment PATH
       source = ~/.config/hypr/hypr.conf
     '';
     plugins = [
-      inputs.hyprspace.packages.${pkgs.system}.Hyprspace
+      inputs'.hyprspace.packages.Hyprspace
     ];
   };
 
@@ -26,14 +26,14 @@
     libnotify
     wlogout
 
-    inputs.pyprland.packages.${pkgs.system}.pyprland
+    inputs'.pyprland.packages.pyprland
 
-    inputs.hyprland-contrib.packages.${pkgs.system}.hyprprop
+    inputs'.hyprland-contrib.packages.hyprprop
     hyprpicker
 
     grim
     slurp
-    inputs.moonblast.packages.${pkgs.system}.moonblast
+    inputs'.moonblast.packages.moonblast
 
     hyprpicker
     imagemagick

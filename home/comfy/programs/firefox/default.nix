@@ -2,7 +2,7 @@
   pkgs,
   config,
   lib,
-  inputs,
+  inputs',
   ...
 }: {
   imports = [
@@ -110,7 +110,7 @@
           definedAliases = ["@nixpkgs"];
         };
       };
-      extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+      extensions = with inputs'.firefox-addons.packages; [
         stylus
         darkreader
         ublock-origin
