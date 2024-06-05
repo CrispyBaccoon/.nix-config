@@ -5,18 +5,10 @@
   config,
   ...
 }: let
-  inherit (lib) getExe;
   inherit (lib.custom) use;
 in {
   services.cliphist = use {};
   systemd.user.services = {
-    waybar = lib.custom.mkGraphicalService {
-      Unit.Description = "waybar";
-      Service = {
-        ExecStart = getExe pkgs.waybar;
-        Restart = "on-failure";
-      };
-    };
     swww = lib.custom.mkGraphicalService {
       Unit.Description = "Wallpaper Daemon";
       Service = {
