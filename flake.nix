@@ -180,32 +180,30 @@
 
     # NixOS configuration entrypoint
     # Available through './rebuild.sh system'
-    nixosConfigurations = {
-      "cottage" = lib.custom.mkSystem {
-        inherit lib;
-        system = "x86_64-linux";
-        hostname = "cottage";
-        flakeModule = modules.system;
-        modules = [
-          ./hosts
-          # > Our main nixos configuration file <
-          ./hosts/cottage
-        ];
-      };
+    nixosConfigurations = lib.custom.mkSystems' {
+      inherit lib;
+      root = ./hosts;
+      modules = modules.system;
+      instances = [
+        {
+          host = "cottage";
+          system = "x86_64-linux";
+        }
+      ];
     };
 
     # Standalone home-manager configuration entrypoint
     # Available through './rebuild.sh home'
-    homeConfigurations = {
-      "comfy" = lib.custom.mkHome {
-        inherit lib;
-        system = "x86_64-linux";
-        flakeModule = modules.home;
-        modules = [
-          # > Our main home-manager configuration file <
-          ./home/comfy
-        ];
-      };
+    homeConfigurations = lib.custom.mkHomes' {
+      inherit lib;
+      root = ./home;
+      modules = modules.home;
+      instances = [
+        {
+          user = "comfy";
+          system = "x86_64-linux";
+        }
+      ];
     };
   };
 }
