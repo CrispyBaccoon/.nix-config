@@ -138,10 +138,7 @@
     home-manager,
     ...
   } @ inputs: let
-    inherit (self) outputs;
-
     # extended nixpkgs lib, contains my custom functions
-    # lib = (import ./lib { inherit inputs; }) // inputs.nixpkgs.lib;
     lib = import ./lib {inherit inputs;};
     pkgs = inputs.nixpkgs;
 
