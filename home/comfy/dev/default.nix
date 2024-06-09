@@ -7,6 +7,7 @@
     ./web.nix
     ./odin.nix
     ./game.nix
+    ./rust.nix
   ];
 
   programs.git = lib.custom.use {
