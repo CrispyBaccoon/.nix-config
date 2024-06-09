@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./odin.nix
   ];
 
   programs.git = lib.custom.use {
