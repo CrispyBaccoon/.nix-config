@@ -18,6 +18,7 @@
     # fmt
     alejandra
     stylua
+    nodePackages.prettier
 
     pkgs.stable.pandoc
     vhs
