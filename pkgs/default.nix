@@ -7,4 +7,5 @@
   sddm-sugar-dark = pkgs.callPackage ./sddm-sugar-dark {};
   odin = pkgs.callPackage ./odin {};
   ols = pkgs.callPackage ./odin/ols.nix {};
+  godot = pkgs.callPackage ./godot {};
 }
