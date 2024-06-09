@@ -1,8 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    pkgs.stable.nodejs_20
-    pkgs.stable.yarn
-
     pkgs.stable.python3
 
     wezterm

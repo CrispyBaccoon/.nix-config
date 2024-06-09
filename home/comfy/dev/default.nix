@@ -4,7 +4,9 @@
   ...
 }: {
   imports = [
+    ./web.nix
     ./odin.nix
+    ./game.nix
   ];
 
   programs.git = lib.custom.use {
