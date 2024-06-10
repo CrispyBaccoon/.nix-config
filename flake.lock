@@ -613,11 +613,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1716979400,
-        "narHash": "sha256-hnSEsKptG3RKM6IG4yOsiGuGVRYmJC8NI1MnMfYX6Vo=",
+        "lastModified": 1718028797,
+        "narHash": "sha256-f3enMnsBr0ZbXEtEFXENPAq81q9djo6ZIICUNRYd704=",
         "owner": "isabelroses",
         "repo": "izrss",
-        "rev": "2ca2609fdb52fbd0cfd6d047c5fcb0de6ec897cb",
+        "rev": "a1dced75d1ff571c16c54bf61c04980050f2e392",
         "type": "github"
       },
       "original": {

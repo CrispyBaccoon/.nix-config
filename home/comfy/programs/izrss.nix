@@ -7,10 +7,12 @@
   theme.izrss = true;
   programs.izrss = {
     enable = true;
-    urls = [
-      "https://isabelroses.com/rss.xml"
-      "https://uncenter.dev/feed.xml"
-    ];
+    settings = {
+      urls = [
+        "https://isabelroses.com/rss.xml"
+        "https://uncenter.dev/feed.xml"
+      ];
+    };
   };
 
   programs.zzz = {
