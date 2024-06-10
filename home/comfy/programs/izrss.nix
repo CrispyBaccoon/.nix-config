@@ -11,6 +11,7 @@
       urls = [
         "https://isabelroses.com/rss.xml"
         "https://uncenter.dev/feed.xml"
+        "https://hyprland.org/rss.xml"
       ];
     };
   };
