@@ -180,16 +180,17 @@
 
     # NixOS configuration entrypoint
     # Available through './rebuild.sh system'
-    nixosConfigurations = lib.custom.mkSystems' {
-      inherit lib;
-      root = ./hosts;
-      modules = modules.system;
-      instances = [
-        {
-          host = "cottage";
-          system = "x86_64-linux";
-        }
-      ];
+    nixosConfigurations = {
+      "cottage" = lib.custom.mkSystem {
+        inherit lib;
+        system = "x86_64-linux";
+        hostname = "cottage";
+        flakeModule = modules.system;
+        modules = [
+          ./hosts
+          ./hosts/cottage
+        ];
+      };
     };
 
     # Standalone home-manager configuration entrypoint
