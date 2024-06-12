@@ -5,14 +5,13 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   nixpkgs = {
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       self.outputs.overlays.additions
-      # self.outputs.overlays.modifications
+      self.outputs.overlays.modifications
       self.outputs.overlays.unstable-packages
 
       # You can also add overlays exported from other flakes:
@@ -35,7 +34,7 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -63,10 +62,10 @@
   networking.networkmanager.enable = true;
 
   system = {
-    time = lib.custom.use { timezone = "Europe/Paris"; };
+    time = lib.custom.use {timezone = "Europe/Paris";};
     locale = lib.custom.enabled;
     fonts = lib.custom.use {
-      fonts = with pkgs; [ terminus_font ];
+      fonts = with pkgs; [terminus_font];
       nerdfonts = null;
     };
     terminal = lib.custom.enabled;
@@ -75,11 +74,11 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [ htop ];
+  environment.systemPackages = with pkgs; [htop];
 
   console = {
     #font = "sun12x22";
-    packages = with pkgs; [ terminus_font ];
+    packages = with pkgs; [terminus_font];
     font = "${pkgs.terminus_font}/share/consolefonts/ter-i22b.psf.gz";
     useXkbConfig = true;
   };
