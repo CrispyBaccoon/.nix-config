@@ -20,6 +20,11 @@
       # personal preference
       init.defaultBranch = "mega";
 
+      # prevent data corruption
+      transfer.fsckObjects = true;
+      fetch.fsckObjects = true;
+      receive.fsckObjects = true;
+
       # better urls
       url = {
         "https://github.com/".insteadOf = "github:";
