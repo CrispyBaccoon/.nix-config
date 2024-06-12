@@ -43,12 +43,23 @@ in {
           popups = 10;
         };
       };
-    stylix.opacity = {
-      applications = 0.92;
-      terminal = 0.80;
-      desktop = 1.0;
-      popups = 1.0;
+      fonts =
+        cfg.fonts
+        // {
+          sizes = {
+            applications = 12;
+            terminal = 10;
+            desktop = 10;
+            popups = 10;
+          };
+        };
+      opacity = {
+        applications = 0.92;
+        terminal = 0.8;
+        desktop = 1.0;
+        popups = 1.0;
+      };
+      base16Scheme = (import ../../home/theme/themes/evergarden.nix).palette;
     };
-    stylix.base16Scheme = (import ../../home/theme/themes/evergarden.nix).colors;
   };
 }

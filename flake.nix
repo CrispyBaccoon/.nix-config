@@ -15,12 +15,13 @@
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.flake-compat.follows = "flake-compat";
-
-      inputs.pre-commit-hooks-nix.follows = "pre-commit-hooks-nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        flake-parts.follows = "flake-parts";
+        flake-compat.follows = "flake-compat";
+        pre-commit-hooks-nix.follows = "pre-commit-hooks-nix";
+      };
     };
 
     flake-utils = {
@@ -41,15 +42,19 @@
     poetry2nix = {
       id = "poetry2nix";
       type = "indirect";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.systems.follows = "systems";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+        systems.follows = "systems";
+      };
     };
     pre-commit-hooks-nix = {
       url = "github:cachix/pre-commit-hooks.nix";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.nixpkgs-stable.follows = "stable";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-stable.follows = "stable";
+      };
     };
 
     # Home manager
@@ -63,9 +68,11 @@
 
     stylix = {
       url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
-      inputs.flake-compat.follows = "flake-compat";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+        flake-compat.follows = "flake-compat";
+      };
     };
 
     # hyprland
@@ -73,15 +80,19 @@
       url = "https://github.com/hyprwm/Hyprland";
       type = "git";
       submodules = true;
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.systems.follows = "systems";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
     };
     pyprland = {
       url = "github:hyprland-community/pyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.poetry2nix.follows = "poetry2nix";
-      inputs.systems.follows = "systems";
-      inputs.flake-compat.follows = "flake-compat";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        poetry2nix.follows = "poetry2nix";
+        systems.follows = "systems";
+        flake-compat.follows = "flake-compat";
+      };
     };
     hyprland-contrib = {
       url = "github:hyprwm/contrib";
@@ -105,11 +116,13 @@
     };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-parts.follows = "flake-parts";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.hercules-ci-effects.follows = "hercules-ci-effects";
-      inputs.neovim-src.follows = "neovim-src";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
+        flake-compat.follows = "flake-compat";
+        hercules-ci-effects.follows = "hercules-ci-effects";
+        neovim-src.follows = "neovim-src";
+      };
     };
 
     spicetify-nix = {
@@ -124,6 +137,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
 
+    # wow this cutie has some good stuff
     izrss = {
       url = "github:isabelroses/izrss";
       inputs.nixpkgs.follows = "nixpkgs";
