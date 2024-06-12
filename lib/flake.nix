@@ -13,7 +13,7 @@ _: let
           hostname = instance.host;
           inherit (instance) system;
           flakeModule = args.modules;
-          modules = [(args.root + "/${instance.host}")];
+          modules = [args.root (args.root + "/${instance.host}")];
         };
       })
       args.instances
@@ -32,7 +32,7 @@ _: let
           inherit lib;
           inherit (instance) system;
           flakeModule = args.modules;
-          modules = [(args.root + "/${instance.user}")];
+          modules = [args.root (args.root + "/${instance.user}")];
         };
       })
       args.instances
