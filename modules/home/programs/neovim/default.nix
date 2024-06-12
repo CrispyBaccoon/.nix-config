@@ -17,10 +17,6 @@ in {
     home.sessionVariables = {
       EDITOR = "nvim";
     };
-    home.packages =
-      [
-        pkgs.neovim
-      ]
-      ++ cfg.lspServers;
+    home.packages = [pkgs.neovim] ++ cfg.lspServers;
   };
 }

@@ -9,13 +9,9 @@
 in {
   options.user = with types; {
     name = mkOpt str "user" "your username";
-    initialPassword =
-      mkOpt str ""
-      "initial password when the user is first created";
+    initialPassword = mkOpt str "" "initial password when the user is first created";
     extraGroups = mkOpt (listOf str) [] "groups assigned to the user";
-    extraOptions =
-      mkOpt attrs {}
-      "extra options passed to <option>users.users.<name></option>.";
+    extraOptions = mkOpt attrs {} "extra options passed to <option>users.users.<name></option>.";
     enableAutologin = mkBoolOpt false "enable autologin";
   };
 
@@ -30,7 +26,16 @@ in {
         group = "users";
 
         extraGroups =
-          ["wheel" "audio" "sound" "video" "networkmanager" "input" "tty" "docker"]
+          [
+            "wheel"
+            "audio"
+            "sound"
+            "video"
+            "networkmanager"
+            "input"
+            "tty"
+            "docker"
+          ]
           ++ cfg.extraGroups;
       }
       // cfg.extraOptions;

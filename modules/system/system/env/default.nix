@@ -9,7 +9,11 @@
 in {
   options.system.env = with types;
     mkOption {
-      type = attrsOf (oneOf [str path (listOf (either str path))]);
+      type = attrsOf (oneOf [
+        str
+        path
+        (listOf (either str path))
+      ]);
       apply = mapAttrs (_n: v:
         if isList v
         then concatMapStringsSep ":" toString v
@@ -33,9 +37,7 @@ in {
       #   LESSHISTFILE = "$XDG_CACHE_HOME/less.history";
       #   WGETRC = "$XDG_CONFIG_HOME/wgetrc";
       # };
-      extraInit =
-        concatStringsSep "\n"
-        (mapAttrsToList (n: v: ''export ${n}="${v}"'') cfg);
+      extraInit = concatStringsSep "\n" (mapAttrsToList (n: v: ''export ${n}="${v}"'') cfg);
     };
   };
 }

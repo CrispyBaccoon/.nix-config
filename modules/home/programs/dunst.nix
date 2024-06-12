@@ -18,8 +18,14 @@ in {
       width = mkOpt' str "(240, 340)";
       height = mkOpt' str "160";
       origin = {
-        vertical = mkOpt' (enum ["top" "bottom"]) "top";
-        horizontal = mkOpt' (enum ["left" "right"]) "right";
+        vertical = mkOpt' (enum [
+          "top"
+          "bottom"
+        ]) "top";
+        horizontal = mkOpt' (enum [
+          "left"
+          "right"
+        ]) "right";
       };
       offset = {
         vertical = mkOpt' int 4;
@@ -160,8 +166,8 @@ in {
     systemd.user.services.dunst = {
       Unit = {
         Description = "Dunst notification daemon";
-        After = [ "graphical-session-pre.target" ];
-        PartOf = [ "graphical-session.target" ];
+        After = ["graphical-session-pre.target"];
+        PartOf = ["graphical-session.target"];
       };
 
       Service = {
