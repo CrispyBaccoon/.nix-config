@@ -1,5 +1,5 @@
 {
-  pkgs ? import <nixpkgs> { system = builtins.currentSystem; },
+  pkgs ? import <nixpkgs> {system = builtins.currentSystem;},
   lib ? pkgs.lib,
   fetchFromGitHub ? pkgs.fetchFromGitHub,
   llvmPackages_13 ? pkgs.llvmPackages_13,

@@ -4,14 +4,14 @@
   config,
   ...
 }: {
-  home.packages = with pkgs; [ qpwgraph ];
+  home.packages = with pkgs; [qpwgraph];
 
   apps.cava = lib.custom.use {
     extraConfig = ''
       ; [input]
       ; method = alsa
       ; source = hw:Loopback,1
-      '';
+    '';
   };
   theme.cava = true;
   services.mpd = {
