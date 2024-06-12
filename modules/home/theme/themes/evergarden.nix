@@ -1,8 +1,8 @@
 {
   slug = "evergarden";
   name = "evergarden";
-  author = "crispybaccoon";
-  colors = {
+  author = "comfysage";
+  palette = {
     base00 = "#252B2E";
     base01 = "#3D494F";
     base02 = "#46545B";

@@ -1,8 +1,8 @@
 {
   slug = "twilight-moon";
   name = "twilight-moon";
-  author = "crispybaccoon";
-  colors = {
+  author = "comfysage";
+  palette = {
     base00 = "#262A38";
     base = "#1B1E2B";
     base01 = "#E6787A";
