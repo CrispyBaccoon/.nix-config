@@ -194,7 +194,6 @@
         modules = [
           ./hosts
           ./hosts/cottage
-          ./home
         ];
       };
     };
