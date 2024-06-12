@@ -28,6 +28,7 @@ in {
   };
 
   config = mkIf cfg.enable {
+    stylix.autoEnable = true;
     stylix.image = config.lib.stylix.pixel "base0A";
     stylix.cursor = {
       package = pkgs.capitaine-cursors;
