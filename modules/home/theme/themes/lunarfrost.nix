@@ -1,8 +1,8 @@
 {
   slug = "lunarfrost";
   name = "lunarfrost";
-  author = "crispybaccoon";
-  colors = {
+  author = "comfysage";
+  palette = {
     base00 = "#1B232C";
     base = "#121922";
     base01 = "#DA7D81";
