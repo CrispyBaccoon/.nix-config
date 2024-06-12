@@ -1,11 +1,9 @@
 {
-  options,
   config,
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) types mkIf;
   inherit (lib.custom) mkOpt' mkBoolOpt use;
   cfg = config.apps.dunst;

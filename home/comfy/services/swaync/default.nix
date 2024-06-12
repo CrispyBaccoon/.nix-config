@@ -1,4 +1,3 @@
-{ pkgs, config, ... }:
 {
   home.file.".config/swaync/config.json".source = ./swayrc.json;
   home.file.".config/swaync/style.css".enable = false;
@@ -7,6 +6,7 @@
       font-family: Maple Mono NF;
       font-weight: normal;
     }
+{config, ...}: {
 
   .control-center {
 background: transparent;

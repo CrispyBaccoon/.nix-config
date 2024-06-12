@@ -1,4 +1,4 @@
-{...}: {
+{
   programs.git.aliases = {
     index = "status -s";
     graph = "log --oneline --graph";

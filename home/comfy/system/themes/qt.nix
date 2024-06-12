@@ -1,10 +1,5 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
   qt.enable = true;
+{pkgs, ...}: {
 
   # platform theme "gtk" or "gnome"
   qt.platformTheme.name = "gtk";
