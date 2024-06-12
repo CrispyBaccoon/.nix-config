@@ -9,7 +9,10 @@
   inherit (lib.custom) mkOpt';
   cfg = config.home.xdg;
 in {
-  options.home.xdg = with types; {
+  options.home.xdg = with types; let
+    strListOrSingleton = with types;
+      coercedTo (either (listOf str) str) toList (listOf str);
+    in {
     dirs = let
        homedir = "${config.home.homeDirectory}";
        media = "${homedir}/media";
@@ -27,13 +30,10 @@ in {
       dev = mkOpt' str "${homedir}/dev";
     };
     applications = {
-      browser = mkOpt' str "firefox.desktop";
-      filemanager = mkOpt' str "thunar.desktop";
+      browser = mkOpt' strListOrSingleton "firefox.desktop";
+      filemanager = mkOpt' strListOrSingleton "thunar.desktop";
     };
-    settings = let
-      strListOrSingleton = with types;
-        coercedTo (either (listOf str) str) toList (listOf str);
-    in {
+    settings = {
       associations = mkOpt' (attrsOf strListOrSingleton) {};
     };
   };
@@ -62,21 +62,22 @@ in {
       mimeApps = let
         associations =
           {
-            "text/html" = [ cfg.applications.browser ];
-            "x-scheme-handler/http" = [ cfg.applications.browser ];
-            "x-scheme-handler/https" = [ cfg.applications.browser ];
-            "x-scheme-handler/ftp" = [ cfg.applications.browser ];
-            "x-scheme-handler/about" = [ cfg.applications.browser ];
-            "x-scheme-handler/unknown" = [ cfg.applications.browser ];
-            "application/x-extension-htm" = [ cfg.applications.browser ];
-            "application/x-extension-html" = [ cfg.applications.browser ];
-            "application/x-extension-shtml" = [ cfg.applications.browser ];
-            "application/xhtml+xml" = [ cfg.applications.browser ];
-            "application/x-extension-xhtml" = [ cfg.applications.browser ];
-            "application/x-extension-xht" = [ cfg.applications.browser ];
 
-            "application/json" = [ cfg.applications.browser ];
-            "inode/directory" = [ cfg.applications.filemanager ];
+            "text/html" = cfg.applications.browser;
+            "x-scheme-handler/http" = cfg.applications.browser;
+            "x-scheme-handler/https" = cfg.applications.browser;
+            "x-scheme-handler/ftp" = cfg.applications.browser;
+            "x-scheme-handler/about" = cfg.applications.browser;
+            "x-scheme-handler/unknown" = cfg.applications.browser;
+            "application/x-extension-htm" = cfg.applications.browser;
+            "application/x-extension-html" = cfg.applications.browser;
+            "application/x-extension-shtml" = cfg.applications.browser;
+            "application/xhtml+xml" = cfg.applications.browser;
+            "application/x-extension-xhtml" = cfg.applications.browser;
+            "application/x-extension-xht" = cfg.applications.browser;
+
+            "application/json" = cfg.applications.browser;
+            "inode/directory" = cfg.applications.filemanager;
           }
           // cfg.settings.associations;
       in {

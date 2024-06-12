@@ -2,7 +2,7 @@
   config,
   ...
 }: let
-  browser = "brave.desktop";
+  browser = ["brave.desktop" "firefox.desktop"];
   zathura = "org.pwmt.zathura.desktop";
   filemanager = "thunar.desktop";
 in {
