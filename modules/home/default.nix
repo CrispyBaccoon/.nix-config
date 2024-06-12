@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ../void
+    ../common
     ./env
     ./theme
     ./theme/programs
