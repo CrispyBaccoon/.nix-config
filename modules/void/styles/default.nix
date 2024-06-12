@@ -3,16 +3,18 @@
   pkgs,
   lib,
   ...
-}: let
+}:
+let
   inherit (lib) types mkIf;
   inherit (lib.custom) mkOpt' mkEnableOpt;
   cfg = config.styles;
-in {
+in
+{
   options.styles = with types; {
     enable = mkEnableOpt "styles";
     fonts = {
       monospace = {
-        package = mkOpt' package (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];});
+        package = mkOpt' package (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
         name = mkOpt' str "JetBrainsMono Nerd Font Mono";
       };
       sansSerif = {
@@ -27,15 +29,14 @@ in {
   };
 
   config = mkIf cfg.enable {
-    stylix.autoEnable = true;
-    stylix.image = config.lib.stylix.pixel "base0A";
-    stylix.cursor = {
-      package = pkgs.capitaine-cursors;
-      name = "capitaine-cursors";
-    };
-    stylix.fonts =
-      cfg.fonts
-      // {
+    stylix = {
+      autoEnable = true;
+      image = config.lib.stylix.pixel "base0A";
+      cursor = {
+        package = pkgs.capitaine-cursors;
+        name = "capitaine-cursors";
+      };
+      fonts = cfg.fonts // {
         sizes = {
           applications = 12;
           terminal = 10;
@@ -43,16 +44,14 @@ in {
           popups = 10;
         };
       };
-      fonts =
-        cfg.fonts
-        // {
-          sizes = {
-            applications = 12;
-            terminal = 10;
-            desktop = 10;
-            popups = 10;
-          };
+      fonts = cfg.fonts // {
+        sizes = {
+          applications = 12;
+          terminal = 10;
+          desktop = 10;
+          popups = 10;
         };
+      };
       opacity = {
         applications = 0.92;
         terminal = 0.8;
