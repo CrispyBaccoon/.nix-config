@@ -7,11 +7,8 @@
   inherit (inputs) self;
 
   perInput = system: flake:
-    lib.optionalAttrs (flake ? formatter.${system}) {
-      formatter = flake.formatter.${system};
-    } // lib.optionalAttrs (flake ? packages.${system}) {
-      packages = flake.packages.${system};
-    };
+    lib.optionalAttrs (flake ? formatter.${system}) {formatter = flake.formatter.${system};}
+    // lib.optionalAttrs (flake ? packages.${system}) {packages = flake.packages.${system};};
   # withSystem' returns a set:
   #  {
   #   inputs',
@@ -19,10 +16,11 @@
   #  }
   withSystem' = system: let
     inputs' =
-      lib.mapAttrs
-      (
+      lib.mapAttrs (
         inputName: input:
-          builtins.addErrorContext "while retrieving system-dependent attributes for input ${lib.escapeNixIdentifier inputName}" (
+          builtins.addErrorContext
+          "while retrieving system-dependent attributes for input ${lib.escapeNixIdentifier inputName}"
+          (
             if input._type or null == "flake"
             then perInput system input
             else throw "Trying to retrieve system-dependent attributes for input ${lib.escapeNixIdentifier inputName}, but this input is not a flake. Perhaps flake = false was added to the input declarations by mistake, or you meant to use a different input, or you meant to use plain old inputs, not inputs'."
@@ -32,7 +30,9 @@
     self' = builtins.addErrorContext "while retrieving system-dependent attributes for a flake's own outputs" (
       perInput system self
     );
-  in {inherit inputs' self';};
+  in {
+    inherit inputs' self';
+  };
   withSystem = system: f: f (withSystem' system);
 
   # just an alias to nixpkgs.lib.nixosSystem, lets me avoid adding
@@ -48,26 +48,39 @@
     flakeModule,
     ...
   } @ args:
-    withSystem system ({
-      inputs',
-      self',
-      ...
-    }:
-      mkSystem' {
-        modules =
-          modules
-          ++ [
-            flakeModule
+    withSystem system (
+      {
+        inputs',
+        self',
+        ...
+      }:
+        mkSystem' {
+          modules =
+            modules
+            ++ [
+              flakeModule
+              inputs.home-manager.nixosModules.home-manager
+              {
+                networking.hostName = hostname;
+                nixpkgs = {
+                  hostPlatform = lib.mkDefault system;
+                  flake.source = inputs.nixpkgs.outPath;
+                };
+              }
+            ];
+          specialArgs =
             {
-              networking.hostName = hostname;
-              nixpkgs = {
-                hostPlatform = lib.mkDefault system;
-                flake.source = inputs.nixpkgs.outPath;
-              };
+              inherit
+                lib
+                inputs
+                self
+                inputs'
+                self'
+                ;
             }
-          ];
-        specialArgs = {inherit lib inputs self inputs' self';} // args.specialArgs or {};
-      });
+            // args.specialArgs or {};
+        }
+    );
 
   mkHome = {
     lib,
@@ -76,16 +89,28 @@
     flakeModule,
     ...
   } @ args:
-    withSystem system ({
-      inputs',
-      self',
-      ...
-    }:
-      mkHome' {
-        modules = modules ++ [flakeModule];
-        pkgs = inputs.nixpkgs.legacyPackages.${system};
-        extraSpecialArgs = {inherit lib inputs self inputs' self';} // args.specialArgs or {};
-      });
+    withSystem system (
+      {
+        inputs',
+        self',
+        ...
+      }:
+        mkHome' {
+          modules = modules ++ [flakeModule];
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
+          extraSpecialArgs =
+            {
+              inherit
+                lib
+                inputs
+                self
+                inputs'
+                self'
+                ;
+            }
+            // args.specialArgs or {};
+        }
+    );
 in {
   inherit mkSystem mkHome;
 }
