@@ -144,16 +144,12 @@
     };
     zzz = {
       url = "git+file:///home/comfy/dev/zzz";
+      url = "github:isabelroses/zzz";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     # extended nixpkgs lib, contains my custom functions
     lib = import ./lib {inherit inputs;};
     pkgs = inputs.nixpkgs;
@@ -164,13 +160,7 @@
     };
 
     # Supported systems for your flake packages, shell, etc.
-    systems = [
-      "aarch64-linux"
-      "i686-linux"
-      "x86_64-linux"
-      "aarch64-darwin"
-      "x86_64-darwin"
-    ];
+    systems = pkgs.lib.systems.flakeExposed;
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
     forAllSystems = lib.genAttrs systems;
@@ -189,10 +179,10 @@
     overlays = import ./overlays {inherit inputs;};
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
-    nixosModules = modules.system;
+    nixosModules.default = modules.system;
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
-    homeManagerModules = modules.home;
+    homeManagerModules.default = modules.home;
 
     # NixOS configuration entrypoint
     # Available through './rebuild.sh system'
@@ -205,6 +195,7 @@
         modules = [
           ./hosts
           ./hosts/cottage
+          ./home
         ];
       };
     };
