@@ -1117,17 +1117,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1717075019,
-        "narHash": "sha256-Fj7CIr3RBPOYKleUKgXmcdXLasXf+4+rgILbtDs1wfk=",
-        "ref": "refs/heads/doc/readme",
-        "rev": "b17120e7e32167a2fcae1c5540015dbb6380bfe6",
-        "revCount": 155,
-        "type": "git",
-        "url": "file:///home/comfy/dev/zzz"
+        "lastModified": 1717088162,
+        "narHash": "sha256-nogVarYxWoSpDQtk1AQnyOrYFGDwjeN/2ybv5aSGwM4=",
+        "owner": "isabelroses",
+        "repo": "zzz",
+        "rev": "3429b1f17c6cb755697e0520d98a223789b7c8c1",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/comfy/dev/zzz"
+        "owner": "isabelroses",
+        "repo": "zzz",
+        "type": "github"
       }
     }
   },

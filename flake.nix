@@ -143,7 +143,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zzz = {
-      url = "git+file:///home/comfy/dev/zzz";
       url = "github:isabelroses/zzz";
       inputs.nixpkgs.follows = "nixpkgs";
     };

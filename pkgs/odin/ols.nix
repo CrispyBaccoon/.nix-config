@@ -6,7 +6,6 @@
   stdenv,
   unstableGitUpdater,
 }:
-
 stdenv.mkDerivation {
   pname = "ols";
   version = "0-unstable-2024-06-04";
@@ -22,9 +21,9 @@ stdenv.mkDerivation {
     patchShebangs build.sh
   '';
 
-  nativeBuildInputs = [ makeBinaryWrapper ];
+  nativeBuildInputs = [makeBinaryWrapper];
 
-  buildInputs = [ odin ];
+  buildInputs = [odin];
 
   buildPhase = ''
     runHook preBuild
@@ -43,7 +42,7 @@ stdenv.mkDerivation {
     runHook postInstall
   '';
 
-  passthru.updateScript = unstableGitUpdater { hardcodeZeroVersion = true; };
+  passthru.updateScript = unstableGitUpdater {hardcodeZeroVersion = true;};
 
   meta = {
     inherit (odin.meta) platforms;
