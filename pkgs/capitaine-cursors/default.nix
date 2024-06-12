@@ -6,7 +6,7 @@
   xcursorgen,
   pkgs,
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation {
   pname = "capitaine-cursors-sainnhe";
   version = "5";
 

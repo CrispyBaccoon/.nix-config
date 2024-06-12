@@ -1,7 +1,8 @@
 {pkgs}: let
-  lua-language-server = pkgs.stdenv.mkDerivation rec {
+  version = "3.7.0";
+  lua-language-server = pkgs.stdenv.mkDerivation {
     pname = "lua-language-server";
-    version = "3.7.0";
+    inherit version;
     src = pkgs.fetchFromGitHub {
       owner = "LuaLS";
       repo = "lua-language-server";
