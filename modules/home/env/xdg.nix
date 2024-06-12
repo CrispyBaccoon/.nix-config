@@ -9,14 +9,13 @@
   cfg = config.home.xdg;
 in {
   options.home.xdg = with types; let
-    strListOrSingleton = with types;
-      coercedTo (either (listOf str) str) toList (listOf str);
-    in {
+    strListOrSingleton = with types; coercedTo (either (listOf str) str) toList (listOf str);
+  in {
     dirs = let
-       homedir = "${config.home.homeDirectory}";
-       media = "${homedir}/media";
-       public = "${homedir}/public";
-      in {
+      homedir = "${config.home.homeDirectory}";
+      media = "${homedir}/media";
+      public = "${homedir}/public";
+    in {
       documents = mkOpt' str "${homedir}/documents";
       download = mkOpt' str "${homedir}/downloads";
       videos = mkOpt' str "${media}/videos";
@@ -46,14 +45,19 @@ in {
       userDirs = {
         enable = true;
         createDirectories = true;
-        documents = cfg.dirs.documents;
-        download = cfg.dirs.download;
-        videos = cfg.dirs.videos;
-        music = cfg.dirs.music;
-        pictures = cfg.dirs.pictures;
-        desktop = cfg.dirs.desktop;
-        publicShare = cfg.dirs.publicShare;
-        templates = cfg.dirs.templates;
+
+        inherit
+          (cfg.dirs)
+          documents
+          download
+          videos
+          music
+          pictures
+          desktop
+          publicShare
+          templates
+          ;
+
         extraConfig = {
           XDG_SCREENSHOTS_DIR = cfg.dirs.screenshots;
           XDG_DEV_DIR = cfg.dirs.dev;

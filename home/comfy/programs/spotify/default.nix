@@ -14,7 +14,7 @@
 
   # configure spicetify :)
   programs.spicetify = let
-    palette = config.palette;
+    inherit (config) palette;
   in {
     spotifyPackage = pkgs.spotify;
     enable = true;
