@@ -6,6 +6,7 @@
   # You can import other home-manager modules here
   imports = [
     self.homeManagerModules.default
+    inputs.stylix.homeManagerModules.stylix
     inputs.nix-colors.homeManagerModules.default
 
     ./system
