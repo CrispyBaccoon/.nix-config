@@ -94,7 +94,7 @@
         text = ''
           out=$(slurp -b "#ffffff44" -c "#${config.palette.surface}" -s "#00000000")
           while pgrep -x slurp >/dev/null; do sleep 0.1; done
-          sleep 0.1; echo $out
+          sleep 0.1; echo "$out"
         '';
       }
     );
