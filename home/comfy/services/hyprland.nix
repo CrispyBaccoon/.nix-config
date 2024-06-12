@@ -6,7 +6,16 @@
 }: let
   inherit (lib.custom) use;
 in {
-  services.cliphist = use {};
+  services = {
+    cliphist = use {};
+
+    wlsunset = use {
+      temperature.night = 5200;
+      sunrise = "07:00";
+      sunset = "18:00";
+    };
+  };
+
   systemd.user.services = {
     swww = lib.custom.mkGraphicalService {
       Unit.Description = "Wallpaper Daemon";
@@ -15,6 +24,7 @@ in {
         Restart = "on-failure";
       };
     };
+
     wallctl = lib.custom.mkGraphicalService {
       Unit.Description = "set wallpaper";
       Service = {
@@ -24,26 +34,19 @@ in {
         Type = "oneshot";
       };
     };
-  };
-  services.wlsunset = use {
-    temperature = {night = 5200;};
-    sunrise = "07:00";
-    sunset = "18:00";
-  };
-  systemd.user.services = {
+
     batterynotify = lib.custom.mkGraphicalService {
       Unit.Description = "";
       Service = {
-        ExecStart = "${pkgs.bash}/bin/bash -c '${config.home.homeDirectory}/.config/hypr/scripts/batterynotify.sh'";
+        ExecStart = "${pkgs.bash}/bin/bash -c '${config.xdg.configHome}/hypr/scripts/batterynotify.sh'";
         Restart = "always";
       };
     };
-  };
-  systemd.user.services = {
+
     libinput-gestures = lib.custom.mkGraphicalService {
       Unit.Description = "Touchpad gestures for wayland";
       Service = {
-        ExecStart = "${pkgs.libinput-gestures}/bin/libinput-gestures -c ${config.home.homeDirectory}/.config/hypr/libinput-gestures.conf";
+        ExecStart = "${pkgs.libinput-gestures}/bin/libinput-gestures -c ${config.xdg.configHome}/hypr/libinput-gestures.conf";
         Restart = "always";
       };
     };

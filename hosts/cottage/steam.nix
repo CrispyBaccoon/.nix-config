@@ -1,6 +1,5 @@
 {lib, ...}: {
-  apps.steam =
-    lib.custom.use {
-      enable = false;
-    };
+  apps.steam = lib.custom.use {
+    enable = false;
+  };
 }

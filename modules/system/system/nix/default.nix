@@ -12,7 +12,13 @@ in {
     flake = mkOpt path "/home/${config.user.name}/.config/flake" "flake location";
     package = mkOpt package pkgs.nixVersions.git "nix package to use";
     extraUsers = mkOpt (listOf str) [] "extra trusted users";
-    enableGarbageCollection = mkOpt (enum ["gc" "nh" false]) false "enable automatic garbage collection";
+    enableGarbageCollection =
+      mkOpt (enum [
+        "gc"
+        "nh"
+        false
+      ])
+      false "enable automatic garbage collection";
   };
 
   config = {
@@ -29,21 +35,23 @@ in {
     ];
 
     nix = let
-      users = ["root" config.user.name];
+      users = [
+        "root"
+        config.user.name
+      ];
     in {
       inherit (cfg) package;
 
-      settings =
-        {
-          experimental-features = "nix-command flakes";
-          http-connections = 50;
-          warn-dirty = false;
-          log-lines = 50;
-          sandbox = "relaxed";
-          auto-optimise-store = true;
-          trusted-users = users ++ cfg.extraUsers;
-          allowed-users = users;
-        };
+      settings = {
+        experimental-features = "nix-command flakes";
+        http-connections = 50;
+        warn-dirty = false;
+        log-lines = 50;
+        sandbox = "relaxed";
+        auto-optimise-store = true;
+        trusted-users = users ++ cfg.extraUsers;
+        allowed-users = users;
+      };
 
       gc = mkIf (cfg.enableGarbageCollection == "gc") {
         automatic = true;

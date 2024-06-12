@@ -11,7 +11,7 @@
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
       self.outputs.overlays.additions
-      self.outputs.overlays.modifications
+      # self.outputs.overlays.modifications
       self.outputs.overlays.unstable-packages
 
       # You can also add overlays exported from other flakes:
@@ -49,10 +49,12 @@
       substituters = [
         "https://nix-community.cachix.org"
         "https://hyprland.cachix.org"
+        "https://isabelroses.cachix.org" # cache for izrss + zzz, and some misc
       ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+        "isabelroses.cachix.org-1:mXdV/CMcPDaiTmkQ7/4+MzChpOe6Cb97njKmBQQmLPM="
       ];
     };
   };
@@ -60,14 +62,10 @@
   networking.networkmanager.enable = true;
 
   system = {
-    time = lib.custom.use {
-      timezone = "Europe/Paris";
-    };
+    time = lib.custom.use {timezone = "Europe/Paris";};
     locale = lib.custom.enabled;
     fonts = lib.custom.use {
-      fonts = with pkgs; [
-        terminus_font
-      ];
+      fonts = with pkgs; [terminus_font];
       nerdfonts = null;
     };
     terminal = lib.custom.enabled;
@@ -76,9 +74,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    htop
-  ];
+  environment.systemPackages = with pkgs; [htop];
 
   console = {
     #font = "sun12x22";
@@ -107,8 +103,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  services.sshd.enable = true;
 
   networking.firewall.enable = false;
 }
