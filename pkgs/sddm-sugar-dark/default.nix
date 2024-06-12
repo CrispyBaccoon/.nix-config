@@ -5,7 +5,7 @@
   libsForQt5,
   image ?
     fetchurl {
-      url = "https://github.com/crispybaccoon/wallpapers/raw/mega/wall/scape.jpg";
+      url = "https://github.com/comfysage/wallpapers/raw/mega/wall/scape.jpg";
       sha256 = "0a5y8h7pjmczf5m7krs3jl4fjmiz7aixf44wmrc4k683239is13h";
     },
 }:
