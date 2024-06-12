@@ -9,7 +9,10 @@
 in {
   options.system.machine = {
     enable = mkEnableOpt "machine optimizations and utils";
-    type = mkOpt (types.enum ["laptop" "pc"]) "laptop" "enable default optimizations and utils for machine type";
+    type = mkOpt (types.enum [
+      "laptop"
+      "pc"
+    ]) "laptop" "enable default optimizations and utils for machine type";
   };
 
   config =

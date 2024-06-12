@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  lib,
   config,
   ...
 }: {
@@ -18,7 +17,7 @@
   in {
     spotifyPackage = pkgs.spotify;
     enable = true;
-    theme = import ./themes/text {};
+    theme = import ./themes/text;
     colorScheme = "custom";
 
     customColorScheme = {
@@ -53,6 +52,7 @@
       tab-active = palette.background;
       text = palette.foreground;
     };
+
     enabledExtensions = [
       {
         src = ./extensions;

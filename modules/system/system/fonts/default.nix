@@ -28,7 +28,9 @@ in {
         noto-fonts
         noto-fonts-cjk-sans
         noto-fonts-cjk-serif
-        noto-fonts-emoji
+        # previously noto-fonts-emoji but that package doesn't actually exist
+        # its just an alais to noto-fonts-color-emoji
+        noto-fonts-color-emoji
       ]
       ++ (
         if cfg.nerdfonts != null

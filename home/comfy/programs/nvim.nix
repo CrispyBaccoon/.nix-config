@@ -7,7 +7,5 @@
     emmet-language-server
   ];
 
-  home.packages = with pkgs; [
-    pkgs.stable.neovide
-  ];
+  home.packages = [pkgs.stable.neovide];
 }

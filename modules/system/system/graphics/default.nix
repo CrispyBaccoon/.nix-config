@@ -8,7 +8,10 @@
   cfg = config.system.graphics;
 in {
   options.system.graphics = with types; {
-    gpu_type = mkOpt' (enum ["amd" "nvidia"]) "amd";
+    gpu_type = mkOpt' (enum [
+      "amd"
+      "nvidia"
+    ]) "amd";
   };
 
   config = {

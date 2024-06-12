@@ -17,8 +17,6 @@ in {
     environment.variables = {
       TERMINAL = cfg.package;
     };
-    environment.systemPackages = [
-      pkgs.${cfg.package}
-    ];
+    environment.systemPackages = [pkgs.${cfg.package}];
   };
 }

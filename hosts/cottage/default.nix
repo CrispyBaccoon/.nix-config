@@ -1,6 +1,5 @@
 {
   inputs,
-  outputs,
   lib,
   config,
   pkgs,
@@ -57,9 +56,7 @@
     enableAutologin = true;
     initialPassword = "passwd";
     extraOptions = {
-      packages = with pkgs; [
-        vim
-      ];
+      packages = with pkgs; [vim];
     };
   };
   security.sudo.wheelNeedsPassword = false;
@@ -73,9 +70,7 @@
   system.audio = lib.custom.enabled;
   system.battery = lib.custom.enabled;
 
-  system.machine = lib.custom.use {
-    type = "laptop";
-  };
+  system.machine = lib.custom.use {type = "laptop";};
   styles = lib.custom.use {
     fonts = {
       monospace = {
