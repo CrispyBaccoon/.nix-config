@@ -8,7 +8,7 @@
   inherit (lib.custom) mkOpt' mkBoolOpt use;
   cfg = config.apps.dunst;
   enableTheme = config.theme.dunst;
-  palette = config.palette;
+  inherit (config) palette;
 in {
   options.apps.dunst = with types; {
     enable = mkBoolOpt false "enable dunst";
