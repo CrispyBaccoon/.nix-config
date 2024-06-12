@@ -5,7 +5,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   nixpkgs = {
     # You can add overlays here
     overlays = [
@@ -34,7 +35,7 @@
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
-    registry = lib.mapAttrs (_: value: {flake = value;}) inputs;
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
 
     # This will additionally add your inputs to the system's legacy channels
     # Making legacy nix commands consistent as well, awesome!
@@ -62,10 +63,10 @@
   networking.networkmanager.enable = true;
 
   system = {
-    time = lib.custom.use {timezone = "Europe/Paris";};
+    time = lib.custom.use { timezone = "Europe/Paris"; };
     locale = lib.custom.enabled;
     fonts = lib.custom.use {
-      fonts = with pkgs; [terminus_font];
+      fonts = with pkgs; [ terminus_font ];
       nerdfonts = null;
     };
     terminal = lib.custom.enabled;
@@ -74,24 +75,26 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [htop];
+  environment.systemPackages = with pkgs; [ htop ];
 
   console = {
     #font = "sun12x22";
-    packages = with pkgs; [terminus_font];
+    packages = with pkgs; [ terminus_font ];
     font = "${pkgs.terminus_font}/share/consolefonts/ter-i22b.psf.gz";
     useXkbConfig = true;
   };
 
   sound.enable = true;
   #hardware.pulseaudio.enable = true;
-  services.libinput.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
+  services = {
+    libinput.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
   };
 
   nixpkgs = {
