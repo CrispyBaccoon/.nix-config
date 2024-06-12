@@ -44,7 +44,6 @@ in {
             popups = 10;
           };
         };
-      };
       opacity = {
         applications = 0.92;
         terminal = 0.8;
