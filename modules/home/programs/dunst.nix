@@ -53,7 +53,8 @@ in {
 
   config = mkIf cfg.enable {
     home.packages = [cfg.package];
-    home.file.".config/dunst/dunstrc" = use {
+
+    xdg.configFile."dunst/dunstrc" = use {
       text = let
         c = cfg.settings;
       in
@@ -155,6 +156,7 @@ in {
         )
         + cfg.extraConfig;
     };
+
     systemd.user.services.dunst = {
       Unit = {
         Description = "Dunst notification daemon";

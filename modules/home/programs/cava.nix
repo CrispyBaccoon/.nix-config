@@ -8,7 +8,7 @@
   inherit (lib.custom) use mkOpt' mkBoolOpt;
   cfg = config.apps.cava;
   enableTheme = config.theme.cava;
-  palette = config.palette;
+  inherit (config) palette;
 in {
   options.apps.cava = with types; {
     enable = mkBoolOpt false "enable cava";
@@ -21,10 +21,9 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = [
-      pkgs.cava
-    ];
-    home.file.".config/cava/config" = let
+    home.packages = [pkgs.cava];
+
+    xdg.configFile."cava/config" = let
       c = cfg.settings;
     in
       use {
