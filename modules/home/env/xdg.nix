@@ -30,6 +30,7 @@ in {
       dev = mkOpt' str "${homedir}/dev";
     };
     applications = {
+      editor = mkOpt' strListOrSingleton "neovim.desktop";
       browser = mkOpt' strListOrSingleton "firefox.desktop";
       filemanager = mkOpt' strListOrSingleton "thunar.desktop";
     };
@@ -62,6 +63,7 @@ in {
       mimeApps = let
         associations =
           {
+            "text/*" = cfg.applications.editor;
 
             "text/html" = cfg.applications.browser;
             "x-scheme-handler/http" = cfg.applications.browser;

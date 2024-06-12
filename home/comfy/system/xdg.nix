@@ -2,6 +2,7 @@
   config,
   ...
 }: let
+  editor = "neovide.desktop";
   browser = ["brave.desktop" "firefox.desktop"];
   zathura = "org.pwmt.zathura.desktop";
   filemanager = "thunar.desktop";
@@ -19,7 +20,7 @@ in {
       templates = "${config.home.homeDirectory}/public/templates";
       dev = "${config.home.homeDirectory}/dev";
     };
-    applications = {inherit browser filemanager;};
+    applications = {inherit editor browser filemanager;};
     settings.associations = {
       "audio/*" = ["mpv.desktop"];
       "video/*" = ["mpv.desktop"];
