@@ -9,7 +9,8 @@
   perInput = system: flake:
     lib.optionalAttrs (flake ? formatter.${system}) {
       formatter = flake.formatter.${system};
-    } // lib.optionalAttrs (flake ? packages.${system}) {
+    }
+    // lib.optionalAttrs (flake ? packages.${system}) {
       packages = flake.packages.${system};
     };
 
