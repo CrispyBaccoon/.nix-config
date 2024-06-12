@@ -3,18 +3,16 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib) types mkIf;
   inherit (lib.custom) mkOpt' mkEnableOpt;
   cfg = config.styles;
-in
-{
+in {
   options.styles = with types; {
     enable = mkEnableOpt "styles";
     fonts = {
       monospace = {
-        package = mkOpt' package (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+        package = mkOpt' package (pkgs.nerdfonts.override {fonts = ["JetBrainsMono"];});
         name = mkOpt' str "JetBrainsMono Nerd Font Mono";
       };
       sansSerif = {
@@ -36,22 +34,26 @@ in
         package = pkgs.capitaine-cursors;
         name = "capitaine-cursors";
       };
-      fonts = cfg.fonts // {
-        sizes = {
-          applications = 12;
-          terminal = 10;
-          desktop = 10;
-          popups = 10;
+      fonts =
+        cfg.fonts
+        // {
+          sizes = {
+            applications = 12;
+            terminal = 10;
+            desktop = 10;
+            popups = 10;
+          };
         };
-      };
-      fonts = cfg.fonts // {
-        sizes = {
-          applications = 12;
-          terminal = 10;
-          desktop = 10;
-          popups = 10;
+      fonts =
+        cfg.fonts
+        // {
+          sizes = {
+            applications = 12;
+            terminal = 10;
+            desktop = 10;
+            popups = 10;
+          };
         };
-      };
       opacity = {
         applications = 0.92;
         terminal = 0.8;
