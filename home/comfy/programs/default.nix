@@ -44,5 +44,16 @@
     stow
 
     gopass
+
+    dijo
+    (let
+      name = "dijo";
+    in
+      pkgs.makeDesktopItem {
+        inherit name;
+        desktopName = name;
+        exec = "kitty --class ${name} -e ${name}";
+        icon = "calendar";
+      })
   ];
 }
