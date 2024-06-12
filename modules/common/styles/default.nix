@@ -44,16 +44,7 @@ in {
             popups = 10;
           };
         };
-      fonts =
-        cfg.fonts
-        // {
-          sizes = {
-            applications = 12;
-            terminal = 10;
-            desktop = 10;
-            popups = 10;
-          };
-        };
+      };
       opacity = {
         applications = 0.92;
         terminal = 0.8;
