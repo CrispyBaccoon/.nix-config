@@ -11,7 +11,7 @@
 in {
   options.apps.neovim = with types; {
     enable = mkBoolOpt false "enable neovim";
-    lspServers = mkOpt (listOf package) [pkgs.rnix-lsp] "lsp servers to install";
+    lspServers = mkOpt (listOf package) [pkgs.nil] "lsp servers to install";
   };
 
   config = mkIf cfg.enable {
