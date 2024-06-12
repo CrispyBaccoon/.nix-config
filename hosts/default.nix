@@ -89,7 +89,7 @@
 
   sound.enable = true;
   #hardware.pulseaudio.enable = true;
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
