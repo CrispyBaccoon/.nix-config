@@ -1,4 +1,4 @@
-{...}: {
+{
   name = "text";
   src = ./.;
   appendName = false;

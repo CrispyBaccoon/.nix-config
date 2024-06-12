@@ -1,5 +1,4 @@
 {
-  home,
   lib,
   pkgs,
   config,

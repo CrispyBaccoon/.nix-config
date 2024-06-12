@@ -1,7 +1,4 @@
-{
-  config,
-  ...
-}: let
+{config, ...}: let
   editor = "neovide.desktop";
   browser = ["brave.desktop" "firefox.desktop"];
   zathura = "org.pwmt.zathura.desktop";

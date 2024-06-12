@@ -1,5 +1,1 @@
-{...}: {
-  imports = [
-    ./styles
-  ];
-}
+{imports = [./styles];}

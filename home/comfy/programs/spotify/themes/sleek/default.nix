@@ -1,4 +1,4 @@
-{...}: {
+{
   name = "sleek";
   src = ./.;
   appendName = false;
