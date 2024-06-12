@@ -1,7 +1,6 @@
 {pkgs, ...}: {
   imports = [
     ./hyprland.nix
-    ./dev.nix
     ./kitty.nix
     ./nvim.nix
     ./zsh.nix
