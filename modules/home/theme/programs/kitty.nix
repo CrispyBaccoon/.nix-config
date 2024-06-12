@@ -3,26 +3,24 @@
   lib,
   ...
 }: let
-  inherit (lib) strings mkIf;
-  inherit (lib) mapAttrsToList;
+  inherit (lib) mkIf;
   inherit (lib.custom) disabled mkEnableOpt;
-  palette = config.palette;
-  cfg = {enable = config.theme.kitty;};
+  inherit (config) palette;
+  cfg = {
+    enable = config.theme.kitty;
+  };
 in {
   options.theme.kitty = mkEnableOpt "kitty theme";
 
   config = mkIf cfg.enable {
     stylix.targets.kitty = disabled;
     apps.kitty.include = [
-      "~/.config/kitty/themes/${config.theme.name}"
-    ];
-    home.file.".config/kitty/themes/${config.theme.name}" = let
-      themeopts = rec {
+      (builtins.toFile "kitty-theme-${config.theme.name}" ''
         foreground = "#${palette.foreground}";
         background = "#${palette.background}";
-        cursorColor = foreground;
-        cursor = cursorColor;
-        color0 = background;
+        cursorColor = "#${palette.foreground}";
+        cursor = "#${palette.foreground}";
+        color0 = "#${palette.background}";
         color8 = "#${palette.color8}";
         color1 = "#${palette.color1}";
         color9 = "#${palette.color9}";
@@ -36,18 +34,9 @@ in {
         color13 = "#${palette.color13}";
         color6 = "#${palette.color6}";
         color14 = "#${palette.color14}";
-        color7 = foreground;
+        color7 = "#${palette.foreground}";
         color15 = "#${palette.color15}";
-      };
-    in {
-      enable = true;
-      text =
-        strings.concatStringsSep "\n"
-        (mapAttrsToList (
-            key: value:
-              strings.concatStringsSep " " [key value]
-          )
-          themeopts);
-    };
+      '')
+    ];
   };
 }
