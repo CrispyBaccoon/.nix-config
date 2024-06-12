@@ -64,7 +64,6 @@
             modules
             ++ [
               flakeModule
-              inputs.home-manager.nixosModules.home-manager
               {
                 networking.hostName = hostname;
                 nixpkgs = {
