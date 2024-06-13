@@ -10,7 +10,7 @@
   ];
 
   programs.firefox = lib.custom.use {
-    enable = false;
+    enable = true;
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
