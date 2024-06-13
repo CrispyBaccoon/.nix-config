@@ -1,7 +1,4 @@
-{
-  self,
-  ...
-}: {
+{self, ...}: {
   nixpkgs = {
     overlays = [
       self.outputs.overlays.additions
