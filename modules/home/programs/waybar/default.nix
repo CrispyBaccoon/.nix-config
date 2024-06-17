@@ -24,7 +24,7 @@ in {
     };
     modules = mkOption {
       inherit (settingsFormat) type;
-      default = import ./modules.nix {};
+      default = {};
       example = lib.literalExpression ''
         "hyprland/workspaces" = {
           "disable-scroll" = true;
@@ -73,7 +73,7 @@ in {
           modules-center = modules.center;
           modules-right = modules.right;
         }
-        // cfg.modules;
+        // ((import ./modules.nix {}) // cfg.modules);
     in {
       enable = true;
       source = settingsFormat.generate "waybar-config.json" ctl;
