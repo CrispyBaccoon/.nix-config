@@ -48,7 +48,6 @@ in {
       plugins = cfg.plugins;
     };
     home.packages = with pkgs; [
-      waybar
       swww
 
       wl-clipboard
