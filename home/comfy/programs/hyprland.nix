@@ -5,75 +5,17 @@
   lib,
   ...
 }: {
-  wayland.windowManager.hyprland = {
+  apps.hyprland = {
     enable = true;
-
-    # this is the same as the hyprland module
-    # see <https://github.com/hyprwm/Hyprland/blob/a99f314106cd2ae45e12e7c4012ab68026cf5522/nix/hm-module.nix#L12>
-    # that is why we don't import the module
     package = inputs'.hyprland.packages.hyprland;
-
-    xwayland.enable = true;
-
-    # load the enviorment variables via systemd
-    systemd = {
-      enable = true;
-      variables = ["--all"];
-      extraCommands = [
-        "systemctl --user stop graphical-session.target"
-        "systemctl --user start hyprland-session.target"
-      ];
-    };
-
-    extraConfig = ''
-      source = ~/.config/hypr/hypr.conf
-    '';
-
     plugins = [inputs'.hyprspace.packages.Hyprspace];
   };
 
+  theme.hyprland = true;
   theme.waybar = true;
-
-  home.packages = with pkgs; [
-    waybar
-    swww
-
-    wl-clipboard
-    libnotify
-    wlogout
-
-    inputs'.pyprland.packages.pyprland
-
-    inputs'.hyprland-contrib.packages.hyprprop
-    hyprpicker
-
-    grim
-    slurp
-    inputs'.moonblast.packages.moonblast
-
-    hyprpicker
-    imagemagick
-
-    libinput-gestures
-
-    playerctl
-  ];
 
   # i tried here but idk whats happening :p ~ izzy
   xdg.configFile = {
-    "hypr/themes/nix.conf" = let
-      colors = config.palette;
-    in {
-      enable = true;
-      text = ''
-        $color:accent  = ${colors.color2}
-        $color:muted   = ${colors.color8}
-        $color:text    = ${colors.color7}
-        $color:base    = ${colors.color0}
-        $color:surface = ${colors.color8}
-      '';
-    };
-
     "hypr/libinput-gestures.conf" = {
       enable = false;
       text = ''

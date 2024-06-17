@@ -1,7 +1,6 @@
 {
   imports = [
     ./sound.nix
-    ./hyprland.nix
     ./dunst
     ./battery.nix
   ];
