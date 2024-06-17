@@ -12,6 +12,19 @@
   };
 
   theme.hyprland = true;
+
+  apps.waybar = {
+    enable = true;
+    settings = {
+      modules = {
+        left = [["clock"] ["hyprland/window"]];
+        center = [["hyprland/workspaces"]];
+        right = [["custom/player"] ["pulseaudio" "pulseaudio#microphone" "bluetooth"] ["network"] ["backlight"] ["battery"] ["custom/wallchange" "custom/wbar" "custom/cliphist"] ["tray" "custom/power"]];
+      };
+    };
+    modules = {
+    };
+  };
   theme.waybar = true;
 
   # i tried here but idk whats happening :p ~ izzy
