@@ -17,7 +17,7 @@
         autoStash = true;
       };
 
-      commit.gpgSign = true;
+      commit.gpgsign = true;
       gpg.format = "ssh";
       user.signingkey = "~/.ssh/id_rsa.pub";
 
