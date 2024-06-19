@@ -11,7 +11,7 @@
     ./obsidian.nix
     ./yazi.nix
     ./discord.nix
-    ./izrss.nix
+    ./izzy
   ];
 
   home.packages = with pkgs; [

@@ -1,0 +1,108 @@
+{
+  "document": {
+    "block_prefix": "\n",
+    "block_suffix": "\n",
+    "margin": 2,
+    "indent": 2
+  },
+  "block_quote": {
+    "indent": 1,
+    "indent_token": "| "
+  },
+  "paragraph": {},
+  "list": {
+    "level_indent": 4
+  },
+  "heading": {
+    "block_suffix": "\n"
+  },
+  "h1": {
+    "prefix": "# ",
+    "color": "5"
+  },
+  "h2": {
+    "prefix": "## ",
+    "color": "2"
+  },
+  "h3": {
+    "prefix": "### ",
+    "color": "1"
+  },
+  "h4": {
+    "prefix": "#### ",
+    "color": "5"
+  },
+  "h5": {
+    "prefix": "##### ",
+    "color": "2"
+  },
+  "h6": {
+    "prefix": "###### ",
+    "color": "1"
+  },
+  "text": {},
+  "strikethrough": {
+    "block_prefix": "~~",
+    "block_suffix": "~~"
+  },
+  "emph": {
+    "block_prefix": "*",
+    "block_suffix": "*",
+    "color": "11"
+  },
+  "strong": {
+    "block_prefix": "**",
+    "block_suffix": "**",
+    "color": "11"
+  },
+  "hr": {
+    "format": "\n\t------\n",
+    "color": "15"
+  },
+  "item": {
+    "block_prefix": "• ",
+    "color": "15"
+  },
+  "enumeration": {
+    "block_prefix": ". ",
+    "color": "15"
+  },
+  "task": {
+    "ticked": "(x) ",
+    "unticked": "( ) ",
+    "color": "15"
+  },
+  "link": {
+    "color": "15"
+  },
+  "link_text": {
+    "color": "5"
+  },
+  "image": {},
+  "image_text": {
+    "format": "Image: {{.text}} →",
+    "color": "15"
+  },
+  "code": {
+    "block_prefix": "`",
+    "block_suffix": "`",
+    "color": "15"
+  },
+  "code_block": {
+    "color": "15",
+    "margin": 2
+  },
+  "table": {
+    "center_separator": "┼",
+    "column_separator": "│",
+    "row_separator": "─",
+    "color": "15"
+  },
+  "definition_list": {},
+  "definition_term": {},
+  "definition_description": {
+    "block_prefix": "\n* "
+  },
+  "html_block": {},
+  "html_span": {}
+}
