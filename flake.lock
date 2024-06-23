@@ -135,6 +135,21 @@
         "type": "github"
       }
     },
+    "evergarden": {
+      "locked": {
+        "lastModified": 1719163943,
+        "narHash": "sha256-g1BK5w7v5XhUNGU8JNVk6I227hW0vNXNm0on9ja1iow=",
+        "ref": "refs/heads/mega",
+        "rev": "5e51b3b316c5d5cbef94d057857893032e2b0547",
+        "revCount": 116,
+        "type": "git",
+        "url": "file:///home/comfy/dev/evergarden"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/comfy/dev/evergarden"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "flake-utils": [
@@ -1064,6 +1079,7 @@
     },
     "root": {
       "inputs": {
+        "evergarden": "evergarden",
         "firefox-addons": "firefox-addons",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",

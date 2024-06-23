@@ -1,4 +1,6 @@
-{self, ...}: {
+{self, inputs, ...}: {
+  palette = inputs.evergarden.palette;
+
   nixpkgs = {
     overlays = [
       self.outputs.overlays.additions

@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
@@ -50,7 +51,7 @@ in {
         desktop = 1.0;
         popups = 1.0;
       };
-      base16Scheme = (import ../../home/theme/themes/evergarden.nix).palette;
+      base16Scheme = inputs.evergarden.stylix;
     };
   };
 }

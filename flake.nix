@@ -60,6 +60,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    evergarden.url = "git+file:///home/comfy/dev/evergarden";
 
     stylix = {
       url = "github:danth/stylix";
