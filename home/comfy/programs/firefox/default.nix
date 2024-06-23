@@ -114,6 +114,9 @@
         stylus
         darkreader
         ublock-origin
+
+        firefox-color
+        sidebery
       ];
     };
   };

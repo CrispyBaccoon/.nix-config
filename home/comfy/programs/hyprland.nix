@@ -8,7 +8,7 @@
   apps.hyprland = {
     enable = true;
     package = inputs'.hyprland.packages.hyprland;
-    plugins = [inputs'.hyprspace.packages.Hyprspace];
+    # plugins = [inputs'.hyprspace.packages.Hyprspace];
   };
 
   theme.hyprland = true;

@@ -1,6 +1,9 @@
-{config, ...}: {
-  home.file.".mozilla/firefox/${config.home.username}/chrome/custom".source = ./custom;
+{config, ...}:
+let
+  theme = "shyfox";
+in{
+  home.file.".mozilla/firefox/${config.home.username}/chrome/${theme}".source = ./${theme};
   programs.firefox.profiles.${config.home.username}.userChrome = ''
-    @import "custom/userChrome.css";
+    @import "${theme}/userChrome.css";
   '';
 }
