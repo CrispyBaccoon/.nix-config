@@ -86,20 +86,20 @@ in {
       text = ''
         @define-color bar-bg rgba(0, 0, 0, 0);
 
-        @define-color main-color #${palette.subtext};
-        @define-color main-bg #${palette.background};
+        @define-color main-color #${palette.overlay2};
+        @define-color main-bg #${palette.base};
 
-        @define-color tool-bg #${palette.background};
-        @define-color tool-color #${palette.subtext};
-        @define-color tool-border #${palette.surface};
+        @define-color tool-bg #${palette.base};
+        @define-color tool-color #${palette.overlay2};
+        @define-color tool-border #${palette.surface0};
 
         @define-color wb-color #${palette.green};
 
         @define-color wb-act-bg #${palette.green};
-        @define-color wb-act-color #${palette.surface};
+        @define-color wb-act-color #${palette.surface0};
 
         @define-color wb-hvr-bg #${palette.green};
-        @define-color wb-hvr-color #${palette.surface};
+        @define-color wb-hvr-color #${palette.surface0};
       '';
     };
   };

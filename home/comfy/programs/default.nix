@@ -6,7 +6,6 @@
     ./zsh.nix
     ./rofi.nix
     ./spotify
-    ./vtcol.nix
     ./firefox
     ./obsidian.nix
     ./yazi.nix

@@ -47,7 +47,7 @@
         name = "select-region";
         runtimeInputs = with pkgs; [slurp];
         text = ''
-          out=$(slurp -b "#ffffff44" -c "#${config.palette.surface}" -s "#00000000")
+          out=$(slurp -b "#ffffff44" -c "#${config.palette.surface0}" -s "#00000000")
           while pgrep -x slurp >/dev/null; do sleep 0.1; done
           sleep 0.1; echo "$out"
         '';

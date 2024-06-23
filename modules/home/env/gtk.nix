@@ -7,7 +7,6 @@
   inherit (lib) types mkIf;
   inherit (lib.custom) mkOpt' mkEnableOpt use;
   cfg = config.home.gtk;
-  inherit (config) palette;
 in {
   options.home.gtk = with types; {
     enable = mkEnableOpt "gtk theme";

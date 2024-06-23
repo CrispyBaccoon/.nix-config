@@ -76,11 +76,11 @@ in {
     in {
       enable = theme;
       text = ''
-        $color:accent  = ${palette.color2}
-        $color:muted   = ${palette.color8}
-        $color:text    = ${palette.color7}
-        $color:base    = ${palette.color0}
-        $color:surface = ${palette.color8}
+        $color:accent  = ${palette.green}
+        $color:muted   = ${palette.overlay2}
+        $color:text    = ${palette.text}
+        $color:base    = ${palette.base}
+        $color:surface = ${palette.overlay2}
       '';
     };
   };

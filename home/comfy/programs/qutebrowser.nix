@@ -17,56 +17,56 @@ in {
         fonts.default_family = "JetBrainsMono Nerd Font";
         fonts.contextmenu = "FiraCode Nerd Font";
         colors = {
-          statusbar.normal.bg = "#${palette.background}";
-          statusbar.normal.fg = "#${palette.foreground}";
-          statusbar.insert.bg = "#${palette.color4}";
-          statusbar.insert.fg = "#${palette.background}";
-          statusbar.command.bg = "#${palette.background}";
-          statusbar.command.fg = "#${palette.foreground}";
-          statusbar.caret.bg = "#${palette.color5}";
-          statusbar.caret.fg = "#${palette.background}";
-          statusbar.url.fg = "#${palette.foreground}";
-          statusbar.url.hover.fg = "#${palette.color3}";
+          statusbar.normal.bg = "#${palette.base}";
+          statusbar.normal.fg = "#${palette.text}";
+          statusbar.insert.bg = "#${palette.blue}";
+          statusbar.insert.fg = "#${palette.base}";
+          statusbar.command.bg = "#${palette.base}";
+          statusbar.command.fg = "#${palette.text}";
+          statusbar.caret.bg = "#${palette.green}";
+          statusbar.caret.fg = "#${palette.base}";
+          statusbar.url.fg = "#${palette.text}";
+          statusbar.url.hover.fg = "#${palette.purple}";
 
           # Tab bar
-          tabs.bar.bg = "#${palette.background}";
+          tabs.bar.bg = "#${palette.base}";
 
           # Tabs
-          tabs.even.bg = "#${palette.background}";
-          tabs.even.fg = "#${palette.foreground}";
-          tabs.selected.even.bg = "#${palette.background}";
-          tabs.selected.even.fg = "#${palette.color5}";
-          tabs.odd.bg = "#${palette.background}";
-          tabs.odd.fg = "#${palette.foreground}";
-          tabs.selected.odd.bg = "#${palette.background}";
-          tabs.selected.odd.fg = "#${palette.color5}";
+          tabs.even.bg = "#${palette.base}";
+          tabs.even.fg = "#${palette.text}";
+          tabs.selected.even.bg = "#${palette.base}";
+          tabs.selected.even.fg = "#${palette.green}";
+          tabs.odd.bg = "#${palette.base}";
+          tabs.odd.fg = "#${palette.text}";
+          tabs.selected.odd.bg = "#${palette.base}";
+          tabs.selected.odd.fg = "#${palette.green}";
 
           # pinned Tabs
-          tabs.pinned.even.bg = "#${palette.background}";
-          tabs.pinned.even.fg = "#${palette.foreground}";
-          tabs.pinned.selected.even.bg = "#${palette.background}";
-          tabs.pinned.selected.even.fg = "#${palette.color5}";
-          tabs.pinned.odd.bg = "#${palette.background}";
-          tabs.pinned.odd.fg = "#${palette.foreground}";
-          tabs.pinned.selected.odd.bg = "#${palette.background}";
-          tabs.pinned.selected.odd.fg = "#${palette.color5}";
+          tabs.pinned.even.bg = "#${palette.base}";
+          tabs.pinned.even.fg = "#${palette.text}";
+          tabs.pinned.selected.even.bg = "#${palette.base}";
+          tabs.pinned.selected.even.fg = "#${palette.green}";
+          tabs.pinned.odd.bg = "#${palette.base}";
+          tabs.pinned.odd.fg = "#${palette.text}";
+          tabs.pinned.selected.odd.bg = "#${palette.base}";
+          tabs.pinned.selected.odd.fg = "#${palette.green}";
 
-          contextmenu.menu.bg = "#${palette.background}";
-          contextmenu.menu.fg = "#${palette.foreground}";
-          contextmenu.selected.bg = "#${palette.foreground}";
-          contextmenu.selected.fg = "#${palette.background}";
+          contextmenu.menu.bg = "#${palette.base}";
+          contextmenu.menu.fg = "#${palette.text}";
+          contextmenu.selected.bg = "#${palette.text}";
+          contextmenu.selected.fg = "#${palette.base}";
 
-          completion.fg = "#${palette.foreground}";
-          completion.even.bg = "#${palette.background}";
-          completion.odd.bg = "#${palette.background}";
-          completion.category.bg = "#${palette.color2}";
-          completion.category.fg = "#${palette.background}";
-          completion.category.border.top = "#${palette.color2}";
-          completion.category.border.bottom = "#${palette.color2}";
-          completion.item.selected.bg = "#${palette.color6}";
-          completion.item.selected.fg = "#${palette.background}";
-          completion.item.selected.border.top = "#${palette.color6}";
-          completion.item.selected.border.bottom = "#${palette.color6}";
+          completion.fg = "#${palette.text}";
+          completion.even.bg = "#${palette.base}";
+          completion.odd.bg = "#${palette.base}";
+          completion.category.bg = "#${palette.green}";
+          completion.category.fg = "#${palette.base}";
+          completion.category.border.top = "#${palette.green}";
+          completion.category.border.bottom = "#${palette.green}";
+          completion.item.selected.bg = "#${palette.green}";
+          completion.item.selected.fg = "#${palette.base}";
+          completion.item.selected.border.top = "#${palette.green}";
+          completion.item.selected.border.bottom = "#${palette.green}";
         };
       };
     };

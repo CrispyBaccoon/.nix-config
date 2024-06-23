@@ -139,24 +139,24 @@ in {
           if enableTheme
           then ''
             [global]
-            background = "#${palette.color0}"
-            foreground = "#${palette.color7}"
-            frame_color = "#${palette.color2}"
+            background = "#${palette.base}"
+            foreground = "#${palette.text}"
+            frame_color = "#${palette.green}"
 
             [urgency_low]
-            background = "#${palette.color0}"
-            foreground = "#${palette.subtext}"
-            frame_color = "#${palette.subtext}"
+            background = "#${palette.base}"
+            foreground = "#${palette.overlay2}"
+            frame_color = "#${palette.overlay2}"
 
             [urgency_normal]
-            background = "#${palette.color0}"
-            foreground = "#${palette.color7}"
-            frame_color = "#${palette.color6}"
+            background = "#${palette.base}"
+            foreground = "#${palette.text}"
+            frame_color = "#${palette.aqua}"
 
             [urgency_critical]
-            background = "#${palette.color0}"
-            foreground = "#${palette.color7}"
-            frame_color = "#${palette.color1}"
+            background = "#${palette.base}"
+            foreground = "#${palette.text}"
+            frame_color = "#${palette.red}"
           ''
           else ""
         )

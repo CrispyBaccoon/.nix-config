@@ -6,13 +6,13 @@
   home.packages = [pkgs.mako];
 
   services.mako = let
-    colors = config.palette;
+    inherit (config) palette;
   in {
     enable = false;
 
-    backgroundColor = "#${colors.base}";
-    textColor = "#${colors.foreground}";
-    borderColor = "#${colors.subtext}";
+    backgroundColor = "#${palette.base}";
+    textColor = "#${palette.text}";
+    borderColor = "#${palette.overlay2}";
     padding = "15";
     defaultTimeout = 7000;
     borderSize = 3;
@@ -22,7 +22,7 @@
 
     extraConfig = ''
       [urgency=high]
-      border-color=#${colors.red}
+      border-color=#${palette.red}
     '';
   };
 }

@@ -94,11 +94,11 @@
         @define-color red_3 ${palette.red};
         @define-color red_4 ${palette.red};
         @define-color red_5 ${palette.red};
-        @define-color purple_1 ${palette.lavender};
-        @define-color purple_2 ${palette.lavender};
-        @define-color purple_3 ${palette.lavender};
-        @define-color purple_4 ${palette.lavender};
-        @define-color purple_5 ${palette.lavender};
+        @define-color purple_1 ${palette.purple};
+        @define-color purple_2 ${palette.purple};
+        @define-color purple_3 ${palette.purple};
+        @define-color purple_4 ${palette.purple};
+        @define-color purple_5 ${palette.purple};
         @define-color brown_1 ${palette.blue};
         @define-color brown_2 ${palette.blue};
         @define-color brown_3 ${palette.blue};
@@ -108,7 +108,7 @@
         @define-color light_2 #f4f4f4;
         @define-color light_3 #dedede;
         @define-color light_4 #cbcbcb;
-        @define-color light_5 ${palette.subtext};
+        @define-color light_5 ${palette.overlay2};
         @define-color dark_1 mix(${palette.base},white,0.5);
         @define-color dark_2 mix(${palette.base},white,0.2);
         @define-color dark_3 ${palette.base};

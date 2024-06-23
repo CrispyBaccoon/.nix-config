@@ -15,7 +15,7 @@ in {
       colors = {
         text = "#${palette.text}";
         inverttext = "#${palette.base}";
-        subtext = "#${palette.subtext}";
+        subtext = "#${palette.overlay2}";
         accent = "#${palette.green}";
         borders = "#${palette.surface1}";
       };
