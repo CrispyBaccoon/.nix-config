@@ -1,8 +1,9 @@
-{pkgs, ...}: {
+{pkgs, inputs', ...}: {
   home.packages = with pkgs; [
     pkgs.stable.python3
 
     wezterm
+    inputs'.ghostty.packages.default
 
     tmux
     lazygit
