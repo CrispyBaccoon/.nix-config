@@ -834,11 +834,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1716974158,
-        "narHash": "sha256-tNjtsGMeN+iaeOu3U5E4KnEvBGyMksbiGyDFKSJBDzo=",
+        "lastModified": 1719172650,
+        "narHash": "sha256-YNv0FFcTryPvWLagV3I/mx2VszfSRguzhhOSbv1M19I=",
         "ref": "refs/heads/mega",
-        "rev": "674fa4dd9c81852dc601bc8b01df8da567e8548d",
-        "revCount": 17,
+        "rev": "da195eda29f6a35eb03eb783e5cfeed3b922a02f",
+        "revCount": 18,
         "type": "git",
         "url": "file:///home/comfy/dev/moonblast"
       },
