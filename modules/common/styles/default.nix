@@ -29,6 +29,7 @@ in {
 
   config = mkIf cfg.enable {
     stylix = {
+      enable = true;
       autoEnable = true;
       image = config.lib.stylix.pixel "base0A";
       cursor = {
