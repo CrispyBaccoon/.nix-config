@@ -1,6 +1,7 @@
 {
-  inputs,
   self,
+  inputs,
+  inputs',
   lib,
   config,
   pkgs,
@@ -50,14 +51,17 @@
         "https://nix-community.cachix.org"
         "https://hyprland.cachix.org"
         "https://isabelroses.cachix.org" # cache for izrss + zzz, and some misc
+        "https://cache.lix.systems" # lix
       ];
       trusted-public-keys = [
         "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "isabelroses.cachix.org-1:mXdV/CMcPDaiTmkQ7/4+MzChpOe6Cb97njKmBQQmLPM="
+        "cache.lix.systems:aBnZUw8zA7H35Cz2RyKFVs3H4PlGTLawyY5KRbvJR8o="
       ];
     };
   };
+  system.nix.package = inputs'.lix.packages.default;
 
   networking.networkmanager.enable = true;
 
