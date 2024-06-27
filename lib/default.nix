@@ -5,11 +5,12 @@
   builders = import ./builders.nix {inherit lib inputs;};
   services = import ./services.nix {inherit lib;};
   opt = import ./opt.nix {inherit lib;};
+  cfg = import ./cfg.nix {inherit lib;};
 in
   # nixpkgs.lib.extend (_: _: builders // services // validators // helpers)
   # lib.extend (self: super: super // { custom = super; })
   # lib.extend (_: _: services // opt)
   lib.extend (_: super:
-    {custom = flake // builders // services // opt;}
+    {custom = flake // builders // services // opt // cfg;}
     // inputs.home-manager.lib
     // super)
