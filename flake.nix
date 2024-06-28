@@ -97,6 +97,10 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprflare = {
+      url = "git+file:///home/comfy/dev/hyprflare";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     moonblast = {
       url = "git+file:///home/comfy/dev/moonblast";
     };

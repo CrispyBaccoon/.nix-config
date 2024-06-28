@@ -59,6 +59,15 @@ in {
       inputs'.hyprland-contrib.packages.hyprprop
       hyprpicker
 
+      inputs'.hyprflare.packages.batterynotify
+      inputs'.hyprflare.packages.colorpicker
+      inputs'.hyprflare.packages.playercontrol
+      inputs'.hyprflare.packages.quickhist
+      inputs'.hyprflare.packages.tmux-select
+      inputs'.hyprflare.packages.volumecontrol
+      inputs'.hyprflare.packages.wallselect
+      inputs'.hyprflare.packages.wincreate
+
       grim
       slurp
       inputs'.moonblast.packages.moonblast

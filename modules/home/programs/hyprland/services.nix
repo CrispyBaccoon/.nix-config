@@ -1,4 +1,5 @@
 {
+  inputs',
   lib,
   pkgs,
   config,
@@ -41,7 +42,7 @@ in {
       batterynotify = lib.custom.mkGraphicalService {
         Unit.Description = "battery notifications";
         Service = {
-          ExecStart = "${pkgs.bash}/bin/bash -c '${config.xdg.configHome}/hypr/scripts/batterynotify.sh'";
+          ExecStart = "${inputs'.hyprflare.packages.batterynotify}/bin/batterynotify";
           Restart = "always";
         };
       };
