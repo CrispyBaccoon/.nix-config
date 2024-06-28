@@ -6,11 +6,12 @@
   services = import ./services.nix {inherit lib;};
   opt = import ./opt.nix {inherit lib;};
   cfg = import ./cfg.nix {inherit lib;};
+  theme = import ./theme.nix {inherit lib;};
 in
   # nixpkgs.lib.extend (_: _: builders // services // validators // helpers)
   # lib.extend (self: super: super // { custom = super; })
   # lib.extend (_: _: services // opt)
   lib.extend (_: super:
-    {custom = flake // builders // services // opt // cfg;}
+    {custom = flake // builders // services // opt // cfg // theme;}
     // inputs.home-manager.lib
     // super)
