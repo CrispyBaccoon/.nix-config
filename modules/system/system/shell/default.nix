@@ -26,6 +26,7 @@ in {
         bat
         fzf
         ripgrep
+        fd
       ];
 
       shells = [pkgs.${cfg.shell}];
