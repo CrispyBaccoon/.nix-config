@@ -1,17 +1,12 @@
-{pkgs, ...}: {
-  imports = [
-    ./hyprland.nix
-    ./kitty.nix
-    ./nvim.nix
-    ./zsh.nix
-    ./rofi.nix
-    ./spotify
-    ./firefox
-    ./obsidian.nix
-    ./yazi.nix
-    ./discord.nix
-    ./izzy
-  ];
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = lib.custom.umport {
+    path = ./.;
+    exclude = [./qutebrowser.nix];
+  };
 
   home.packages = with pkgs; [
     handlr

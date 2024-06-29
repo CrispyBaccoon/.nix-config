@@ -1,5 +1,5 @@
-{...}: {
-  imports = [
-    ./env.nix
-  ];
+{lib,...}: {
+  imports = lib.custom.umport {
+    path = ./.;
+  };
 }

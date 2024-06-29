@@ -1,8 +1,11 @@
-{pkgs, ...}: {
-  imports = [
-    ./izrss.nix
-    ./zzz.nix
-  ];
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = lib.custom.umport {
+    path = ./.;
+  };
 
   home.sessionVariables = {
     GLAMOUR_STYLE = ./style.json;

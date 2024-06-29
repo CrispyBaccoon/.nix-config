@@ -1,17 +1,6 @@
-{
-  imports = [
-    ./audio
-    ./battery
-    ./boot
-    # ./env
-    ./fonts
-    ./locale
-    ./nix
-    ./shell
-    ./terminal
-    ./time
-    ./user
-    ./graphics
-    ./machine
-  ];
+{lib, ...}: {
+  imports = lib.custom.umport {
+    path = ./.;
+    exclude = [./env];
+  };
 }

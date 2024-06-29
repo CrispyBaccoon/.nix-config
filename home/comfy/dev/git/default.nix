@@ -3,11 +3,9 @@
   config,
   ...
 }: {
-  imports = [
-    ./settings.nix
-    ./aliases.nix
-    ./gh.nix
-  ];
+  imports = lib.custom.umport {
+    path = ./.;
+  };
 
   programs.git = lib.custom.use {
     includes = [

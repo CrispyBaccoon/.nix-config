@@ -3,10 +3,9 @@
   lib,
   ...
 }: {
-  imports = [
-    ./gtk.nix
-    ./qt.nix
-  ];
+  imports = lib.custom.umport {
+    path = ./.;
+  };
 
   styles = lib.custom.use {
     fonts = {

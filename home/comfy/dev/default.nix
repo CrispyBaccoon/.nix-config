@@ -1,12 +1,5 @@
-{
-  imports = [
-    ./git
-    ./shell
-    ./bat.nix
-    ./web.nix
-    ./odin.nix
-    ./packages.nix
-    ./game.nix
-    ./rust.nix
-  ];
+{lib, ...}: {
+  imports = lib.custom.umport {
+    path = ./.;
+  };
 }

@@ -1,6 +1,5 @@
-{
-  imports = [
-    ./efi
-    ./bios
-  ];
+{lib, ...}: {
+  imports = lib.custom.umport {
+    path = ./.;
+  };
 }
