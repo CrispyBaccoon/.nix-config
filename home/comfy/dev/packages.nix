@@ -6,7 +6,6 @@
     inputs'.ghostty.packages.default
 
     tmux
-    lazygit
 
     glow
     pkgs.stable.tokei
