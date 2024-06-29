@@ -3,7 +3,6 @@
     inputs.izrss.homeManagerModules.default
   ];
 
-  theme.izrss = true;
   programs.izrss = {
     enable = true;
     settings = {

@@ -1,9 +1,8 @@
 _: {
   imports = [
-    ../common
+    ../styles
+    ../styles/home.nix
     ./env
-    ./theme
-    ./theme/programs
     ./programs
   ];
 }

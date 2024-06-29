@@ -65,15 +65,6 @@
 
     evergarden.url = "git+file:///home/comfy/dev/evergarden";
 
-    stylix = {
-      url = "github:danth/stylix";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-        flake-compat.follows = "flake-compat";
-      };
-    };
-
     # hyprland
     hyprland = {
       url = "https://github.com/hyprwm/Hyprland";

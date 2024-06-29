@@ -1,6 +1,7 @@
 _: {
   imports = [
-    ../common
+    ../styles
+    ../styles/system
     ./system
     ./steam
   ];

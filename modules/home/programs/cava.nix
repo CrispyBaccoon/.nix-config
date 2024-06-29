@@ -7,7 +7,7 @@
   inherit (lib) types mkIf;
   inherit (lib.custom) use mkOpt' mkBoolOpt;
   cfg = config.apps.cava;
-  enableTheme = config.theme.cava;
+  enableTheme = config.styles.targets.cava.enable;
   inherit (config) palette;
 in {
   options.apps.cava = with types; {
@@ -19,6 +19,7 @@ in {
       sensitivity = mkOpt' int 80;
     };
   };
+  options.styles.targets.cava.enable = mkBoolOpt cfg.enable "cava theme";
 
   config = mkIf cfg.enable {
     home.packages = [pkgs.cava];

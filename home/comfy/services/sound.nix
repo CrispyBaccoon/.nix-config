@@ -13,7 +13,6 @@
       ; source = hw:Loopback,1
     '';
   };
-  theme.cava = true;
   services.mpd = {
     enable = true;
     musicDirectory = config.xdg.userDirs.music;

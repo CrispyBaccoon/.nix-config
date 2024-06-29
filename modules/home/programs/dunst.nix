@@ -7,7 +7,7 @@
   inherit (lib) types mkIf;
   inherit (lib.custom) mkOpt' mkBoolOpt use;
   cfg = config.apps.dunst;
-  enableTheme = config.theme.dunst;
+  enableTheme = config.styles.targets.dunst.enable;
   inherit (config) palette;
 in {
   options.apps.dunst = with types; {
@@ -56,6 +56,7 @@ in {
       };
     };
   };
+  options.styles.targets.dunst.enable = mkBoolOpt cfg.enable "dunst theme";
 
   config = mkIf cfg.enable {
     home.packages = [cfg.package];

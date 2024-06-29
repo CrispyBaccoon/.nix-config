@@ -4,13 +4,13 @@
   ...
 }: let
   inherit (lib) mkIf;
-  inherit (lib.custom) mkEnableOpt;
+  inherit (lib.custom) mkBoolOpt;
   palette = config.palette;
-  cfg = {enable = config.theme.izrss;};
+  cfg = config.styles.targets.izrss;
 in {
-  options.theme.izrss = mkEnableOpt "izrss theme";
+  options.styles.targets.izrss.enable = mkBoolOpt config.programs.izrss.enable "izrss theme";
 
-  config = mkIf cfg.enable {
+  config = mkIf (config.styles.enable && cfg.enable) {
     programs.izrss.settings = {
       colors = {
         text = "#${palette.text}";

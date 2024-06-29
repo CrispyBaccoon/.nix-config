@@ -3,5 +3,4 @@
     settings = {};
     # extraConfig = builtins.readFile ./dunst.cfg;
   };
-  theme.dunst = true;
 }

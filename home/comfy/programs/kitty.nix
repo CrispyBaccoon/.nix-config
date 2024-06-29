@@ -1,6 +1,4 @@
 {lib, ...}: {
-  # theme.kitty = true;
-
   apps.kitty = lib.custom.use {
     settings = {
       font = {
