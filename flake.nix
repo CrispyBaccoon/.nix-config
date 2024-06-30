@@ -94,9 +94,11 @@
     };
     moonblast = {
       url = "git+file:///home/comfy/dev/moonblast";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     haikei = {
       url = "git+file:///home/comfy/dev/haikei";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
