@@ -1,8 +1,8 @@
 {inputs', ...}: let
-  playercontrol = inputs'.hyprflare.packages.playercontrol;
-  quickhist = inputs'.hyprflare.packages.quickhist;
-  volumecontrol = inputs'.hyprflare.packages.volumecontrol;
-  wallselect = inputs'.hyprflare.packages.wallselect;
+  playercontrol = "${inputs'.hyprflare.packages.playercontrol}/bin/playercontrol";
+  quickhist = "${inputs'.hyprflare.packages.quickhist}/bin/quickhist";
+  volumecontrol = "${inputs'.hyprflare.packages.volumecontrol}/bin/volumecontrol";
+  wallselect = "${inputs'.hyprflare.packages.wallselect}/bin/wallselect";
 in {
   "clock" = {
     "format" = " {:%I:%M %p 󰃭 %a %d}";
