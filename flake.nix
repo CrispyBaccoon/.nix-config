@@ -95,6 +95,9 @@
     moonblast = {
       url = "git+file:///home/comfy/dev/moonblast";
     };
+    haikei = {
+      url = "git+file:///home/comfy/dev/haikei";
+    };
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";

@@ -49,6 +49,7 @@ in {
     };
     home.packages = with pkgs; [
       swww
+      inputs'.haikei.packages.default
 
       wl-clipboard
       libnotify
