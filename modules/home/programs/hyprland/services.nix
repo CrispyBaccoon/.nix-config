@@ -25,14 +25,14 @@ in {
         Unit.Description = "Wallpaper Daemon";
         Service = {
           ExecStart = "${pkgs.swww}/bin/swww-daemon";
-          Restart = "on-failure";
+          Restart = "always";
         };
       };
 
       wallctl = lib.custom.mkGraphicalService {
         Unit.Description = "wallpaper selection";
         Service = {
-          ExecStart = "${config.home.homeDirectory}/.saku/root/bin/haikei";
+          ExecStart = "${config.home.homeDirectory}/.saku/root/bin/haikei set";
           Restart = "never";
           RemainAfterExit = true;
           Type = "oneshot";
