@@ -1,4 +1,5 @@
 {
+  inputs',
   pkgs,
   config,
   lib,
@@ -73,7 +74,7 @@ in {
           modules-center = modules.center;
           modules-right = modules.right;
         }
-        // ((import ./modules.nix {}) // cfg.modules);
+        // ((import ./modules.nix {inherit inputs';}) // cfg.modules);
     in {
       enable = true;
       source = settingsFormat.generate "waybar-config.json" ctl;

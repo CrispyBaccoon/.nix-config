@@ -1,4 +1,9 @@
-_: {
+{inputs', ...}: let
+  playercontrol = inputs'.hyprflare.packages.playercontrol;
+  quickhist = inputs'.hyprflare.packages.quickhist;
+  volumecontrol = inputs'.hyprflare.packages.volumecontrol;
+  wallselect = inputs'.hyprflare.packages.wallselect;
+in {
   "clock" = {
     "format" = " {:%I:%M %p 󰃭 %a %d}";
     "format-alt" = "󰥔 {:%H:%M  %b %Y}";
@@ -34,27 +39,28 @@ _: {
     };
     "format" = "{icon}";
     "format-icons" = {
-      "1" = "";
+      "1" = "";
       "2" = "";
       "3" = "";
       "4" = "";
       "5" = "";
-      "6" = "";
-      "7" = "";
-      "8" = "";
-      "9" = "";
+      "6" = "";
+      "7" = "";
+      "8" = "";
+      "9" = "";
+      "10" = "";
       "default" = "";
     };
   };
 
   "custom/player" = {
     "format" = "{}";
-    "exec" = "~/.config/hypr/scripts/playercontrol.sh update ; echo  current media";
-    "on-click" = "sleep 0.1 && ~/.config/hypr/scripts/playercontrol.sh toggle";
-    "on-click-right" = "sleep 0.1 && ~/.config/hypr/scripts/playercontrol.sh select";
-    "on-click-middle" = "sleep 0.1 && ~/.config/hypr/scripts/playercontrol.sh focus";
-    "on-scroll-up" = "~/.config/hypr/scripts/playercontrol.sh volume i";
-    "on-scroll-down" = "~/.config/hypr/scripts/playercontrol.sh volume d";
+    "exec" = "${playercontrol} update ; echo  current media";
+    "on-click" = "sleep 0.1 && ${playercontrol} toggle";
+    "on-click-right" = "sleep 0.1 && ${playercontrol} select";
+    "on-click-middle" = "sleep 0.1 && ${playercontrol} focus";
+    "on-scroll-up" = "${playercontrol} volume i";
+    "on-scroll-down" = "${playercontrol} volume d";
     "restart-interval" = 8;
     "tooltip" = true;
     "escape" = true;
@@ -64,9 +70,9 @@ _: {
     "format" = "{icon} {volume}";
     "format-muted" = "婢";
     "on-click" = "pavucontrol -t 3";
-    "on-click-middle" = "~/.config/hypr/scripts/volumecontrol.sh -o m";
-    "on-scroll-up" = "~/.config/hypr/scripts/volumecontrol.sh -o i";
-    "on-scroll-down" = "~/.config/hypr/scripts/volumecontrol.sh -o d";
+    "on-click-middle" = "${volumecontrol} -o m";
+    "on-scroll-up" = "${volumecontrol} -o i";
+    "on-scroll-down" = "${volumecontrol} -o d";
     "tooltip-format" = "{icon} {desc} // {volume}%";
     "scroll-step" = 5;
     "format-icons" = {
@@ -85,9 +91,9 @@ _: {
     "format-source" = "";
     "format-source-muted" = "";
     "on-click" = "pavucontrol -t 4";
-    "on-click-middle" = "~/.config/hypr/scripts/volumecontrol.sh -i m";
-    "on-scroll-up" = "~/.config/hypr/scripts/volumecontrol.sh -i i";
-    "on-scroll-down" = "~/.config/hypr/scripts/volumecontrol.sh -i d";
+    "on-click-middle" = "${volumecontrol} -i m";
+    "on-scroll-up" = "${volumecontrol} -i i";
+    "on-scroll-down" = "${volumecontrol} -i d";
     "tooltip-format" = "{format_source} {source_desc} // {source_volume}%";
     "scroll-step" = 5;
   };
@@ -136,8 +142,8 @@ _: {
   "custom/wallchange" = {
     "format" = "{}";
     "exec" = "echo ; echo 󰆊 switch wallpaper";
-    "on-click" = "wallctl r";
-    "on-click-right" = "~/.config/hypr/scripts/wallselect";
+    "on-click" = "${inputs'.haikei.packages.default} r";
+    "on-click-right" = "${wallselect}";
     "on-click-middle" = "~/.config/rofi/wallpaper.sh";
     "interval" = 86400; # once every day
     "tooltip" = true;
@@ -148,7 +154,7 @@ _: {
     "exec" = "echo ; echo  switch menubar";
     "on-click" = "~/.config/waybar/wbarconfgen.sh n";
     "on-click-right" = "~/.config/waybar/wbarconfgen.sh p";
-    "on-click-middle" = "~/.config/waybar/wbarconfgen.sh";
+    "on-click-middle" = "pkill -SIGUSR2 waybar";
     "interval" = 86400;
     "tooltip" = true;
   };
@@ -156,9 +162,9 @@ _: {
   "custom/cliphist" = {
     "format" = "{}";
     "exec" = "echo ; echo 󰅇 clipboard history";
-    "on-click" = "sleep 0.1 && ~/.config/hypr/scripts/cliphist.sh c 2";
-    "on-click-right" = "sleep 0.1 && ~/.config/hypr/scripts/cliphist.sh d 2";
-    "on-click-middle" = "sleep 0.1 && ~/.config/hypr/scripts/cliphist.sh w 2";
+    "on-click" = "sleep 0.1 && ${quickhist} c 2";
+    "on-click-right" = "sleep 0.1 && ${quickhist} d 2";
+    "on-click-middle" = "sleep 0.1 && ${quickhist} w 2";
     "interval" = 86400; # once every day
     "tooltip" = true;
   };
