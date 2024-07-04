@@ -21,7 +21,7 @@ in {
     in [
       (builtins.toFile "kitty-theme-${config.theme.name}" (''
           foreground #${palette.text}
-          background #${palette.mantle}
+          background #${palette.base}
           cursor #${palette.text}
         ''
         + mapAttrsToCfg (n: v: ''${n} ${v}'') base16))
