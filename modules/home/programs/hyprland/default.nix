@@ -17,6 +17,7 @@ in {
     enable = mkBoolOpt false "enable hyprland";
     plugins = mkOpt (listOf package) [] "plugins to install";
     package = mkOpt' package inputs'.hyprland.packages.hyprland;
+    extraConfig = mkOpt' str "";
   };
   options.theme.hyprland = mkEnableOpt "hyprland theme";
 
@@ -43,7 +44,7 @@ in {
 
       extraConfig = ''
         source = ~/.config/hypr/hypr.conf
-      '';
+      '' + cfg.extraConfig;
 
       plugins = cfg.plugins;
     };
