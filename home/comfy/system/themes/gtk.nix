@@ -1,5 +1,5 @@
 {
-  config,
+  self',
   lib,
   pkgs,
   ...
@@ -12,7 +12,7 @@
     };
     iconTheme = {
       name = "gruvbox-plus";
-      package = pkgs.gruvbox-plus;
+      package = self'.packages.gruvbox-plus;
     };
   };
   # papirus-icon-theme as fallback
