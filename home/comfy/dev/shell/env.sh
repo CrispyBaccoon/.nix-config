@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+# setup ssh agent
+{
+  {
+    pgrep ssh-agent || eval $(ssh-agent)
+  } && ssh-add -q ~/.ssh/id_rsa
+} 2>&1 >/dev/null
+
+export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+[[ -f "$HOME/.config/user-dirs.dirs" ]] && . ~/.config/user-dirs.dirs
+
 # defaults
 # ========
 
