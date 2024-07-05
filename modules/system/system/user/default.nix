@@ -4,7 +4,7 @@
   ...
 }: let
   inherit (lib) types mkIf;
-  inherit (lib.custom) mkOpt mkBoolOpt;
+  inherit (lib.custom) mkOpt mkEnableOpt;
   cfg = config.user;
 in {
   options.user = with types; {
@@ -12,7 +12,10 @@ in {
     initialPassword = mkOpt str "" "initial password when the user is first created";
     extraGroups = mkOpt (listOf str) [] "groups assigned to the user";
     extraOptions = mkOpt attrs {} "extra options passed to <option>users.users.<name></option>.";
-    enableAutologin = mkBoolOpt false "enable autologin";
+    enableAutologin = mkEnableOpt ''autologin
+    Whether to enable passwordless login. This is generally useful on systems with
+    FDE (Full Disk Encryption) enabled. It is a security risk for systems without FDE.
+  '';
   };
 
   config = {
