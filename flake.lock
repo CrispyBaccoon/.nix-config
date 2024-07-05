@@ -23,11 +23,10 @@
     },
     "evergarden": {
       "locked": {
-        "lastModified": 1719163943,
-        "narHash": "sha256-g1BK5w7v5XhUNGU8JNVk6I227hW0vNXNm0on9ja1iow=",
-        "ref": "refs/heads/mega",
-        "rev": "5e51b3b316c5d5cbef94d057857893032e2b0547",
-        "revCount": 116,
+        "dirtyRev": "e8331fdbb2afe9533b30e116049cec84236a4c32-dirty",
+        "dirtyShortRev": "e8331fd-dirty",
+        "lastModified": 1719908106,
+        "narHash": "sha256-oD/KszM2RNwHX3JlkU0okKnxqzflPgBSJw3PpV+gM/c=",
         "type": "git",
         "url": "file:///home/comfy/dev/evergarden"
       },
