@@ -142,7 +142,7 @@ in {
   "custom/wallchange" = {
     "format" = "{}";
     "exec" = "echo ; echo 󰆊 switch wallpaper";
-    "on-click" = "${inputs'.haikei.packages.default} r";
+    "on-click" = "${inputs'.haikei.packages.haikei}/bin/haikei r";
     "on-click-right" = "${wallselect}";
     "on-click-middle" = "~/.config/rofi/wallpaper.sh";
     "interval" = 86400; # once every day

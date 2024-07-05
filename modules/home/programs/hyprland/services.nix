@@ -32,7 +32,7 @@ in {
       wallctl = lib.custom.mkGraphicalService {
         Unit.Description = "wallpaper selection";
         Service = {
-          ExecStart = "${config.home.homeDirectory}/.saku/root/bin/haikei set";
+          ExecStart = "${inputs'.haikei.packages.haikei}/bin/haikei set";
           Restart = "never";
           RemainAfterExit = true;
           Type = "oneshot";
