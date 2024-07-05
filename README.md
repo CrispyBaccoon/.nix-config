@@ -17,3 +17,18 @@
   - [home](modules/home/) :house: my [home-manager](https://github.com/nix-community/home-manager) config
 - [pkgs](pkgs/) packages exported by my flake
 
+## installation
+
+```bash
+./rebuild.sh home # to rebuild home-manager
+./rebuild.sh system # to rebuild system
+./rebuild.sh all # to rebuild both
+```
+
+> [!NOTE]
+> nixdots can also be installed manually using:
+>
+> ```bash
+> home-manager --flake .#comfy switch # for home-manager
+> sudo nixos-rebuild --flake .#cottage switch # for system
+> ```
