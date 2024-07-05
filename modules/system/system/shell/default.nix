@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  inherit (lib) types;
+  inherit (lib) types getExe;
   inherit (lib.custom) enabled mkOpt;
   cfg = config.system.shell;
 in {
@@ -18,7 +18,9 @@ in {
     ]) "zsh" "default shell";
   };
 
-  config = {
+  config = let
+    shellpackage = pkgs.${cfg.shell};
+  in {
     environment = {
       systemPackages = with pkgs; [
         eza
@@ -29,13 +31,17 @@ in {
         fd
       ];
 
-      shells = [pkgs.${cfg.shell}];
+      shells = [shellpackage];
 
       shellAliases = {};
+
+      sessionVariables = {
+        SHELL = getExe shellpackage;
+      };
     };
 
     users = {
-      defaultUserShell = pkgs.${cfg.shell};
+      defaultUserShell = shellpackage;
       users.root.shell = pkgs.bashInteractive;
     };
 
