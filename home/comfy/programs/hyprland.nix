@@ -4,12 +4,22 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  inherit (lib) getExe;
+in {
   apps.hyprland = {
     enable = true;
     package = inputs'.hyprland.packages.hyprland;
     # plugins = [inputs'.hyprspace.packages.Hyprspace];
   };
+  home.packages = [
+    (pkgs.writeShellScriptBin
+    ".Hypr-wrapper"
+    ''
+      . ${config.home.homeDirectory}/.zshenv
+      ${getExe inputs'.hyprland.packages.hyprland}
+    '')
+  ];
 
   theme.hyprland = true;
 
