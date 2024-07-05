@@ -96,7 +96,6 @@
   xdg.portal = {
     enable = true;
     extraPortals = [pkgs.xdg-desktop-portal];
-    config.common.default = "*";
   };
 
   nixpkgs = {
