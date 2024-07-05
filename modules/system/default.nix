@@ -4,5 +4,6 @@ _: {
     ../styles/system
     ./system
     ./steam
+    ./environment
   ];
 }
