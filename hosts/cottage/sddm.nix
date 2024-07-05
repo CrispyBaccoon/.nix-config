@@ -1,8 +1,7 @@
 {self', ...}: {
-  services.xserver.enable = true;
-  services.xserver.displayManager = {
-    sddm.enable = true;
-    sddm.theme = "sddm-sugar-dark";
+  environment.loginManager = "greetd";
+  services.displayManager = {
+    sddm.theme = "where_is_my_sddm_theme";
   };
-  environment.systemPackages = [self'.packages.sddm-sugar-dark];
+  environment.systemPackages = [self'.packages.where-is-my-sddm-theme];
 }

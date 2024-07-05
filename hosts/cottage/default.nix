@@ -18,7 +18,7 @@
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
-    # ./sddm.nix
+    ./sddm.nix
     ./ratbag.nix
     ./steam.nix
   ];
@@ -52,7 +52,7 @@
 
   user = {
     name = "comfy";
-    enableAutologin = true;
+    enableAutologin = false;
     initialPassword = "passwd";
     extraOptions = {
       packages = with pkgs; [vim];
