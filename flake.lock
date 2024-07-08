@@ -1141,23 +1141,23 @@
     },
     "spicetify-nix": {
       "inputs": {
-        "flake-utils": [
-          "flake-utils"
+        "flake-compat": [
+          "flake-compat"
         ],
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1704167711,
-        "narHash": "sha256-kFDq+kf/Di/P8bq5sUP8pVwRkrSVrABksBjMPmLic3s=",
-        "owner": "the-argus",
+        "lastModified": 1720411993,
+        "narHash": "sha256-s4PQp1qnGRuRg3JnWSgoF1Qg5xHVknMf+Uq4cy8bxrA=",
+        "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "1325416f951d6a82cfddb1289864ad782e2b87c4",
+        "rev": "92db0391a25d42a774c48faccce3b8e036e3b359",
         "type": "github"
       },
       "original": {
-        "owner": "the-argus",
+        "owner": "Gerg-L",
         "repo": "spicetify-nix",
         "type": "github"
       }

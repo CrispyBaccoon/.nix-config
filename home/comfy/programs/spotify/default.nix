@@ -9,7 +9,7 @@
   # ];
 
   # import the flake's module for your system
-  imports = [inputs.spicetify-nix.homeManagerModule];
+  imports = [inputs.spicetify-nix.homeManagerModules.default];
 
   # configure spicetify :)
   programs.spicetify = let
@@ -20,11 +20,9 @@
     theme = {
       name = "evergarden";
       src = inputs.evg-spicetify;
-      appendName = true;
-      injectCss = true;
-      replaceColors = true;
+
       overwriteAssets = true;
-      sidebarConfig = true;
+      sidebarConfig = false;
     };
     colorScheme = "evergarden";
 
@@ -64,7 +62,7 @@
     enabledExtensions = [
       {
         src = ./extensions;
-        filename = "utilities.js";
+        name = "utilities.js";
       }
     ];
   };
