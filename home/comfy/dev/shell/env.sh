@@ -3,7 +3,7 @@
 # setup ssh agent
 {
   {
-    pgrep ssh-agent || eval $(ssh-agent)
+    pgrep ssh-agent || source <(ssh-agent)
   } && ssh-add -q ~/.ssh/id_rsa
 } 2>&1 >/dev/null
 
@@ -96,21 +96,19 @@ export PATH="$PATH:$RUSTUP_HOME/toolchains/nightly-x86_64-unknown-linux-gnu/bin:
 
 # hayashi
 
-# export PATH="$PATH:$HOME/.hayashi/pack/bin"
-[[ -x "$HOME/.hayashi/pack/bin/hayashi" ]] && eval "$($HOME/.hayashi/pack/bin/hayashi env)"
-[[ -x "$HOME/.saku/root/bin/sk" ]] && eval "$($HOME/.saku/root/bin/sk env)"
+[[ -x "$HOME/.saku/root/bin/sk" ]] && source <($HOME/.saku/root/bin/sk env)
 
 # fzf
 
 case $SHELL_NAME in
-  zsh) eval $(fzf --zsh) ;;
-  bash) eval $(fzf --bash) ;;
+  zsh) source <(fzf --zsh) ;;
+  bash) source <(fzf --bash) ;;
 esac
 
 # rbenv
 
 if command -v rbenv &> /dev/null; then
-  eval "$(rbenv init - zsh)"
+  source <(rbenv init - zsh)
 fi
 
 # nvm
