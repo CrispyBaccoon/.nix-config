@@ -12,6 +12,9 @@
     }
     // lib.optionalAttrs (flake ? packages.${system}) {
       packages = flake.packages.${system};
+    }
+    // lib.optionalAttrs (flake ? legacyPackages.${system}) {
+      legacyPackages = flake.legacyPackages.${system};
     };
 
   # withSystem' returns a set:
