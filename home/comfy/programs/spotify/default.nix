@@ -17,8 +17,16 @@
   in {
     spotifyPackage = pkgs.spotify;
     enable = true;
-    theme = import ./themes/text;
-    colorScheme = "custom";
+    theme = {
+      name = "evergarden";
+      src = inputs.evg-spicetify;
+      appendName = true;
+      injectCss = true;
+      replaceColors = true;
+      overwriteAssets = true;
+      sidebarConfig = true;
+    };
+    colorScheme = "evergarden";
 
     customColorScheme = {
       accent = palette.green;

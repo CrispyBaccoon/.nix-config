@@ -35,6 +35,22 @@
         "url": "file:///home/comfy/dev/evergarden"
       }
     },
+    "evg-spicetify": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1720419299,
+        "narHash": "sha256-V6K7be2iu7llLnKgFqka/I3ZZ0xcG7y5olhmUzfAnpY=",
+        "ref": "refs/heads/main",
+        "rev": "c24c09a6da155136fdbfcabdc1c6274264e4aa20",
+        "revCount": 146,
+        "type": "git",
+        "url": "file:///home/comfy/dev/evg/spicetify"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/comfy/dev/evg/spicetify"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "flake-utils": [
@@ -1063,6 +1079,7 @@
     "root": {
       "inputs": {
         "evergarden": "evergarden",
+        "evg-spicetify": "evg-spicetify",
         "firefox-addons": "firefox-addons",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts",
