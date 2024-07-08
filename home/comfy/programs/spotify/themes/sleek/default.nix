@@ -1,6 +1,6 @@
-{
+{inputs, ...}: {
   name = "sleek";
-  src = ./.;
+  src = inputs.spicetify-sleek;
   appendName = false;
   injectCss = true;
   replaceColors = true;

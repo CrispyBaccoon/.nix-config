@@ -129,6 +129,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    spicetify-sleek = {
+      url = "github:spicetify/spicetify-themes?dir=Sleek";
+      flake = false;
+    };
     evg-spicetify = {
       url = "git+file:///home/comfy/dev/evg/spicetify";
       flake = false;
