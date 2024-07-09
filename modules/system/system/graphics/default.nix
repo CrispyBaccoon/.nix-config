@@ -15,11 +15,7 @@ in {
   };
 
   config = {
-    hardware.opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-    };
+    hardware.graphics = lib.custom.enabled;
 
     services.xserver.videoDrivers =
       if cfg.gpu_type == "amd"
