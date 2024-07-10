@@ -1,5 +1,11 @@
-{self, inputs, ...}: {
+{self, inputs, pkgs, ...}: {
   palette = inputs.evergarden.palette;
+
+  nix = {
+    enable = true;
+    package = pkgs.lix;
+    settings.use-xdg-base-directories = true;
+  };
 
   nixpkgs = {
     overlays = [
