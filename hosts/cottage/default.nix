@@ -77,6 +77,9 @@
       };
     };
   };
+  system.fonts.fonts = [
+    pkgs.maple-mono-NF
+  ];
 
   services.flatpak.enable = true;
 
