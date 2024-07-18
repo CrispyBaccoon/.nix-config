@@ -175,7 +175,7 @@
 
   outputs = {nixpkgs, ...} @ inputs: let
     # extended nixpkgs lib, contains my custom functions
-    lib = import ./lib {inherit inputs;};
+    lib = import ./lib { lib = inputs.nixpkgs.lib; inherit inputs; };
     pkgs = inputs.nixpkgs;
 
     modules = {
