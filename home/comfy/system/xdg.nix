@@ -1,6 +1,6 @@
 {config, ...}: let
   editor = "neovide.desktop";
-  browser = ["brave.desktop" "firefox.desktop"];
+  browser = ["firefox.desktop"];
   zathura = "org.pwmt.zathura.desktop";
   filemanager = "thunar.desktop";
 in {
