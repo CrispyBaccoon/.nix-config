@@ -1,7 +1,7 @@
 _: {
   imports = [
     ../styles
-    ../styles/system
+    ../styles/system.nix
     ./system
     ./steam
     ./environment
