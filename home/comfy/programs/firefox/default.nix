@@ -2,15 +2,24 @@
   pkgs,
   config,
   lib,
+  inputs,
   inputs',
   ...
-}: {
+}: let
+  inherit (lib) mkForce;
+  inherit (lib.attrsets) genAttrs recursiveUpdate;
+in {
   imports = [
+    inputs.arkenfox.hmModules.arkenfox
     ./chrome
   ];
 
   programs.firefox = lib.custom.use {
     enable = true;
+    arkenfox = {
+      enable = true;
+      version = "126.1";
+    };
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
@@ -33,19 +42,34 @@
       DownloadDirectory = config.home.xdg.dirs.download;
     };
     profiles.${config.home.username} = {
+      arkenfox = let
+        enableSections = sections:
+          genAttrs sections (_: {
+            enable = true;
+          });
+      in
+        recursiveUpdate
+        {
+          enable = true;
+          "2600"."2651"."browser.download.useDownloadDir" = {
+            enable = true;
+            value = true;
+          };
+        } (enableSections
+          ["0100" "0200" "0300" "0400" "0600" "0700" "0800" "0900" "1000" "1200" "1600" "1700" "2000" "2400" "2600" "2700" "2800" "4500"]);
       settings = let
-        lock-false = {
+        lock-false = mkForce {
           Value = false;
           Status = "locked";
         };
-        lock-true = {
+        lock-true = mkForce {
           Value = true;
           Status = "locked";
         };
       in {
         "dom.security.https_only_mode" = true;
         "browser.download.panel.shown" = true;
-        "browser.startup.page" = 3; # restore session
+        "browser.startup.page" = mkForce 3; # restore session
         "layout.css.prefers-color-scheme.content-override" = 0; # prefer dark mode
         "font.name.monospace.x-western" = "Maple Mono NF";
         "font.name.serif.x-western" = "Maple Mono NF";
@@ -67,7 +91,7 @@
         "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
 
-        "browser.startup.homepage" = "file:///home/comfy/dev/startpage/index.html";
+        "browser.startup.homepage" = mkForce "file:///home/comfy/dev/startpage/index.html";
         "browser.search.region" = "US";
         "browser.search.isUS" = true;
         "distribution.searchplugins.defaultLocale" = "en-US";
