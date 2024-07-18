@@ -38,7 +38,25 @@ in {
   };
 
   config = {
-    home.packages = with pkgs; [xdg-utils];
+    home.packages = [
+      pkgs.xdg-utils
+      (pkgs.writeShellScriptBin
+        "open"
+        ''
+          while getopts ":a:" o; do
+            case "$${o}" in
+              a)
+               a=$${OPTARG}
+               ;;
+              *)
+               flag=$${OPTARG}
+               ;;
+            esac
+          done
+          shift $((OPTIND-1))
+          ${pkgs.xdg-utils}/bin/xdg-open $@ & disown
+        '')
+    ];
 
     xdg = {
       enable = true;
