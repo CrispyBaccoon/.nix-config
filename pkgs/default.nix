@@ -9,5 +9,4 @@
   odin = pkgs.callPackage ./odin {};
   ols = pkgs.callPackage ./odin/ols.nix {};
   godot = pkgs.callPackage ./godot {};
-  miracode = pkgs.callPackage ./miracode {};
 }
