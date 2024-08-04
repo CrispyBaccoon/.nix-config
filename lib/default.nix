@@ -1,12 +1,10 @@
-{
-  lib0,
-  inputs,
-  ...
-}: let
+{inputs, ...}: let
+  lib0 = inputs.nixpkgs.lib;
+
   custom = lib0.makeExtensible (
     self: let
       lib = self;
-      flake = import ./flake.nix;
+      flake = import ./flake.nix {inherit lib;};
       builders = import ./builders.nix {inherit lib inputs;};
       services = import ./services.nix {inherit lib;};
       umport = import ./umport.nix {inherit lib;};

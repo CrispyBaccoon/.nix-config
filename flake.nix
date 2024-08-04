@@ -175,7 +175,7 @@
 
   outputs = {nixpkgs, ...} @ inputs: let
     # extended nixpkgs lib, contains my custom functions
-    lib = import ./lib { lib0 = inputs.nixpkgs.lib; inherit inputs; };
+    lib = import ./lib { inherit inputs; };
     pkgs = inputs.nixpkgs;
 
     modules = {
@@ -212,7 +212,6 @@
     # Available through './rebuild.sh system'
     nixosConfigurations = {
       "cottage" = lib.custom.mkSystem {
-        inherit lib;
         system = "x86_64-linux";
         hostname = "cottage";
         flakeModule = modules.system;
@@ -226,7 +225,6 @@
     # Standalone home-manager configuration entrypoint
     # Available through './rebuild.sh home'
     homeConfigurations = lib.custom.mkHomes' {
-      inherit lib;
       root = ./home;
       modules = modules.home;
       instances = [

@@ -1,5 +1,5 @@
 # adapted from @nypkgs https://github.com/yunfachi/nypkgs/blob/45fb532e8911d64fb92a38e66d9643975d7187c6/lib/umport.nix
-{lib, ...}: let
+{lib}: let
   umport = {
     path ? null,
     exclude ? [],

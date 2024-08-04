@@ -1,7 +1,6 @@
 {
   lib,
   inputs,
-  ...
 }: let
   # inherit self from inputs
   inherit (inputs) self;
@@ -49,12 +48,10 @@
   mkHome' = inputs.home-manager.lib.homeManagerConfiguration;
 
   mkSystem = {
-    lib,
     modules,
     system,
     hostname,
     flakeModule,
-    ...
   } @ args:
     withSystem system (
       {
@@ -90,11 +87,9 @@
     );
 
   mkHome = {
-    lib,
     modules,
     system,
     flakeModule,
-    ...
   } @ args:
     withSystem system (
       {

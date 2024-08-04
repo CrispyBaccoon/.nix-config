@@ -1,4 +1,4 @@
-{lib, ...}: let
+{lib}: let
   inherit (lib) mkOption types;
   # mkOpt type default desc
   mkOpt = type: default: description:
