@@ -41,8 +41,8 @@
   } @ args:
     {
       # modules
-      nixosModules = args.system.modules;
-      homeManagerModules = args.home.modules;
+      nixosModules.default = args.system.modules;
+      homeManagerModules.default = args.home.modules;
       # configurations
       nixosConfigurations = mkSystems' {
         inherit (args.system) root modules instances;
