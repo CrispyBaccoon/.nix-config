@@ -48,7 +48,7 @@
       ];
     };
   };
-  system.nix.package = inputs'.lix.packages.default;
+  system.nix.package = pkgs.lix;
 
   networking.networkmanager.enable = true;
 
