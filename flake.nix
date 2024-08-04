@@ -67,7 +67,7 @@
 
     # hyprland
     hyprland = {
-      url = "https://github.com/hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland";
       type = "git";
       submodules = true;
       inputs = {
