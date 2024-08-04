@@ -1,9 +1,9 @@
 {
-  lib,
+  lib0,
   inputs,
   ...
 }: let
-  custom = lib.makeExtensible (
+  custom = lib0.makeExtensible (
     self: let
       lib = self;
       flake = import ./flake.nix {inherit lib;};
@@ -18,8 +18,8 @@
     }
   );
 
-  ext = lib.fixedPoints.composeManyExtensions [
-    (_: _: lib)
+  ext = lib0.fixedPoints.composeManyExtensions [
+    (_: _: lib0)
   ];
 in
   custom.extend ext
