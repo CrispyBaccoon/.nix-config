@@ -6,7 +6,7 @@
   custom = lib0.makeExtensible (
     self: let
       lib = self;
-      flake = import ./flake.nix {inherit lib;};
+      flake = import ./flake.nix;
       builders = import ./builders.nix {inherit lib inputs;};
       services = import ./services.nix {inherit lib;};
       umport = import ./umport.nix {inherit lib;};

@@ -1,4 +1,4 @@
-_: let
+let
   mkSystems' = {
     lib,
     root,
