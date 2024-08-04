@@ -1,4 +1,8 @@
 {self, inputs, pkgs, ...}: {
+  imports = [
+    self.homeManagerModules.default
+  ];
+
   palette = inputs.evergarden.palette;
 
   nix = {
@@ -19,4 +23,7 @@
       allowUnfreePredicate = _: true;
     };
   };
+
+  # Enable home-manager and git
+  programs.home-manager.enable = true;
 }
