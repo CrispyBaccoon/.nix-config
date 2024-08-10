@@ -1,7 +1,7 @@
 {inputs, ...}: let
   lib0 = inputs.nixpkgs.lib;
 
-  custom = lib0.makeExtensible (
+  custom = lib0.fixedPoints.makeExtensible (
     self: let
       lib = self;
       flake = import ./flake.nix {inherit lib;};
