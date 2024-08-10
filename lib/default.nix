@@ -18,6 +18,7 @@
 
   ext = lib0.fixedPoints.composeManyExtensions [
     (_: _: lib0)
+    (_: _: inputs.home-manager.lib)
   ];
 in
   custom.extend ext
