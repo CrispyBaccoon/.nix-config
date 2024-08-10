@@ -72,10 +72,10 @@
                 };
               }
             ];
+          inherit lib;
           specialArgs =
             {
               inherit
-                lib
                 inputs
                 self
                 inputs'
@@ -100,10 +100,10 @@
         mkHome' {
           modules = modules ++ [flakeModule];
           pkgs = inputs.nixpkgs.legacyPackages.${system};
+          inherit lib;
           extraSpecialArgs =
             {
               inherit
-                lib
                 inputs
                 self
                 inputs'
