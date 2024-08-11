@@ -1,8 +1,4 @@
 { self, inputs, self', inputs', ... }: {
-  imports = [
-    self.homeManagerModules.default
-  ];
-
   palette = inputs.evergarden.palette;
 
   # Enable home-manager and git

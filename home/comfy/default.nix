@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    self.homeManagerModules.default
     ./system
     ./programs
     ./services
