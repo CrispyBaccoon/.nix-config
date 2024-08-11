@@ -1,20 +1,26 @@
-{lib}: let
+{lib, inputs}: let
+  # builds system with home manager
   mkSystems' = {
-    root,
+    root ? "${inputs.self}/hosts",
+    home ? "${inputs.self}/home",
     modules,
     instances,
-  } @ args:
+  }:
     builtins.listToAttrs (
       map (instance: {
         name = instance.host;
         value = lib.custom.mkSystem {
           hostname = instance.host;
           inherit (instance) system;
-          flakeModule = args.modules;
-          modules = [args.root (args.root + "/${instance.host}")];
+          flakeModule = modules;
+          modules = [
+            root
+            (root + "/${instance.host}")
+            home # home manager
+          ];
         };
       })
-      args.instances
+      instances
     );
 
   mkHomes' = {

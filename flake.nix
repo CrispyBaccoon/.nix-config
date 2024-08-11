@@ -211,7 +211,6 @@
     # NixOS configuration entrypoint
     # Available through './rebuild.sh system'
     nixosConfigurations = lib.custom.mkSystems' {
-      root = ./hosts;
       modules = modules.system;
       instances = [
         {
