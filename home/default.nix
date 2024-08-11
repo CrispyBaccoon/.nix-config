@@ -3,9 +3,6 @@
     inputs.home-manager.nixosModules.home-manager
   ];
   
-  palette = inputs.evergarden.palette;
-
-
   home-manager = {
     verbose = true;
     useUserPackages = true;
