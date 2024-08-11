@@ -7,10 +7,6 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-    inputs.hardware.nixosModules.common-cpu-amd
-    inputs.hardware.nixosModules.common-gpu-amd
-    inputs.hardware.nixosModules.common-pc-ssd
-
     inputs.lanzaboote.nixosModules.lanzaboote
 
     # You can also split up your configuration and import pieces of it here:
@@ -82,6 +78,8 @@
   ];
 
   services.flatpak.enable = true;
+
+  services.fstrim.enable = true;
 
   system.stateVersion = "24.05";
 

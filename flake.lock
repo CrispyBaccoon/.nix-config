@@ -384,22 +384,6 @@
         "url": "file:///home/comfy/dev/haikei"
       }
     },
-    "hardware": {
-      "locked": {
-        "lastModified": 1723310128,
-        "narHash": "sha256-IiH8jG6PpR4h9TxSGMYh+2/gQiJW9MwehFvheSb5rPc=",
-        "owner": "nixos",
-        "repo": "nixos-hardware",
-        "rev": "c54cf53e022b0b3c1d3b8207aa0f9b194c24f0cf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "master",
-        "repo": "nixos-hardware",
-        "type": "github"
-      }
-    },
     "hercules-ci-effects": {
       "inputs": {
         "flake-parts": [
@@ -1062,7 +1046,6 @@
         "flake-utils": "flake-utils",
         "ghostty": "ghostty",
         "haikei": "haikei",
-        "hardware": "hardware",
         "hercules-ci-effects": "hercules-ci-effects",
         "home-manager": "home-manager",
         "hyprflare": "hyprflare",

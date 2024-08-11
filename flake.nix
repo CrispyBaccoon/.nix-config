@@ -8,7 +8,6 @@
     # lix a good fork of nix
     lix.url = "git+https://git.lix.systems/lix-project/lix.git";
 
-    hardware.url = "github:nixos/nixos-hardware/master";
     systems.url = "github:nix-systems/default-linux";
 
     lanzaboote = {
