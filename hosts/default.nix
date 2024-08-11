@@ -74,8 +74,6 @@
     useXkbConfig = true;
   };
 
-  sound.enable = true;
-  #hardware.pulseaudio.enable = true;
   services = {
     libinput.enable = true;
     pipewire = {
