@@ -15,7 +15,9 @@ in {
   };
 
   config = {
-    hardware.graphics = lib.custom.enabled;
+    hardware.opengl = {
+      enable = true;
+    };
 
     services.xserver.videoDrivers =
       if cfg.gpu_type == "amd"
