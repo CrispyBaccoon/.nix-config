@@ -104,10 +104,6 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    neovim-src = {
-      url = "github:neovim/neovim";
-      flake = false;
-    };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
       inputs = {
@@ -115,7 +111,7 @@
         flake-parts.follows = "flake-parts";
         flake-compat.follows = "";
         hercules-ci-effects.follows = "hercules-ci-effects";
-        neovim-src.follows = "neovim-src";
+        neovim-src.follows = "";
       };
     };
 

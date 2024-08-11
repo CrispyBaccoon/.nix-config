@@ -834,9 +834,7 @@
         "hercules-ci-effects": [
           "hercules-ci-effects"
         ],
-        "neovim-src": [
-          "neovim-src"
-        ],
+        "neovim-src": [],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -852,22 +850,6 @@
       "original": {
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "type": "github"
-      }
-    },
-    "neovim-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1723278367,
-        "narHash": "sha256-vWSTAZY56BypYQo+cMFxLxrk/Htv30OnscYDbqJCN7A=",
-        "owner": "neovim",
-        "repo": "neovim",
-        "rev": "8df6736ca14d09f87cf0a8486758ac5708819434",
-        "type": "github"
-      },
-      "original": {
-        "owner": "neovim",
-        "repo": "neovim",
         "type": "github"
       }
     },
@@ -1119,7 +1101,6 @@
         "lix": "lix",
         "moonblast": "moonblast",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
-        "neovim-src": "neovim-src",
         "nixpkgs": "nixpkgs_3",
         "poetry2nix": "poetry2nix",
         "pre-commit-hooks-nix": "pre-commit-hooks-nix",
