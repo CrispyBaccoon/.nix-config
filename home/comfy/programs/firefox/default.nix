@@ -10,16 +10,11 @@
   inherit (lib.attrsets) genAttrs recursiveUpdate;
 in {
   imports = [
-    inputs.arkenfox.hmModules.arkenfox
     ./chrome
   ];
 
   programs.firefox = lib.custom.use {
     enable = true;
-    arkenfox = {
-      enable = true;
-      version = "126.1";
-    };
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
@@ -42,21 +37,6 @@ in {
       DownloadDirectory = config.xdg.userDirs.download;
     };
     profiles.${config.home.username} = {
-      arkenfox = let
-        enableSections = sections:
-          genAttrs sections (_: {
-            enable = true;
-          });
-      in
-        recursiveUpdate
-        {
-          enable = true;
-          "2600"."2651"."browser.download.useDownloadDir" = {
-            enable = true;
-            value = true;
-          };
-        } (enableSections
-          ["0100" "0200" "0300" "0400" "0600" "0700" "0800" "0900" "1000" "1200" "1600" "1700" "2000" "2400" "2600" "2700" "2800" "4500"]);
       settings = let
         lock-false = mkForce {
           Value = false;

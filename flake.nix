@@ -129,20 +129,6 @@
       flake = false;
     };
 
-    # firefox user.js
-    arkenfox = {
-      type = "github";
-      owner = "dwarfmaster";
-      repo = "arkenfox-nixos";
-
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-        flake-compat.follows = "";
-        pre-commit.follows = "";
-      };
-    };
-
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";

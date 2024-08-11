@@ -33,31 +33,6 @@
         "type": "github"
       }
     },
-    "arkenfox": {
-      "inputs": {
-        "flake-compat": [],
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "pre-commit": []
-      },
-      "locked": {
-        "lastModified": 1721720317,
-        "narHash": "sha256-KH0ILX8EGa/A4Bgc6DtsbviG8qaLrzDDV1m1bIXJ+pw=",
-        "owner": "dwarfmaster",
-        "repo": "arkenfox-nixos",
-        "rev": "92c9a287b7b98198c3ba5cdfc90218402e49c4b3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "dwarfmaster",
-        "repo": "arkenfox-nixos",
-        "type": "github"
-      }
-    },
     "crane": {
       "inputs": {
         "nixpkgs": [
@@ -1080,7 +1055,6 @@
     },
     "root": {
       "inputs": {
-        "arkenfox": "arkenfox",
         "evergarden": "evergarden",
         "evg-spicetify": "evg-spicetify",
         "firefox-addons": "firefox-addons",
