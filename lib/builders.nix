@@ -94,7 +94,7 @@
         ...
       }:
         mkHome' {
-          modules = [inputs.self.homeManagerModules.default] ++ modules;
+          modules = modules;
           pkgs = inputs.nixpkgs.legacyPackages.${system};
           inherit lib;
           extraSpecialArgs =
