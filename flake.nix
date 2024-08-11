@@ -154,11 +154,6 @@
     lib = import ./lib { inherit inputs; };
     pkgs = inputs.nixpkgs;
 
-    modules = {
-      system = import ./modules/system {inherit pkgs lib;};
-      home = import ./modules/home {inherit pkgs lib;};
-    };
-
     # Supported systems for your flake packages, shell, etc.
     systems = pkgs.lib.systems.flakeExposed;
     # This is a function that generates an attribute by calling a function you
@@ -179,10 +174,10 @@
     overlays = import ./overlays {inherit inputs;};
     # Reusable nixos modules you might want to export
     # These are usually stuff you would upstream into nixpkgs
-    nixosModules.default = modules.system;
+    nixosModules.default = import ./modules/system {inherit pkgs lib;};
     # Reusable home-manager modules you might want to export
     # These are usually stuff you would upstream into home-manager
-    homeManagerModules.default = modules.home;
+    homeManagerModules.default = import ./modules/home {inherit pkgs lib;};
 
     # NixOS configuration entrypoint
     # Available through './rebuild.sh system'

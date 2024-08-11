@@ -58,9 +58,14 @@
         self',
       }:
         mkSystem' {
-          modules =
+          modules = let
+            systemModules = import (inputs.self + "/modules/system") {
+              inherit lib;
+              pkgs = inputs.nixpkgs;
+            };
+          in
             [
-              inputs.self.nixosModules.default
+              systemModules
               {
                 networking.hostName = hostname;
                 nixpkgs = {
@@ -68,7 +73,8 @@
                   flake.source = inputs.nixpkgs.outPath;
                 };
               }
-            ] ++ modules;
+            ]
+            ++ modules;
           specialArgs =
             {
               inherit

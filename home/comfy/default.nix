@@ -1,10 +1,11 @@
 {
+  lib,
   inputs,
-  self,
+  pkgs,
   ...
 }: {
   imports = [
-    self.homeManagerModules.default
+    (inputs.self + "/modules/home")
     ./system
     ./programs
     ./services
