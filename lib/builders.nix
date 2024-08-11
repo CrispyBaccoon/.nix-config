@@ -51,19 +51,16 @@
     modules,
     system,
     hostname,
-    flakeModule,
   } @ args:
     withSystem system (
       {
         inputs',
         self',
-        ...
       }:
         mkSystem' {
           modules =
-            modules
-            ++ [
-              flakeModule
+            [
+              inputs.self.nixosModules.default
               {
                 networking.hostName = hostname;
                 nixpkgs = {
@@ -71,7 +68,7 @@
                   flake.source = inputs.nixpkgs.outPath;
                 };
               }
-            ];
+            ] ++ modules;
           specialArgs =
             {
               inherit
@@ -89,7 +86,6 @@
   mkHome = {
     modules,
     system,
-    flakeModule,
   } @ args:
     withSystem system (
       {
@@ -98,7 +94,7 @@
         ...
       }:
         mkHome' {
-          modules = modules ++ [flakeModule];
+          modules = [inputs.self.homeManagerModules.default] ++ modules;
           pkgs = inputs.nixpkgs.legacyPackages.${system};
           inherit lib;
           extraSpecialArgs =

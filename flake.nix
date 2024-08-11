@@ -187,8 +187,7 @@
 
     # NixOS configuration entrypoint
     # Available through './rebuild.sh system'
-    nixosConfigurations = lib.custom.mkSystems' {
-      modules = modules.system;
+    nixosConfigurations = lib.custom.mkSystems {
       instances = [
         {
           host = "cottage";
@@ -199,9 +198,8 @@
 
     # Standalone home-manager configuration entrypoint
     # Available through './rebuild.sh home'
-    homeConfigurations = lib.custom.mkHomes' {
+    homeConfigurations = lib.custom.mkHomes {
       root = ./home;
-      modules = modules.home;
       instances = [
         {
           user = "comfy";
