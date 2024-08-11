@@ -1,6 +1,6 @@
 {pkgs, inputs', ...}: {
   home.packages = with pkgs; [
-    pkgs.stable.python3
+    pkgs.python3
 
     wezterm
     inputs'.ghostty.packages.default
@@ -8,10 +8,10 @@
     tmux
 
     glow
-    pkgs.stable.tokei
+    pkgs.tokei
 
-    pkgs.stable.jq
-    pkgs.stable.tldr
+    pkgs.jq
+    pkgs.tldr
 
     git-cliff
 
@@ -20,9 +20,9 @@
     stylua
     nodePackages.prettier
 
-    pkgs.stable.pandoc
+    pkgs.pandoc
     vhs
 
-    pkgs.stable.exiftool
+    pkgs.exiftool
   ];
 }

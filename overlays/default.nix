@@ -20,7 +20,7 @@
       config.allowUnfree = true;
     };
   in {
-    unstable = import inputs.nixpkgs-unstable common;
-    stable = import inputs.stable common;
+    # unstable = import inputs.nixpkgs-unstable common;
+    # stable = import inputs.stable common;
   };
 }

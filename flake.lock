@@ -1053,9 +1053,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nixpkgs-stable": [
-          "stable"
-        ]
+        "nixpkgs-stable": []
       },
       "locked": {
         "lastModified": 1723202784,
@@ -1123,15 +1121,11 @@
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "neovim-src": "neovim-src",
         "nixpkgs": "nixpkgs_3",
-        "nixpkgs-unstable": [
-          "nixpkgs"
-        ],
         "poetry2nix": "poetry2nix",
         "pre-commit-hooks-nix": "pre-commit-hooks-nix",
         "pyprland": "pyprland",
         "spicetify-nix": "spicetify-nix",
         "spicetify-sleek": "spicetify-sleek",
-        "stable": "stable",
         "systems": "systems_4",
         "zzz": "zzz"
       }
@@ -1193,22 +1187,6 @@
         "dir": "Sleek",
         "owner": "spicetify",
         "repo": "spicetify-themes",
-        "type": "github"
-      }
-    },
-    "stable": {
-      "locked": {
-        "lastModified": 1723282977,
-        "narHash": "sha256-oTK91aOlA/4IsjNAZGMEBz7Sq1zBS0Ltu4/nIQdYDOg=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "a781ff33ae258bbcfd4ed6e673860c3e923bf2cc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-24.05",
-        "repo": "nixpkgs",
         "type": "github"
       }
     },

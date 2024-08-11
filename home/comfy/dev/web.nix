@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   home.packages = [
-    pkgs.stable.nodejs_20
-    pkgs.stable.yarn
+    pkgs.nodejs_20
+    pkgs.yarn
     pkgs.bun
     pkgs.deno
   ];

@@ -4,8 +4,6 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    stable.url = "github:nixos/nixpkgs/nixos-24.05";
-    nixpkgs-unstable.follows = "nixpkgs";
 
     # lix a good fork of nix
     lix.url = "git+https://git.lix.systems/lix-project/lix.git";
@@ -49,7 +47,7 @@
       inputs = {
         flake-compat.follows = "";
         nixpkgs.follows = "nixpkgs";
-        nixpkgs-stable.follows = "stable";
+        nixpkgs-stable.follows = "";
       };
     };
 

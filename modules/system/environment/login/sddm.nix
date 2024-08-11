@@ -5,7 +5,7 @@ in
 {
   services.displayManager.sddm = {
     enable = loginManager == "sddm";
-    package = pkgs.stable.kdePackages.sddm;
+    package = pkgs.kdePackages.sddm;
     wayland.enable = true;
     settings.General.InputMethod = "";
   };
