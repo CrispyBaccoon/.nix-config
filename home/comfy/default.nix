@@ -11,6 +11,9 @@
     ./dev
   ];
 
+  # Enable home-manager and git
+  programs.home-manager.enable = true;
+
   home = {
     username = "comfy";
     homeDirectory = "/home/comfy";
