@@ -17,9 +17,8 @@
       url = "github:nix-community/lanzaboote";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
         flake-parts.follows = "flake-parts";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
         pre-commit-hooks-nix.follows = "pre-commit-hooks-nix";
       };
     };
@@ -31,9 +30,6 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
-    };
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
     };
     hercules-ci-effects = {
       url = "github:hercules-ci/hercules-ci-effects";
@@ -51,7 +47,7 @@
     pre-commit-hooks-nix = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs = {
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
         nixpkgs.follows = "nixpkgs";
         nixpkgs-stable.follows = "stable";
       };
@@ -81,7 +77,7 @@
         nixpkgs.follows = "nixpkgs";
         poetry2nix.follows = "poetry2nix";
         systems.follows = "systems";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
       };
     };
     hyprland-contrib = {
@@ -103,6 +99,7 @@
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprspace = {
       url = "github:KZDKM/Hyprspace";
@@ -118,7 +115,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
         hercules-ci-effects.follows = "hercules-ci-effects";
         neovim-src.follows = "neovim-src";
       };
@@ -127,7 +124,7 @@
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.flake-compat.follows = "flake-compat";
+      inputs.flake-compat.follows = "";
     };
     spicetify-sleek = {
       url = "github:spicetify/spicetify-themes?dir=Sleek";
@@ -147,7 +144,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
-        flake-compat.follows = "flake-compat";
+        flake-compat.follows = "";
         pre-commit.follows = "";
       };
     };
