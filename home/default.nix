@@ -1,4 +1,4 @@
-{ self, inputs, ... }: {
+{ self, inputs, self', inputs', ... }: {
   imports = [
     self.homeManagerModules.default
   ];
@@ -7,4 +7,22 @@
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
+
+  home-manager = {
+    verbose = true;
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    backupFileExtension = "bak";
+
+    extraSpecialArgs = {
+      inherit
+        inputs
+        self
+        inputs'
+        self'
+        ;
+    };
+
+    users.comfy = ./comfy;
+  };
 }
