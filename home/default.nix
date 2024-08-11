@@ -1,4 +1,8 @@
 { self, inputs, self', inputs', ... }: {
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+  ];
+  
   palette = inputs.evergarden.palette;
 
   # Enable home-manager and git
