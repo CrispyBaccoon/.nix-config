@@ -72,10 +72,10 @@
                 };
               }
             ];
-          inherit lib;
           specialArgs =
             {
               inherit
+                lib
                 inputs
                 self
                 inputs'
