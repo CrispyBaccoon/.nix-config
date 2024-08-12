@@ -14,7 +14,7 @@ in
       font-family = ${osConfig.garden.style.font.name}
       font-size = 13
 
-      command = /etc/profiles/per-user/isabel/bin/fish --login
+      command = /etc/profiles/per-user/comfy/bin/fish --login
 
       theme = catppuccin-mocha
     '';

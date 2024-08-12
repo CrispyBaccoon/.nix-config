@@ -7,7 +7,7 @@ in
     enable = true;
     package = pkgs.gitFull;
     userName = "comfysage";
-    userEmail = "isabel" + "@" + "isabelroses" + "." + "com"; # obsfuscate email to prevent webscrapper spam
+    userEmail = "67917529+comfysage" + "@" + "users.noreply.github.com"; # obsfuscate email to prevent webscrapper spam
 
     lfs = {
       enable = true;

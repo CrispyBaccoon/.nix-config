@@ -54,12 +54,12 @@ in
       allowed-users = [
         "@wheel" # allow sudo users to mark the following values as trusted
         "root"
-        "isabel"
+        "comfy"
       ];
       trusted-users = [
         "@wheel" # allow sudo users to manage the nix store
         "root"
-        "isabel"
+        "comfy"
       ];
 
       # we don't want to track the registry, but we do want to allow the usage
